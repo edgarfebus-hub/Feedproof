@@ -2,8 +2,8 @@
   "feedFormat": 1,
   "specsVersion": "2026-10-20",
   "panel": {
-    "latest": "1.1.2",
-    "notes": "Own colour per crop guide (click the dot on a crop chip to change it).",
+    "latest": "1.1.3",
+    "notes": "Photoshop plugin: scrolling panel and live preview fixed. All apps: tidier footer, \"Create 1 document\" wording.",
     "url": "https://github.com/edgarfebus-hub/safe-zones"
   },
   "changes": [
@@ -26,8 +26,8 @@
         "right": 0.06
       },
       "labels": {
-        "top": "Profile · name · Sponsored",
-        "bottom": "Caption · CTA · likes/comments · audio",
+        "top": "Profile \u00b7 name \u00b7 Sponsored",
+        "bottom": "Caption \u00b7 CTA \u00b7 likes/comments \u00b7 audio",
         "left": "Side margin",
         "right": "Side margin"
       },
@@ -36,17 +36,17 @@
         {
           "w": 1080,
           "h": 1920,
-          "label": "1080 × 1920"
+          "label": "1080 \u00d7 1920"
         },
         {
           "w": 1440,
           "h": 2560,
-          "label": "1440 × 2560 (Meta recommended)"
+          "label": "1440 \u00d7 2560 (Meta recommended)"
         }
       ],
       "note": "One zone for Facebook + Instagram Reels and Stories since March 2026. Built on Reels, the tightest placement.",
       "source": {
-        "title": "Meta Ads Guide — Reels/Stories safe zone (unified Mar 2026)",
+        "title": "Meta Ads Guide \u2014 Reels/Stories safe zone (unified Mar 2026)",
         "url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
       }
     },
@@ -63,8 +63,8 @@
         "right": 0.06
       },
       "labels": {
-        "top": "Profile · name · close",
-        "bottom": "CTA · reply bar",
+        "top": "Profile \u00b7 name \u00b7 close",
+        "bottom": "CTA \u00b7 reply bar",
         "left": "Side margin",
         "right": "Side margin"
       },
@@ -73,17 +73,17 @@
         {
           "w": 1080,
           "h": 1920,
-          "label": "1080 × 1920"
+          "label": "1080 \u00d7 1920"
         },
         {
           "w": 1440,
           "h": 2560,
-          "label": "1440 × 2560 (Meta recommended)"
+          "label": "1440 \u00d7 2560 (Meta recommended)"
         }
       ],
-      "note": "Only safe if the ad will never run in Reels. Anything in the 20–35% band is covered in Reels.",
+      "note": "Only safe if the ad will never run in Reels. Anything in the 20\u201335% band is covered in Reels.",
       "source": {
-        "title": "Meta Ads Guide — Stories (legacy 20% bottom)",
+        "title": "Meta Ads Guide \u2014 Stories (legacy 20% bottom)",
         "url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
       }
     },
@@ -100,8 +100,8 @@
         "right": 0.06
       },
       "labels": {
-        "top": "Profile · name · Sponsored",
-        "bottom": "Disclaimer · caption · CTA",
+        "top": "Profile \u00b7 name \u00b7 Sponsored",
+        "bottom": "Disclaimer \u00b7 caption \u00b7 CTA",
         "left": "Side margin",
         "right": "Side margin"
       },
@@ -110,17 +110,17 @@
         {
           "w": 1080,
           "h": 1920,
-          "label": "1080 × 1920"
+          "label": "1080 \u00d7 1920"
         },
         {
           "w": 1440,
           "h": 2560,
-          "label": "1440 × 2560 (Meta recommended)"
+          "label": "1440 \u00d7 2560 (Meta recommended)"
         }
       ],
       "note": "Meta's guidance for Reels ads that carry a disclaimer: keep the bottom 40% clear. Useful for pharma/regulated work.",
       "source": {
-        "title": "Meta Ads Guide — Reels/Stories safe zone (unified Mar 2026)",
+        "title": "Meta Ads Guide \u2014 Reels/Stories safe zone (unified Mar 2026)",
         "url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
       }
     },
@@ -147,17 +147,17 @@
         {
           "w": 1080,
           "h": 1350,
-          "label": "1080 × 1350"
+          "label": "1080 \u00d7 1350"
         },
         {
           "w": 1440,
           "h": 1800,
-          "label": "1440 × 1800 (Meta recommended)"
+          "label": "1440 \u00d7 1800 (Meta recommended)"
         }
       ],
-      "note": "Meta draws no UI over Feed media — the margin is title-safe padding, not a platform requirement.",
+      "note": "Meta draws no UI over Feed media \u2014 the margin is title-safe padding, not a platform requirement.",
       "source": {
-        "title": "Meta Ads Guide — Feed (no UI over media)",
+        "title": "Meta Ads Guide \u2014 Feed (no UI over media)",
         "url": "https://www.facebook.com/business/ads-guide/update"
       }
     },
@@ -165,7 +165,7 @@
       "id": "meta-11-feed",
       "platform": "meta",
       "ratio": "1:1",
-      "name": "Feed · Carousel · Marketplace",
+      "name": "Feed \u00b7 Carousel \u00b7 Marketplace",
       "kind": "comfort",
       "margins": {
         "top": 0.05,
@@ -184,17 +184,17 @@
         {
           "w": 1080,
           "h": 1080,
-          "label": "1080 × 1080"
+          "label": "1080 \u00d7 1080"
         },
         {
           "w": 1440,
           "h": 1440,
-          "label": "1440 × 1440 (Meta recommended)"
+          "label": "1440 \u00d7 1440 (Meta recommended)"
         }
       ],
       "note": "No UI over the media. Margin is title-safe padding only.",
       "source": {
-        "title": "Meta Ads Guide — Feed (no UI over media)",
+        "title": "Meta Ads Guide \u2014 Feed (no UI over media)",
         "url": "https://www.facebook.com/business/ads-guide/update"
       }
     },
@@ -221,17 +221,17 @@
         {
           "w": 1920,
           "h": 1080,
-          "label": "1920 × 1080"
+          "label": "1920 \u00d7 1080"
         },
         {
           "w": 1280,
           "h": 720,
-          "label": "1280 × 720 (minimum)"
+          "label": "1280 \u00d7 720 (minimum)"
         }
       ],
       "note": "No UI over the media. Margin is title-safe padding only.",
       "source": {
-        "title": "Meta Ads Guide — Feed (no UI over media)",
+        "title": "Meta Ads Guide \u2014 Feed (no UI over media)",
         "url": "https://www.facebook.com/business/ads-guide/update"
       }
     },
@@ -248,14 +248,14 @@
         "right": 0.1111111111111111
       },
       "labels": {
-        "top": "Following / For You · search",
-        "bottom": "Name · caption · Sponsored · CTA",
+        "top": "Following / For You \u00b7 search",
+        "bottom": "Name \u00b7 caption \u00b7 Sponsored \u00b7 CTA",
         "left": "Side margin",
         "right": "Side margin"
       },
       "extras": [
         {
-          "label": "Action rail — profile · like · comment · share",
+          "label": "Action rail \u2014 profile \u00b7 like \u00b7 comment \u00b7 share",
           "x1": 0.7222222222222222,
           "y1": 0.4375,
           "x2": 0.8888888888888888,
@@ -266,27 +266,27 @@
         {
           "w": 1080,
           "h": 1920,
-          "label": "1080 × 1920 (TikTok recommended)"
+          "label": "1080 \u00d7 1920 (TikTok recommended)"
         },
         {
           "w": 1440,
           "h": 2560,
-          "label": "1440 × 2560 (same as Meta)"
+          "label": "1440 \u00d7 2560 (same as Meta)"
         },
         {
           "w": 720,
           "h": 1280,
-          "label": "720 × 1280 (template native)"
+          "label": "720 \u00d7 1280 (template native)"
         },
         {
           "w": 2160,
           "h": 3840,
-          "label": "2160 × 3840 (4K master)"
+          "label": "2160 \u00d7 3840 (4K master)"
         }
       ],
       "note": "Verified pixel-for-pixel against TikTok's In-Feed Standard template (Feed.png, Apr 2025). Longer captions shrink the zone; use the anchor template if the ad carries an anchor.",
       "source": {
-        "title": "TikTok Auction In-Feed Ads — In-Feed Standard template (720×1280)",
+        "title": "TikTok Auction In-Feed Ads \u2014 In-Feed Standard template (720\u00d71280)",
         "url": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads"
       }
     },
@@ -294,7 +294,7 @@
       "id": "tiktok-916-topview",
       "platform": "tiktok",
       "ratio": "9:16",
-      "name": "TopView — first 3 seconds",
+      "name": "TopView \u2014 first 3 seconds",
       "kind": "ui",
       "margins": {
         "top": 0.125,
@@ -313,20 +313,20 @@
         {
           "w": 1080,
           "h": 1920,
-          "label": "1080 × 1920 (TikTok recommended)"
+          "label": "1080 \u00d7 1920 (TikTok recommended)"
         },
         {
           "w": 1440,
           "h": 2560,
-          "label": "1440 × 2560 (same as Meta)"
+          "label": "1440 \u00d7 2560 (same as Meta)"
         },
         {
           "w": 720,
           "h": 1280,
-          "label": "720 × 1280 (template native)"
+          "label": "720 \u00d7 1280 (template native)"
         }
       ],
-      "note": "Open-screen phase only. After 3 s TopView switches to the In-Feed layout — design end frames to In-Feed.",
+      "note": "Open-screen phase only. After 3 s TopView switches to the In-Feed layout \u2014 design end frames to In-Feed.",
       "source": {
         "title": "TikTok TopView ad specifications",
         "url": "https://ads.tiktok.com/help/"
@@ -346,7 +346,7 @@
       },
       "labels": {
         "top": "Top margin",
-        "bottom": "Caption · CTA",
+        "bottom": "Caption \u00b7 CTA",
         "left": "Side margin",
         "right": "Action rail"
       },
@@ -355,17 +355,17 @@
         {
           "w": 1080,
           "h": 1080,
-          "label": "1080 × 1080"
+          "label": "1080 \u00d7 1080"
         },
         {
           "w": 640,
           "h": 640,
-          "label": "640 × 640 (minimum)"
+          "label": "640 \u00d7 640 (minimum)"
         }
       ],
-      "note": "TikTok ships square safe zones only as template files. These values come from its published square Download Card zone (60/130/60/140 px on 640×640). The In-Feed Standard zip ships only a vertical template, so this stays an estimate.",
+      "note": "TikTok ships square safe zones only as template files. These values come from its published square Download Card zone (60/130/60/140 px on 640\u00d7640). The In-Feed Standard zip ships only a vertical template, so this stays an estimate.",
       "source": {
-        "title": "TikTok Download Card add-on — square safe zone (640×640)",
+        "title": "TikTok Download Card add-on \u2014 square safe zone (640\u00d7640)",
         "url": "https://ads.tiktok.com/help/article/tiktok-interactive-add-on-download-card-ad-specifications"
       }
     },
@@ -383,7 +383,7 @@
       },
       "labels": {
         "top": "Top margin",
-        "bottom": "Caption · CTA",
+        "bottom": "Caption \u00b7 CTA",
         "left": "Side margin",
         "right": "Action rail"
       },
@@ -392,17 +392,17 @@
         {
           "w": 1920,
           "h": 1080,
-          "label": "1920 × 1080"
+          "label": "1920 \u00d7 1080"
         },
         {
           "w": 960,
           "h": 540,
-          "label": "960 × 540 (minimum)"
+          "label": "960 \u00d7 540 (minimum)"
         }
       ],
-      "note": "TikTok publishes no pixel values for 16:9 — this is a conservative placeholder. The In-Feed Standard zip ships only a vertical template, so check a platform preview before final delivery.",
+      "note": "TikTok publishes no pixel values for 16:9 \u2014 this is a conservative placeholder. The In-Feed Standard zip ships only a vertical template, so check a platform preview before final delivery.",
       "source": {
-        "title": "TikTok Auction In-Feed Ads — In-Feed Standard template (720×1280)",
+        "title": "TikTok Auction In-Feed Ads \u2014 In-Feed Standard template (720\u00d71280)",
         "url": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads"
       }
     }

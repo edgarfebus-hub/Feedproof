@@ -4,7 +4,7 @@
   "panel": {
     "latest": "1.2.1",
     "notes": "Feedproof (formerly Safe Zones): adds YouTube and a Combined tab for any two or all three platforms.",
-    "url": "https://github.com/edgarfebus-hub/safe-zones"
+    "url": "https://github.com/edgarfebus-hub/feedproof"
   },
   "changes": [
     {

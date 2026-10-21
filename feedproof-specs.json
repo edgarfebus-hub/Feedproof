@@ -2,8 +2,8 @@
   "feedFormat": 2,
   "specsVersion": "2026-10-21",
   "panel": {
-    "latest": "1.3.0",
-    "notes": "Feedproof 1.3: adds LinkedIn, and Combined now lets you tick any mix of platforms.",
+    "latest": "1.3.1",
+    "notes": "Feedproof 1.3: adds LinkedIn, Combined lets you tick any mix of platforms, and every mask is now red.",
     "url": "https://github.com/edgarfebus-hub/feedproof"
   },
   "changes": [

@@ -1,0 +1,795 @@
+{
+  "feedFormat": 2,
+  "specsVersion": "2026-10-22",
+  "panel": {
+    "latest": "1.3.0",
+    "notes": "Feedproof 1.3: adds LinkedIn, and Combined now lets you tick any mix of platforms.",
+    "url": "https://github.com/edgarfebus-hub/feedproof"
+  },
+  "changes": [
+    {
+      "date": "2026-10-20",
+      "text": "Initial specs: Meta unified 9:16 zone (14% top / 35% bottom / 6% sides), TikTok In-Feed verified against the official template."
+    },
+    {
+      "date": "2026-10-21",
+      "text": "YouTube added: Google universal safe zones — vertical 288/672/48/192 px on 1080×1920, horizontal 38/387/58/162 px on 1920×1080 with top-corner notches; 4:5 and 1:1 are estimates."
+    },
+    {
+      "date": "2026-10-22",
+      "text": "LinkedIn added: 9:16 full-screen viewer estimate (10% top, 18% bottom, 6% sides — LinkedIn publishes no safe zone); 4:5, 1:1, 16:9 feed padding; max side 1920 px."
+    }
+  ],
+  "specs": [
+    {
+      "id": "meta-916-unified",
+      "platform": "meta",
+      "ratio": "9:16",
+      "name": "Reels + Stories (unified)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.14,
+        "bottom": 0.35,
+        "left": 0.06,
+        "right": 0.06
+      },
+      "labels": {
+        "top": "Profile · name · Sponsored",
+        "bottom": "Caption · CTA · likes/comments · audio",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (Meta recommended)"
+        }
+      ],
+      "note": "One zone for Facebook + Instagram Reels and Stories since March 2026. Built on Reels, the tightest placement.",
+      "source": {
+        "title": "Meta Ads Guide — Reels/Stories safe zone (unified Mar 2026)",
+        "url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
+      }
+    },
+    {
+      "id": "meta-916-stories",
+      "platform": "meta",
+      "ratio": "9:16",
+      "name": "Stories only (20% bottom)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.14,
+        "bottom": 0.2,
+        "left": 0.06,
+        "right": 0.06
+      },
+      "labels": {
+        "top": "Profile · name · close",
+        "bottom": "CTA · reply bar",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (Meta recommended)"
+        }
+      ],
+      "note": "Only safe if the ad will never run in Reels. Anything in the 20–35% band is covered in Reels.",
+      "source": {
+        "title": "Meta Ads Guide — Stories (legacy 20% bottom)",
+        "url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
+      }
+    },
+    {
+      "id": "meta-916-disclaimer",
+      "platform": "meta",
+      "ratio": "9:16",
+      "name": "Reels with disclaimer (40% bottom)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.14,
+        "bottom": 0.4,
+        "left": 0.06,
+        "right": 0.06
+      },
+      "labels": {
+        "top": "Profile · name · Sponsored",
+        "bottom": "Disclaimer · caption · CTA",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (Meta recommended)"
+        }
+      ],
+      "note": "Meta's guidance for Reels ads that carry a disclaimer: keep the bottom 40% clear. Useful for pharma/regulated work.",
+      "source": {
+        "title": "Meta Ads Guide — Reels/Stories safe zone (unified Mar 2026)",
+        "url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
+      }
+    },
+    {
+      "id": "meta-45-feed",
+      "platform": "meta",
+      "ratio": "4:5",
+      "name": "Feed (Facebook + Instagram)",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1350,
+          "label": "1080 × 1350"
+        },
+        {
+          "w": 1440,
+          "h": 1800,
+          "label": "1440 × 1800 (Meta recommended)"
+        }
+      ],
+      "note": "Meta draws no UI over Feed media — the margin is title-safe padding, not a platform requirement.",
+      "source": {
+        "title": "Meta Ads Guide — Feed (no UI over media)",
+        "url": "https://www.facebook.com/business/ads-guide/update"
+      }
+    },
+    {
+      "id": "meta-11-feed",
+      "platform": "meta",
+      "ratio": "1:1",
+      "name": "Feed · Carousel · Marketplace",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1080,
+          "label": "1080 × 1080"
+        },
+        {
+          "w": 1440,
+          "h": 1440,
+          "label": "1440 × 1440 (Meta recommended)"
+        }
+      ],
+      "note": "No UI over the media. Margin is title-safe padding only.",
+      "source": {
+        "title": "Meta Ads Guide — Feed (no UI over media)",
+        "url": "https://www.facebook.com/business/ads-guide/update"
+      }
+    },
+    {
+      "id": "meta-169-instream",
+      "platform": "meta",
+      "ratio": "16:9",
+      "name": "In-stream video",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1920,
+          "h": 1080,
+          "label": "1920 × 1080"
+        },
+        {
+          "w": 1280,
+          "h": 720,
+          "label": "1280 × 720 (minimum)"
+        }
+      ],
+      "note": "No UI over the media. Margin is title-safe padding only.",
+      "source": {
+        "title": "Meta Ads Guide — Feed (no UI over media)",
+        "url": "https://www.facebook.com/business/ads-guide/update"
+      }
+    },
+    {
+      "id": "tiktok-916-infeed",
+      "platform": "tiktok",
+      "ratio": "9:16",
+      "name": "In-Feed / Spark (standard)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.125,
+        "bottom": 0.34375,
+        "left": 0.1111111111111111,
+        "right": 0.1111111111111111
+      },
+      "labels": {
+        "top": "Following / For You · search",
+        "bottom": "Name · caption · Sponsored · CTA",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [
+        {
+          "label": "Action rail — profile · like · comment · share",
+          "x1": 0.7222222222222222,
+          "y1": 0.4375,
+          "x2": 0.8888888888888888,
+          "y2": 1
+        }
+      ],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920 (TikTok recommended)"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (same as Meta)"
+        },
+        {
+          "w": 720,
+          "h": 1280,
+          "label": "720 × 1280 (template native)"
+        },
+        {
+          "w": 2160,
+          "h": 3840,
+          "label": "2160 × 3840 (4K master)"
+        }
+      ],
+      "note": "Verified pixel-for-pixel against TikTok's In-Feed Standard template (Feed.png, Apr 2025). Longer captions shrink the zone; use the anchor template if the ad carries an anchor.",
+      "source": {
+        "title": "TikTok Auction In-Feed Ads — In-Feed Standard template (720×1280)",
+        "url": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads"
+      }
+    },
+    {
+      "id": "tiktok-916-topview",
+      "platform": "tiktok",
+      "ratio": "9:16",
+      "name": "TopView — first 3 seconds",
+      "kind": "ui",
+      "margins": {
+        "top": 0.125,
+        "bottom": 0.125,
+        "left": 0.1111111111111111,
+        "right": 0.1111111111111111
+      },
+      "labels": {
+        "top": "Open-screen UI",
+        "bottom": "Open-screen UI",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920 (TikTok recommended)"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (same as Meta)"
+        },
+        {
+          "w": 720,
+          "h": 1280,
+          "label": "720 × 1280 (template native)"
+        }
+      ],
+      "note": "Open-screen phase only. After 3 s TopView switches to the In-Feed layout — design end frames to In-Feed.",
+      "source": {
+        "title": "TikTok TopView ad specifications",
+        "url": "https://ads.tiktok.com/help/"
+      }
+    },
+    {
+      "id": "tiktok-11-infeed",
+      "platform": "tiktok",
+      "ratio": "1:1",
+      "name": "In-Feed square",
+      "kind": "estimate",
+      "margins": {
+        "top": 0.09375,
+        "bottom": 0.203125,
+        "left": 0.09375,
+        "right": 0.21875
+      },
+      "labels": {
+        "top": "Top margin",
+        "bottom": "Caption · CTA",
+        "left": "Side margin",
+        "right": "Action rail"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1080,
+          "label": "1080 × 1080"
+        },
+        {
+          "w": 640,
+          "h": 640,
+          "label": "640 × 640 (minimum)"
+        }
+      ],
+      "note": "TikTok ships square safe zones only as template files. These values come from its published square Download Card zone (60/130/60/140 px on 640×640). The In-Feed Standard zip ships only a vertical template, so this stays an estimate.",
+      "source": {
+        "title": "TikTok Download Card add-on — square safe zone (640×640)",
+        "url": "https://ads.tiktok.com/help/article/tiktok-interactive-add-on-download-card-ad-specifications"
+      }
+    },
+    {
+      "id": "tiktok-169-infeed",
+      "platform": "tiktok",
+      "ratio": "16:9",
+      "name": "In-Feed horizontal",
+      "kind": "estimate",
+      "margins": {
+        "top": 0.1,
+        "bottom": 0.2,
+        "left": 0.08,
+        "right": 0.15
+      },
+      "labels": {
+        "top": "Top margin",
+        "bottom": "Caption · CTA",
+        "left": "Side margin",
+        "right": "Action rail"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1920,
+          "h": 1080,
+          "label": "1920 × 1080"
+        },
+        {
+          "w": 960,
+          "h": 540,
+          "label": "960 × 540 (minimum)"
+        }
+      ],
+      "note": "TikTok publishes no pixel values for 16:9 — this is a conservative placeholder. The In-Feed Standard zip ships only a vertical template, so check a platform preview before final delivery.",
+      "source": {
+        "title": "TikTok Auction In-Feed Ads — In-Feed Standard template (720×1280)",
+        "url": "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads"
+      }
+    },
+    {
+      "id": "yt-916-universal",
+      "platform": "youtube",
+      "ratio": "9:16",
+      "name": "Shorts + vertical ads (universal)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.15,
+        "bottom": 0.35,
+        "left": 0.044444444444444446,
+        "right": 0.17777777777777778
+      },
+      "labels": {
+        "top": "Channel · Sponsored · search",
+        "bottom": "Title · CTA · ad info",
+        "left": "Side margin",
+        "right": "Like · comment · share"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920 (Google recommended)"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (same as Meta)"
+        },
+        {
+          "w": 2160,
+          "h": 3840,
+          "label": "2160 × 3840 (4K master)"
+        },
+        {
+          "w": 720,
+          "h": 1280,
+          "label": "720 × 1280 (minimum)"
+        }
+      ],
+      "note": "Google's universal vertical safe zone (288/672/48/192 px on 1080×1920) — one zone for Shorts ads and vertical in-stream / Demand Gen on every screen.",
+      "source": {
+        "title": "Google Ads Help — About video ad specs (universal safe zones)",
+        "url": "https://support.google.com/google-ads/answer/13547298"
+      }
+    },
+    {
+      "id": "yt-916-shorts-min",
+      "platform": "youtube",
+      "ratio": "9:16",
+      "name": "Shorts ads — minimum (10/25/10%)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.1,
+        "bottom": 0.25,
+        "left": 0,
+        "right": 0.1
+      },
+      "labels": {
+        "top": "Channel name",
+        "bottom": "Caption · CTA",
+        "left": "",
+        "right": "Engagement buttons"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920 (Google recommended)"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (same as Meta)"
+        },
+        {
+          "w": 720,
+          "h": 1280,
+          "label": "720 × 1280 (minimum)"
+        }
+      ],
+      "note": "Google's lighter Shorts-only guidance. Only safe if the ad runs in Shorts alone — the universal zone is stricter and covers every vertical placement.",
+      "source": {
+        "title": "Google — YouTube Shorts ads (red zones: top 10%, bottom 25%, right 10%)",
+        "url": "https://business.google.com/us/ad-solutions/youtube-ads/shorts-ads/"
+      }
+    },
+    {
+      "id": "yt-45-feed",
+      "platform": "youtube",
+      "ratio": "4:5",
+      "name": "Demand Gen vertical 4:5",
+      "kind": "estimate",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.2866666666666667,
+        "left": 0.044444444444444446,
+        "right": 0.17777777777777778
+      },
+      "labels": {
+        "top": "Title-safe padding",
+        "bottom": "Title · CTA · ad info",
+        "left": "Side margin",
+        "right": "Like · comment · share"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1350,
+          "label": "1080 × 1350 (Google recommended)"
+        },
+        {
+          "w": 1440,
+          "h": 1800,
+          "label": "1440 × 1800 (same as Meta)"
+        }
+      ],
+      "note": "Google accepts 4:5 but publishes no 4:5 safe zone. Estimate: the universal vertical zone applied to a 4:5 frame shown centred in the vertical player.",
+      "source": {
+        "title": "Google Ads Help — Demand Gen asset specs (4:5 accepted, no safe zone published)",
+        "url": "https://support.google.com/google-ads/answer/13704860"
+      }
+    },
+    {
+      "id": "yt-11-square",
+      "platform": "youtube",
+      "ratio": "1:1",
+      "name": "Square ads",
+      "kind": "estimate",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.23333333333333334,
+        "left": 0.044444444444444446,
+        "right": 0.17777777777777778
+      },
+      "labels": {
+        "top": "Title-safe padding",
+        "bottom": "Title · CTA · ad info",
+        "left": "Side margin",
+        "right": "Like · comment · share"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1080,
+          "label": "1080 × 1080 (Google recommended)"
+        },
+        {
+          "w": 1440,
+          "h": 1440,
+          "label": "1440 × 1440 (same as Meta)"
+        },
+        {
+          "w": 480,
+          "h": 480,
+          "label": "480 × 480 (minimum)"
+        }
+      ],
+      "note": "Google publishes the square zone only as an overlay image. Estimate until measured against it: the universal vertical zone applied to a square shown in the vertical player.",
+      "source": {
+        "title": "Google Ads Help — About video ad specs (universal safe zones)",
+        "url": "https://support.google.com/google-ads/answer/13547298"
+      }
+    },
+    {
+      "id": "yt-169-instream",
+      "platform": "youtube",
+      "ratio": "16:9",
+      "name": "In-stream + horizontal ads (universal)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.03518518518518519,
+        "bottom": 0.35833333333333334,
+        "left": 0.030208333333333334,
+        "right": 0.084375
+      },
+      "labels": {
+        "top": "Top edge",
+        "bottom": "Ad badge · CTA · Skip · progress bar",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [
+        {
+          "label": "Top-left notch — title · channel",
+          "x1": 0,
+          "y1": 0,
+          "x2": 0.25833333333333336,
+          "y2": 0.16944444444444445
+        },
+        {
+          "label": "Top-right notch — player icons",
+          "x1": 0.7505208333333333,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0.12314814814814815
+        }
+      ],
+      "sizes": [
+        {
+          "w": 1920,
+          "h": 1080,
+          "label": "1920 × 1080 (Google recommended)"
+        },
+        {
+          "w": 3840,
+          "h": 2160,
+          "label": "3840 × 2160 (4K master)"
+        },
+        {
+          "w": 1280,
+          "h": 720,
+          "label": "1280 × 720 (minimum)"
+        }
+      ],
+      "note": "Google's universal horizontal safe zone (1920×1080): 38 px top, 387 bottom, 58 left, 162 right, plus top-corner notches of 496 × 183 (left) and 479 × 133 (right). Same zone on phone, TV, desktop and tablet.",
+      "source": {
+        "title": "Google Ads Help — About video ad specs (universal safe zones)",
+        "url": "https://support.google.com/google-ads/answer/13547298"
+      }
+    },
+    {
+      "id": "li-916-vertical",
+      "platform": "linkedin",
+      "ratio": "9:16",
+      "name": "Vertical video (full-screen viewer)",
+      "kind": "estimate",
+      "margins": {
+        "top": 0.1,
+        "bottom": 0.18,
+        "left": 0.06,
+        "right": 0.06
+      },
+      "labels": {
+        "top": "Close · sound · menu",
+        "bottom": "Name · caption · CTA · reactions",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [],
+      "maxSide": 1920,
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920 (LinkedIn max)"
+        },
+        {
+          "w": 720,
+          "h": 1280,
+          "label": "720 × 1280"
+        }
+      ],
+      "note": "LinkedIn publishes no safe zone. Estimate from a third-party measurement of the full-screen vertical viewer (10% top, 18% bottom, 6% sides). LinkedIn rejects any side over 1920 px.",
+      "source": {
+        "title": "LinkedIn Video Ads specs (sizes only — LinkedIn publishes no safe zone)",
+        "url": "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      }
+    },
+    {
+      "id": "li-45-feed",
+      "platform": "linkedin",
+      "ratio": "4:5",
+      "name": "Feed video",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "maxSide": 1920,
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1350,
+          "label": "1080 × 1350 (LinkedIn max)"
+        },
+        {
+          "w": 720,
+          "h": 900,
+          "label": "720 × 900"
+        }
+      ],
+      "note": "No UI over the media in the feed — the margin is title-safe padding. LinkedIn rejects any side over 1920 px.",
+      "source": {
+        "title": "LinkedIn Video Ads specs (sizes only — LinkedIn publishes no safe zone)",
+        "url": "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      }
+    },
+    {
+      "id": "li-11-feed",
+      "platform": "linkedin",
+      "ratio": "1:1",
+      "name": "Feed video",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "maxSide": 1920,
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1080,
+          "label": "1080 × 1080"
+        },
+        {
+          "w": 1920,
+          "h": 1920,
+          "label": "1920 × 1920 (LinkedIn max)"
+        }
+      ],
+      "note": "No UI over the media in the feed — the margin is title-safe padding. LinkedIn rejects any side over 1920 px.",
+      "source": {
+        "title": "LinkedIn Video Ads specs (sizes only — LinkedIn publishes no safe zone)",
+        "url": "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      }
+    },
+    {
+      "id": "li-169-feed",
+      "platform": "linkedin",
+      "ratio": "16:9",
+      "name": "Feed video",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "maxSide": 1920,
+      "sizes": [
+        {
+          "w": 1920,
+          "h": 1080,
+          "label": "1920 × 1080 (LinkedIn max)"
+        },
+        {
+          "w": 1280,
+          "h": 720,
+          "label": "1280 × 720"
+        }
+      ],
+      "note": "No UI over the media in the feed — the margin is title-safe padding. LinkedIn rejects any side over 1920 px.",
+      "source": {
+        "title": "LinkedIn Video Ads specs (sizes only — LinkedIn publishes no safe zone)",
+        "url": "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      }
+    }
+  ]
+}

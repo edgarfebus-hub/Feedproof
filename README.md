@@ -2,12 +2,15 @@
 
 © 2026 Edgar Febus. All rights reserved.
 
-`feedproof-feed.json` is read by the Feedproof panel (formerly Safe Zones) when it
-opens. When Meta, TikTok or YouTube change their ad safe zones, this file is
-updated and the panel offers the new specs with one click.
+Three files, one per panel generation:
 
-`specs-feed.json` is the same data without YouTube, kept for Safe Zones v1.1.x
-panels (their strict check rejects platforms they don't know).
+- `feedproof-specs.json` — Feedproof v1.3+ (Meta, TikTok, YouTube, LinkedIn). These panels skip any
+  platform they don't know, so new platforms can be added here safely.
+- `feedproof-feed.json` — Feedproof v1.2.x. Same data **without LinkedIn** (those panels reject
+  unknown platforms).
+- `specs-feed.json` — Safe Zones v1.1.x. **Meta and TikTok only.**
+
+When a platform changes its ad safe zones, update every file that carries that platform.
 
 - `specsVersion` — date of the spec data (YYYY-MM-DD). Bump it on every change.
 - `changes` — one line per change, newest last; shown in the panel's banner.

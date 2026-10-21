@@ -2,8 +2,8 @@
   "feedFormat": 1,
   "specsVersion": "2026-10-20",
   "panel": {
-    "latest": "1.2.1",
-    "notes": "Safe Zones is now Feedproof — adds YouTube (Google universal safe zones) and a Combined tab for any two or all three platforms.",
+    "latest": "1.3.0",
+    "notes": "Safe Zones is now Feedproof — adds YouTube, LinkedIn and a Combined tab for any mix of platforms.",
     "url": "https://github.com/edgarfebus-hub/feedproof"
   },
   "changes": [

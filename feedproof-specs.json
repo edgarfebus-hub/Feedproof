@@ -1,6 +1,6 @@
 {
   "feedFormat": 2,
-  "specsVersion": "2026-10-21",
+  "specsVersion": "2026-11-02",
   "panel": {
     "latest": "1.3.1",
     "notes": "Feedproof 1.3: adds LinkedIn, Combined lets you tick any mix of platforms, and every mask is now red.",
@@ -18,6 +18,10 @@
     {
       "date": "2026-10-21",
       "text": "LinkedIn added: 9:16 full-screen viewer estimate (10% top, 18% bottom, 6% sides — LinkedIn publishes no safe zone); 4:5, 1:1, 16:9 feed padding; max side 1920 px."
+    },
+    {
+      "date": "2026-11-02",
+      "text": "TikTok Arabic (RTL) 9:16 zone added — In-Feed layout with the action rail on the left, from TikTok's TopView RTL template. TopView source link updated; zones unchanged. https://ads.tiktok.com/help/article/tiktok-reservation-topview"
     }
   ],
   "specs": [
@@ -337,7 +341,62 @@
       "note": "Open-screen phase only. After 3 s TopView switches to the In-Feed layout — design end frames to In-Feed.",
       "source": {
         "title": "TikTok TopView ad specifications",
-        "url": "https://ads.tiktok.com/help/"
+        "url": "https://ads.tiktok.com/help/article/tiktok-reservation-topview"
+      }
+    },
+    {
+      "id": "tiktok-916-rtl",
+      "platform": "tiktok",
+      "ratio": "9:16",
+      "name": "In-Feed / TopView after 3 s — Arabic (RTL)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.125,
+        "bottom": 0.34375,
+        "left": 0.1111111111111111,
+        "right": 0.1111111111111111
+      },
+      "labels": {
+        "top": "Following / For You · search",
+        "bottom": "Name · caption · Sponsored · CTA",
+        "left": "Side margin",
+        "right": "Side margin"
+      },
+      "extras": [
+        {
+          "label": "Action rail (RTL) — profile · like · comment · share",
+          "x1": 0.1111111111111111,
+          "y1": 0.4375,
+          "x2": 0.2777777777777778,
+          "y2": 1
+        }
+      ],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920 (TikTok recommended)"
+        },
+        {
+          "w": 1440,
+          "h": 2560,
+          "label": "1440 × 2560 (same as Meta)"
+        },
+        {
+          "w": 720,
+          "h": 1280,
+          "label": "720 × 1280 (template native)"
+        },
+        {
+          "w": 2160,
+          "h": 3840,
+          "label": "2160 × 3840 (4K master)"
+        }
+      ],
+      "note": "Right-to-left layout for the Arabic region: same zone as In-Feed with the action rail mirrored to the left. Verified against TikTok's TopView RTL (after 3-second) template, 720×1280.",
+      "source": {
+        "title": "TikTok TopView ad specifications — RTL safe zone templates",
+        "url": "https://ads.tiktok.com/help/article/tiktok-reservation-topview"
       }
     },
     {

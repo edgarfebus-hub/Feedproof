@@ -2,7 +2,7 @@
 
 ## Downloads
 
-Feedproof trial installers (15 days): see [downloads/](downloads/README.md) or https://edgarfebus.com/feedproof
+Feedproof is free: see [downloads/](downloads/README.md) or https://edgarfebus.com/feedproof
 
 
 © 2026 Edgar Febus. All rights reserved.

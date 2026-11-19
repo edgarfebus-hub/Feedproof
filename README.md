@@ -9,7 +9,7 @@ Feedproof trial installers (15 days): see [downloads/](downloads/README.md) or h
 
 Three files, one per panel generation:
 
-- `feedproof-specs.json` — Feedproof v1.3+ (Meta, TikTok, YouTube, LinkedIn). These panels skip any
+- `feedproof-specs.json` — Feedproof v1.3+ (Meta, TikTok, YouTube, LinkedIn, Pinterest — Pinterest needs v2.0). These panels skip any
   platform they don't know, so new platforms can be added here safely.
 - `feedproof-feed.json` — Feedproof v1.2.x. Same data **without LinkedIn** (those panels reject
   unknown platforms).

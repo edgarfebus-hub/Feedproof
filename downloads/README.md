@@ -1,6 +1,6 @@
 # Feedproof trial downloads
 
-**Feedproof trial v1.4.1** — Meta, TikTok, YouTube and LinkedIn safe zones for After Effects, Premiere Pro,
+**Feedproof trial v2.0.0** — Meta, TikTok, YouTube, LinkedIn and Pinterest safe zones, with a platform UI preview, for After Effects, Premiere Pro,
 Illustrator, Photoshop, InDesign and Figma. 15-day trial from your first launch; trial PNG exports carry a
 watermark. Install steps: https://edgarfebus.com/feedproof
 

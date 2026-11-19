@@ -1,9 +1,9 @@
 {
   "feedFormat": 2,
-  "specsVersion": "2026-11-02",
+  "specsVersion": "2026-11-19",
   "panel": {
-    "latest": "1.3.1",
-    "notes": "Feedproof 1.3: adds LinkedIn, Combined lets you tick any mix of platforms, and every mask is now red.",
+    "latest": "2.0.0",
+    "notes": "Feedproof 2.0: a platform UI preview in every app, Pinterest (with 2:3), folding panel sections, and accurate Premiere frame rates and overlay lengths.",
     "url": "https://edgarfebus.com/feedproof#download"
   },
   "changes": [
@@ -22,6 +22,10 @@
     {
       "date": "2026-11-02",
       "text": "TikTok Arabic (RTL) 9:16 zone added — In-Feed layout with the action rail on the left, from TikTok's TopView RTL template. TopView source link updated; zones unchanged. https://ads.tiktok.com/help/article/tiktok-reservation-topview"
+    },
+    {
+      "date": "2026-11-19",
+      "text": "Pinterest added: 9:16 video Pin (Pinterest's safe-zone guide: 270 px top, 790 px bottom, 65 px left, 195 px right on 1080×1920) plus 2:3, 4:5, 1:1 and max-width 16:9 Pins with 5% title-safe padding. Needs Feedproof 2.0."
     }
   ],
   "specs": [
@@ -848,6 +852,191 @@
       "source": {
         "title": "LinkedIn Video Ads specs (sizes only — LinkedIn publishes no safe zone)",
         "url": "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+      }
+    },
+    {
+      "id": "pin-916-video",
+      "platform": "pinterest",
+      "ratio": "9:16",
+      "name": "Full-screen video (Idea / video Pin)",
+      "kind": "ui",
+      "margins": {
+        "top": 0.140625,
+        "bottom": 0.4114583333333333,
+        "left": 0.06018518518518518,
+        "right": 0.18055555555555555
+      },
+      "labels": {
+        "top": "Back · options",
+        "bottom": "Name · title · Visit site · Save",
+        "left": "Side margin",
+        "right": "React · comment · share"
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1920,
+          "label": "1080 × 1920 (Pinterest recommended)"
+        },
+        {
+          "w": 720,
+          "h": 1280,
+          "label": "720 × 1280"
+        }
+      ],
+      "note": "Pinterest's own safe zone for full-screen video Pins: 270 px top, 790 px bottom, 65 px left and 195 px right on 1080×1920.",
+      "source": {
+        "title": "Pinterest Help — Review Pin specs (video safe zone: 270 / 790 / 65 / 195 px on 1080×1920)",
+        "url": "https://help.pinterest.com/en/article/review-pin-specs"
+      }
+    },
+    {
+      "id": "pin-23-standard",
+      "platform": "pinterest",
+      "ratio": "2:3",
+      "name": "Standard Pin (image or video)",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1000,
+          "h": 1500,
+          "label": "1000 × 1500 (Pinterest recommended)"
+        },
+        {
+          "w": 1080,
+          "h": 1620,
+          "label": "1080 × 1620"
+        }
+      ],
+      "note": "Pinterest's recommended ad size. In the feed the title, Promoted label and Save button sit below the Pin, and Pinterest rounds its corners. Pins taller than 2:3 can be cut off in the feed. The margin is title-safe padding.",
+      "source": {
+        "title": "Pinterest Business — Ad product specs (2:3 standard, 1:1 / 16:9 max width video)",
+        "url": "https://help.pinterest.com/en/business/article/ads"
+      }
+    },
+    {
+      "id": "pin-45-standard",
+      "platform": "pinterest",
+      "ratio": "4:5",
+      "name": "Vertical Pin (image or video)",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1080,
+          "h": 1350,
+          "label": "1080 × 1350"
+        },
+        {
+          "w": 1000,
+          "h": 1250,
+          "label": "1000 × 1250"
+        }
+      ],
+      "note": "Pinterest accepts 4:5 Pins (ads take anything from 1:2 to 1.91:1), though it recommends 2:3. The title and buttons sit below the Pin, and Pinterest rounds its corners. The margin is title-safe padding.",
+      "source": {
+        "title": "Pinterest Help — Review Pin specs (video safe zone: 270 / 790 / 65 / 195 px on 1080×1920)",
+        "url": "https://help.pinterest.com/en/article/review-pin-specs"
+      }
+    },
+    {
+      "id": "pin-11-standard",
+      "platform": "pinterest",
+      "ratio": "1:1",
+      "name": "Square Pin / max width video",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1000,
+          "h": 1000,
+          "label": "1000 × 1000"
+        },
+        {
+          "w": 1080,
+          "h": 1080,
+          "label": "1080 × 1080"
+        }
+      ],
+      "note": "Square standard and max width video ads. The title and buttons sit below the Pin, and Pinterest rounds its corners. The margin is title-safe padding.",
+      "source": {
+        "title": "Pinterest Business — Ad product specs (2:3 standard, 1:1 / 16:9 max width video)",
+        "url": "https://help.pinterest.com/en/business/article/ads"
+      }
+    },
+    {
+      "id": "pin-169-maxwidth",
+      "platform": "pinterest",
+      "ratio": "16:9",
+      "name": "Max width video",
+      "kind": "comfort",
+      "margins": {
+        "top": 0.05,
+        "bottom": 0.05,
+        "left": 0.05,
+        "right": 0.05
+      },
+      "labels": {
+        "top": "Title-safe 90%",
+        "bottom": "Title-safe 90%",
+        "left": "",
+        "right": ""
+      },
+      "extras": [],
+      "sizes": [
+        {
+          "w": 1920,
+          "h": 1080,
+          "label": "1920 × 1080"
+        },
+        {
+          "w": 1280,
+          "h": 720,
+          "label": "1280 × 720"
+        }
+      ],
+      "note": "Max width video spans the full width of the feed (awareness and video-view campaigns). The title and buttons sit below the video. The margin is title-safe padding.",
+      "source": {
+        "title": "Pinterest Business — Ad product specs (2:3 standard, 1:1 / 16:9 max width video)",
+        "url": "https://help.pinterest.com/en/business/article/ads"
       }
     }
   ]

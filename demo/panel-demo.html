@@ -1,0 +1,2573 @@
+<!DOCTYPE html>
+<!-- Feedproof panel, web demo build (v2.0.0). (c) 2026 Edgar Febus. All rights reserved. https://edgarfebus.com
+     Preview-only bundle for the edgarfebus.com/feedproof walkthrough: no host build script, no license code.
+     It runs the panel UI with a stand-in "After Effects" so the website demo can drive it. -->
+<html><head><meta charset="utf-8"><style>:root{--bg:#232323;--bg-2:#2b2b2b;--bg-3:#333333;--line:#3e3e3e;--line-2:#4a4a4a;--text:#d8d8d8;--text-2:#a3a3a3;--text-3:#7a7a7a;--accent:#378ef0;--accent-2:#4b9cf5;--ui:#ff3b30;--comfort:#ffb020;--estimate:#ff7a1a;--safe:#2fd16b;--crop:#e45cff;--radius:4px;--font:"Adobe Clean",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}*{box-sizing:border-box;}html,body{margin:0;padding:0;}body{background:var(--bg);color:var(--text);font:12px/1.4 var(--font);-webkit-font-smoothing:antialiased;min-width:260px;user-select:none;}[hidden]{display:none !important;}.top{display:flex;align-items:center;justify-content:space-between;padding:10px 12px 8px;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;background:var(--bg);}.brand{display:flex;align-items:center;gap:7px;font-weight:700;font-size:13px;letter-spacing:.01em;}.logo{width:16px;height:16px;color:var(--safe);}.host-pill{font-size:10.5px;font-weight:600;letter-spacing:.03em;padding:2px 8px;border-radius:10px;background:var(--bg-3);color:var(--text-2);border:1px solid var(--line-2);}.host-pill.live{color:#fff;background:#2d4a6b;border-color:#3d6593;}main{padding:0 12px 86px;}.block{padding:12px 0;border-bottom:1px solid var(--line);}.block-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}h2{margin:0;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-2);font-weight:700;display:flex;align-items:center;gap:6px;}.count{background:var(--bg-3);color:var(--text);border-radius:8px;padding:0 6px;font-size:10px;letter-spacing:0;}.seg{display:flex;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:2px;gap:2px;margin-bottom:8px;}.seg>*{flex:1;border:0;background:transparent;color:var(--text-2);font:600 12px var(--font);padding:6px 4px;border-radius:3px;cursor:pointer;transition:background .12s,color .12s;}.seg>*:hover{color:var(--text);background:var(--bg-3);}.seg>.is-disabled:hover{color:var(--text-2);background:transparent;}.seg>.on,.seg>.on:hover{background:var(--accent);color:#fff;}.seg>.is-disabled{opacity:.35;cursor:not-allowed;}.seg-ratio>*{font-variant-numeric:tabular-nums;}.seg-small>*{font-size:11.5px;padding:5px 4px;}.row{display:flex;gap:8px;}.row.two>*{flex:1;min-width:0;}.row + .row,.row + .field,.field + .row{margin-top:8px;}.row.tight{margin-top:6px;}.field{display:flex;flex-direction:column;gap:4px;}.field>span{font-size:11px;color:var(--text-2);display:flex;justify-content:space-between;align-items:baseline;gap:6px;}.field>span em{font-style:normal;color:var(--text-3);font-size:10.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.field>span b{color:var(--text);font-weight:600;font-variant-numeric:tabular-nums;}select,input[type=number],input[type=text]{width:100%;height:26px;padding:0 8px;background:var(--bg-2);color:var(--text);border:1px solid var(--line-2);border-radius:var(--radius);font:12px var(--font);outline:none;}select{padding-right:22px;appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--text-2) 50%),linear-gradient(135deg,var(--text-2) 50%,transparent 50%);background-position:calc(100% - 12px) 11px,calc(100% - 8px) 11px;background-size:4px 4px;background-repeat:no-repeat;}select:focus,input:focus{border-color:var(--accent);}input::placeholder{color:var(--text-3);}input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:26px;background:transparent;}input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--line-2);border-radius:2px;}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--text);margin-top:-4.5px;border:0;}.checks{display:flex;flex-direction:column;gap:6px;margin:10px 0;}.check{display:flex;align-items:center;gap:7px;cursor:pointer;color:var(--text);}.check input{margin:0;accent-color:var(--accent);width:13px;height:13px;}.chips{display:flex;gap:6px;flex-wrap:wrap;}.chip{border:1px solid var(--line-2);background:var(--bg-2);color:var(--text-2);font:600 11px var(--font);padding:4px 9px;border-radius:12px;cursor:pointer;font-variant-numeric:tabular-nums;}.chip.on{border-color:var(--crop);color:#fff;background:rgba(228,92,255,.18);}.chip.is-disabled{opacity:.3;cursor:not-allowed;}.warn{margin:8px 0 0;padding:6px 8px;border-radius:var(--radius);background:rgba(255,176,32,.12);color:#ffc65c;font-size:11px;}.preview-wrap{padding:12px 0;border-bottom:1px solid var(--line);}.preview{display:flex;align-items:center;justify-content:center;background:#1a1a1a;border:1px solid var(--line);border-radius:var(--radius);padding:10px;min-height:120px;}.preview canvas{display:block;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 6px 18px rgba(0,0,0,.45);}.meta-line{display:flex;align-items:center;justify-content:space-between;margin-top:8px;gap:8px;}.kind{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;color:var(--text);}.kind::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--dot,var(--ui));}.kind.ui{--dot:var(--ui);}.kind.comfort{--dot:var(--comfort);}.kind.estimate{--dot:var(--estimate);color:#ffb27a;}.src{color:var(--accent-2);font-size:11px;text-decoration:none;white-space:nowrap;}.src:hover{text-decoration:underline;}.note{margin:6px 0 0;color:var(--text-2);font-size:11px;line-height:1.45;user-select:text;}.measure{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;user-select:text;}.measure td{padding:4px 0;border-bottom:1px solid #2e2e2e;}.measure tr:last-child td{border-bottom:0;}.measure td:first-child{color:var(--text-2);}.measure td:nth-child(2){text-align:right;color:var(--text);font-weight:600;}.measure td:nth-child(3){text-align:right;color:var(--text-3);padding-left:10px;white-space:nowrap;}.measure tr.safe td:nth-child(2){color:var(--safe);}.measure .sw{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:6px;vertical-align:0;}button,[role=button]{font-family:var(--font);cursor:pointer;text-align:center;}[role=button]{display:flex;align-items:center;justify-content:center;}.primary,.secondary,.ghost{width:100%;height:30px;border-radius:15px;cursor:pointer;font:700 12px var(--font);letter-spacing:.01em;transition:background .12s,border-color .12s,opacity .12s;}.primary{background:var(--accent);color:#fff;border:0;}.primary:hover{background:var(--accent-2);}.secondary{background:transparent;color:var(--text);border:1.5px solid var(--line-2);}.secondary:hover{border-color:var(--text-2);}.ghost{background:transparent;color:var(--text-2);border:0;height:26px;font-weight:600;}.ghost:hover{color:var(--text);}.is-disabled,.is-disabled:hover{opacity:.4;cursor:not-allowed;}.primary.is-disabled:hover{background:var(--accent);}.link{background:none;border:0;color:var(--accent-2);font:600 11px var(--font);cursor:pointer;padding:0;}.link:hover{text-decoration:underline;}.actions{padding:12px 0;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px;}.actions .row.tight{margin-top:0;}.batch{list-style:none;margin:8px 0;padding:0;display:flex;flex-direction:column;gap:4px;}.batch:empty::before{content:"Add sizes here,then create them all at once.";color:var(--text-3);font-size:11px;padding:6px 0;}.batch li{display:flex;align-items:center;gap:8px;padding:5px 6px 5px 8px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);}.batch .dot{width:7px;height:7px;border-radius:2px;flex:none;}.batch .txt{flex:1;min-width:0;display:flex;flex-direction:column;}.batch .name{font-weight:600;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}.batch .sub{color:var(--text-3);font-size:10.5px;font-variant-numeric:tabular-nums;}.batch .x{background:none;border:0;color:var(--text-3);font-size:15px;line-height:1;cursor:pointer;padding:2px 4px;}.batch .x:hover{color:var(--text);}.status{position:fixed;left:0;right:0;bottom:0;padding:8px 12px;font-size:11.5px;min-height:32px;background:#1e1e1e;border-top:1px solid var(--line);color:var(--text-2);user-select:text;}.status.ok{color:#7fe3a4;}.status.err{color:#ff8a80;}.status a{color:var(--accent-2);cursor:pointer;}.host-ilst{display:none;}body.h-ILST .host-ilst{display:flex;}body.h-PHXS .host-time,body.h-ILST .host-time,body.h-IDSN .host-time,body.h-FIGMA .host-time{display:none;}.update-banner{margin:12px 0 0;padding:10px 12px;border-radius:var(--radius);background:rgba(55,142,240,.12);border:1px solid rgba(55,142,240,.45);}.ub-title{font-weight:700;color:#fff;font-size:12px;}.ub-title + .ub-title,.ub-list + .ub-title,.ub-note + .ub-title{margin-top:8px;}.ub-list{margin:6px 0 0;padding-left:16px;color:var(--text);font-size:11.5px;user-select:text;}.ub-list li + li{margin-top:3px;}.ub-note{margin-top:4px;color:var(--text-2);font-size:11.5px;user-select:text;}.ub-actions{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap;}.ub-actions>*{white-space:nowrap;}.ub-apply{background:var(--accent);color:#fff;border:0;border-radius:13px;height:26px;padding:0 12px;font:700 11.5px var(--font);cursor:pointer;}.ub-apply:hover{background:var(--accent-2);}.ub-link{background:transparent;color:var(--text);border:1.5px solid var(--line-2);border-radius:13px;height:26px;padding:0 12px;font:700 11.5px var(--font);cursor:pointer;}.ub-later{background:none;border:0;color:var(--text-2);font:600 11.5px var(--font);cursor:pointer;margin-left:auto;}.about{padding:14px 0 6px;text-align:center;color:var(--text-3);font-size:10.5px;line-height:1.6;}.about p,.about>div{margin:0;}.about a{color:var(--text-2);text-decoration:none;}.about a:hover{color:var(--text);text-decoration:underline;}.about .link{font-size:10.5px;}.about .link.pending{color:#ffc65c;}.chip-wrap{position:relative;display:inline-flex;}.chip-wrap .chip{padding-left:24px;}.chip-wrap .chip.is-disabled{padding-left:9px;}.swatch{position:absolute;left:8px;top:50%;width:11px;height:11px;margin-top:-5.5px;border-radius:50%;cursor:pointer;box-shadow:0 0 0 1px rgba(0,0,0,.5),0 0 0 2px rgba(255,255,255,.25);}.swatch:hover{transform:scale(1.2);}.swatch input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;border:0;padding:0;}.combo-row{display:flex;align-items:center;gap:8px;margin:2px 0 10px;}.combo-label{font-size:11px;color:var(--muted,#9aa0aa);text-transform:uppercase;letter-spacing:.06em;}.combo-chip.on{border-color:var(--accent,#3d8bff);background:rgba(61,139,255,.2);color:#fff;}#platformSeg>*{padding-left:2px;padding-right:2px;font-size:12px;}.legal{position:fixed;left:0;right:0;bottom:0;z-index:6;padding:4px 12px;font-size:10px;line-height:1.4;color:var(--text-3,#8a8a8a);background:#1a1a1a;border-top:1px solid var(--line);text-align:center;}.gate{padding:18px 2px 12px;user-select:text;}.gate-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:10px;}.gate p{margin:0 0 10px;font-size:11.5px;line-height:1.55;color:var(--text);}.gate .gate-copy{color:var(--text-2);font-weight:600;}.gate .gate-note{color:var(--text-2);font-size:11px;}.gate-btn{width:100%;height:32px;border-radius:16px;font-weight:700;cursor:pointer;margin-top:6px;}.gate-expired .gate-title{color:#ffb27a;}.trial-banner{margin:12px 0 0;padding:9px 12px;border-radius:var(--radius);font-size:11.5px;line-height:1.5;background:rgba(255,176,32,.10);border:1px solid rgba(255,176,32,.45);color:#ffd58a;user-select:text;}.trial-locked{opacity:.75;}.trial-tagged .lock-tag,.trial-locked .lock-tag{display:inline-block;margin-left:4px;padding:0 5px;border-radius:7px;font-size:9px;font-weight:700;letter-spacing:.03em;line-height:14px;vertical-align:1px;color:#ffd58a;background:rgba(255,176,32,.14);border:1px solid rgba(255,176,32,.45);}.ui-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}.ui-row .chip.on{border-color:var(--accent,#3d8bff);background:rgba(61,139,255,.2);color:#fff;}.ui-note{margin:0 0 0 20px;}.ui-row .chips{width:100%;margin-left:20px;}.fold{cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px;}.fold .caret{width:0;height:0;border-left:5px solid currentColor;border-top:4px solid transparent;border-bottom:4px solid transparent;transition:transform .15s;}.fold[aria-expanded="true"] .caret{transform:rotate(90deg);}.fold:hover{color:#fff;}.info-fold{color:var(--text-2);}.info-fold .caret{flex:none;}.menu-wrap{position:relative;}.menu-wrap .menu-btn{width:100%;position:relative;padding-right:22px;}.menu-wrap .menu-btn::after{content:"";position:absolute;right:10px;top:50%;margin-top:-2px;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;}.menu{position:absolute;right:0;bottom:calc(100% + 4px);z-index:20;min-width:100%;width:max-content;max-width:280px;background:#2b2b2b;border:1px solid var(--line-2);border-radius:6px;padding:4px;box-shadow:0 8px 24px rgba(0,0,0,.45);display:flex;flex-direction:column;}.menu-item{display:block;width:100%;text-align:left;background:none;border:0;border-radius:4px;color:var(--text);font:500 11.5px var(--font);padding:7px 9px;cursor:pointer;white-space:nowrap;}.menu-item:hover,.menu-item:focus{background:var(--accent);color:#fff;outline:none;}@media (max-width:370px){#platformSeg{display:grid;grid-template-columns:repeat(3,1fr);row-gap:2px;}#platformSeg>*{font-size:12px;}}.info-fold .kind{text-align:left;}.info-body .src{display:inline-block;margin-top:6px;}.build-head{justify-content:flex-start;gap:10px;min-width:0;}.build-head h2{flex:none;}.build-sum{color:#8a8a8a;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;}.batch-head{gap:10px;min-width:0;}.batch-head h2{flex:none;}.batch-head .build-sum{flex:1;}.batch-head #clearBatch{flex:none;}.info-fold{gap:10px;min-width:0;}.info-fold .info-title{flex:none;font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--text-2);}.info-fold .kind{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500;color:#8a8a8a;}.info-fold .kind.estimate{color:#ffb27a;}.info-fold .kind::before{flex:none;}.info-fold .kind{display:block;}.info-fold .kind::before{display:inline-block;margin-right:6px;vertical-align:0;}.meta-line{min-width:0;overflow:hidden;}html,body{scrollbar-width:none}::-webkit-scrollbar{display:none}*{cursor:default!important}</style></head><body> <header class="top"><div class="brand"><svg class="logo" viewBox="0 0 20 20" aria-hidden="true"><rect x="1.5" y="1.5" width="17" height="17" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="5" y="5" width="10" height="10" rx="1" fill="currentColor" opacity=".35"/></svg><span>Feedproof</span></div><span class="host-pill" id="hostPill">Preview</span></header><main><section class="gate" id="gate" hidden></section><div id="panelBody"><section class="trial-banner" id="trialBanner" role="status" hidden></section><section class="update-banner" id="updateBanner" role="status" aria-live="polite" hidden></section><section class="block"><div class="seg" id="platformSeg" role="tablist" aria-label="Platform"></div><div class="seg seg-ratio" id="ratioSeg" role="tablist" aria-label="Aspect ratio"></div><div class="combo-row" id="comboRow" hidden><span class="combo-label">Include</span><div class="chips" id="comboChips"></div></div><div class="row two"><label class="field"><span>Placement</span><select id="specSel"></select></label><label class="field"><span>Size</span><select id="sizeSel"></select></label></div><div class="row two custom-size" id="customRow" hidden><label class="field"><span>Width</span><input type="number" id="customW" min="16" max="16000" step="1"></label><label class="field"><span>Height</span><input type="number" id="customH" min="16" max="16000" step="1"></label></div><p class="warn" id="aspectWarn" hidden></p></section><section class="preview-wrap"><div class="preview" id="previewBox"><canvas id="preview"></canvas></div><div class="meta-line"><span class="fold info-fold" id="infoToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="infoBody" title="Show details"><span class="caret"></span><span class="info-title">Placement info</span><span class="kind" id="kindBadge"></span></span></div><div class="info-body" id="infoBody" hidden><p class="note" id="specNote"></p><a href="#" class="src" id="srcLink" target="_blank" rel="noopener">Source</a></div></section><section class="block"><div class="block-head"><h2 class="fold" id="measureToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="measure"><span class="caret"></span>Measurements</h2><button class="link" id="copyBtn" title="Copy measurements as text">Copy</button></div><table class="measure" id="measure"></table></section><section class="block"><div class="block-head build-head"><h2 class="fold" id="buildToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="buildBody"><span class="caret"></span>Build as</h2><span class="build-sum" id="buildSum"></span></div><div id="buildBody" hidden><div class="seg seg-small" id="modeSeg"><button data-mode="guides">Guides</button><button data-mode="mask">Mask layer</button><button data-mode="both">Both</button></div><div class="checks"><label class="check"><input type="checkbox" id="optOutline"><span>Safe-area outline</span></label><label class="check"><input type="checkbox" id="optLabels"><span>Zone labels</span></label><div class="ui-row" id="uiRow" hidden><label class="check"><input type="checkbox" id="optUi"><span>Platform UI preview</span></label><div class="chips" id="uiChips" hidden></div></div><p class="note ui-note" id="uiNote" hidden></p><label class="check host-ilst"><input type="checkbox" id="optOneDoc"><span>Batch → one doc, many artboards</span></label></div><div class="field"><span>Crop guides <em>visual interest — survives re-crops</em></span><div class="chips" id="cropChips"></div></div><div class="row two"><label class="field"><span>Mask opacity <b id="opVal">35%</b></span><input type="range" id="optOpacity" min="10" max="80" step="5"></label><label class="field"><span>Name prefix</span><input type="text" id="optPrefix" placeholder="e.g. ILY_"></label></div><div class="row two host-time"><label class="field"><span>Frame rate</span><select id="optFps"><option value="23.976">23.976</option><option value="24">24</option><option value="25">25</option><option value="29.97">29.97</option><option value="30">30</option><option value="50">50</option><option value="59.94">59.94</option><option value="60">60</option></select></label><label class="field host-dur"><span>Duration (sec)</span><input type="number" id="optDur" min="1" max="3600" step="1"></label></div></div></section><section class="actions"><button class="primary" id="createBtn">New Comp</button><div class="row two tight"><button class="secondary" id="applyBtn">Add to Active</button><button class="secondary" id="pngBtn">Export PNG</button></div><button class="ghost" id="toggleBtn">Show / hide overlays</button></section><section class="block"><div class="block-head batch-head"><h2 class="fold" id="batchToggle" role="button" tabindex="0" aria-expanded="false" aria-controls="batchBody"><span class="caret"></span>Deliverables batch <span class="count" id="batchCount">0</span></h2><span class="build-sum" id="batchSum"></span><button class="link" id="clearBatch">Clear</button></div><div id="batchBody" hidden><div class="row two tight"><button class="secondary" id="addBatch">+ Add current</button><div class="menu-wrap" id="quickSetWrap"><button class="secondary menu-btn" id="quickSetBtn" aria-haspopup="true" aria-expanded="false">+ Add a set…</button><div class="menu" id="quickSetMenu" role="menu" hidden></div></div></div><ul class="batch" id="batchList"></ul><button class="primary" id="createBatch" disabled>Create all</button></div></section><section class="about"><div class="copy">© 2026 Edgar Febus. All rights reserved. · <a href="https://edgarfebus.com" id="siteLink">edgarfebus.com</a></div><div class="meta-row"><span id="specsInfo"></span> · <button class="link" id="checkUpdates">Check for updates</button></div></section></div></main><footer class="status" id="status" role="status" aria-live="polite"></footer><div class="legal" id="legalBar" hidden></div> <script>(function(){
+var mem={}; var ls={getItem:function(k){return Object.prototype.hasOwnProperty.call(mem,k)?mem[k]:null},setItem:function(k,v){mem[k]=String(v)},removeItem:function(k){delete mem[k]},clear:function(){mem={}},key:function(i){return Object.keys(mem)[i]||null},get length(){return Object.keys(mem).length}};
+try{Object.defineProperty(window,'localStorage',{value:ls,configurable:true})}catch(e){}
+window.FP_LICENSE_CONFIG=null;
+var files={}; window.__fpFiles=files;
+window.Buffer={from:function(d){return {b64:d}}};
+var fs={mkdirSync:function(){},existsSync:function(){return true},readFileSync:function(){return ""},writeFileSync:function(p,b){files[p]=b&&b.b64?b.b64:String(b)}};
+var path={join:function(){return Array.prototype.join.call(arguments,'/')},basename:function(p){return String(p).split('/').pop()}};
+window.require=function(m){return m==='fs'?fs:m==='path'?path:m==='os'?{homedir:function(){return '/Users/you'}}:{exec:function(){}}};
+window.process={platform:'darwin',env:{}};
+window.__fpComp=null;
+function host(job){
+if(!job) return "OK|2.0.0|AEFT";
+if(job.action==='ping') return "OK|2.0.0|AEFT";
+if(job.action==='size') return window.__fpComp ? "OK|"+window.__fpComp.w+"|"+window.__fpComp.h+"|"+window.__fpComp.name : "NONE|Open or select a comp first.";
+if(job.action==='create'){ var it=job.items[0]; window.__fpComp={w:it.w,h:it.h,name:it.name}; window.__fpJob&&window.__fpJob(job); return "OK|Created "+job.items.length+" comp"+(job.items.length>1?"s":""); }
+if(job.action==='apply'){ window.__fpJob&&window.__fpJob(job); return "OK|Added "+job.items[0].title+" to \""+(window.__fpComp?window.__fpComp.name:"Comp 1")+"\""; }
+if(job.action==='toggle'){ return "OK|Hiding 2 overlay layers"; }
+return "OK|done";
+}
+window.__adobe_cep__={getHostEnvironment:function(){return JSON.stringify({appName:'AEFT',appVersion:'26.0'})},evalScript:function(s,cb){var m=/^FeedproofFX\.run\(([\s\S]*)\)$/.exec(s); var job=null; try{job=m?JSON.parse(m[1]):null}catch(e){} var r=host(job); setTimeout(function(){cb&&cb(r)},150)}};
+})();</script><script>(function (root) {
+var CHECKED = "Nov 2026";
+var SRC = {
+metaUnified: {
+title: "Meta Ads Guide — Reels/Stories safe zone (unified Mar 2026)",
+url: "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
+},
+metaStories: {
+title: "Meta Ads Guide — Stories (legacy 20% bottom)",
+url: "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
+},
+metaFeed: {
+title: "Meta Ads Guide — Feed (no UI over media)",
+url: "https://www.facebook.com/business/ads-guide/update"
+},
+tiktokInFeed: {
+title: "TikTok Auction In-Feed Ads — In-Feed Standard template (720×1280)",
+url: "https://ads.tiktok.com/help/article/tiktok-auction-in-feed-ads"
+},
+tiktokTopView: {
+title: "TikTok TopView ad specifications",
+url: "https://ads.tiktok.com/help/article/tiktok-reservation-topview"
+},
+tiktokCard: {
+title: "TikTok Download Card add-on — square safe zone (640×640)",
+url: "https://ads.tiktok.com/help/article/tiktok-interactive-add-on-download-card-ad-specifications"
+},
+ytUniversal: {
+title: "Google Ads Help — About video ad specs (universal safe zones)",
+url: "https://support.google.com/google-ads/answer/13547298"
+},
+ytShorts: {
+title: "Google — YouTube Shorts ads (red zones: top 10%, bottom 25%, right 10%)",
+url: "https://business.google.com/us/ad-solutions/youtube-ads/shorts-ads/"
+},
+ytDemandGen: {
+title: "Google Ads Help — Demand Gen asset specs (4:5 accepted, no safe zone published)",
+url: "https://support.google.com/google-ads/answer/13704860"
+},
+liVideo: {
+title: "LinkedIn Video Ads specs (sizes only — LinkedIn publishes no safe zone)",
+url: "https://business.linkedin.com/advertise/ads/sponsored-content/video-ads/specs"
+},
+pinVideo: {
+title: "Pinterest Help — Review Pin specs (video safe zone: 270 / 790 / 65 / 195 px on 1080×1920)",
+url: "https://help.pinterest.com/en/article/review-pin-specs"
+},
+pinAds: {
+title: "Pinterest Business — Ad product specs (2:3 standard, 1:1 / 16:9 max width video)",
+url: "https://help.pinterest.com/en/business/article/ads"
+}
+};
+var BUILTIN = [
+{
+id: "meta-916-unified",
+platform: "meta",
+ratio: "9:16",
+name: "Reels + Stories (unified)",
+kind: "ui",
+margins: { top: 0.14, bottom: 0.35, left: 0.06, right: 0.06 },
+labels: {
+top: "Profile · name · Sponsored",
+bottom: "Caption · CTA · likes/comments · audio",
+left: "Side margin",
+right: "Side margin"
+},
+extras: [],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920" },
+{ w: 1440, h: 2560, label: "1440 × 2560 (Meta recommended)" }
+],
+note: "One zone for Facebook + Instagram Reels and Stories since March 2026. Built on Reels, the tightest placement.",
+source: SRC.metaUnified
+},
+{
+id: "meta-916-stories",
+platform: "meta",
+ratio: "9:16",
+name: "Stories only (20% bottom)",
+kind: "ui",
+margins: { top: 0.14, bottom: 0.20, left: 0.06, right: 0.06 },
+labels: {
+top: "Profile · name · close",
+bottom: "CTA · reply bar",
+left: "Side margin",
+right: "Side margin"
+},
+extras: [],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920" },
+{ w: 1440, h: 2560, label: "1440 × 2560 (Meta recommended)" }
+],
+note: "Only safe if the ad will never run in Reels. Anything in the 20–35% band is covered in Reels.",
+source: SRC.metaStories
+},
+{
+id: "meta-916-disclaimer",
+platform: "meta",
+ratio: "9:16",
+name: "Reels with disclaimer (40% bottom)",
+kind: "ui",
+margins: { top: 0.14, bottom: 0.40, left: 0.06, right: 0.06 },
+labels: {
+top: "Profile · name · Sponsored",
+bottom: "Disclaimer · caption · CTA",
+left: "Side margin",
+right: "Side margin"
+},
+extras: [],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920" },
+{ w: 1440, h: 2560, label: "1440 × 2560 (Meta recommended)" }
+],
+note: "Meta's guidance for Reels ads that carry a disclaimer: keep the bottom 40% clear. Useful for pharma/regulated work.",
+source: SRC.metaUnified
+},
+{
+id: "meta-45-feed",
+platform: "meta",
+ratio: "4:5",
+name: "Feed (Facebook + Instagram)",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1350, label: "1080 × 1350" },
+{ w: 1440, h: 1800, label: "1440 × 1800 (Meta recommended)" }
+],
+note: "Meta draws no UI over Feed media — the margin is title-safe padding, not a platform requirement.",
+source: SRC.metaFeed
+},
+{
+id: "meta-11-feed",
+platform: "meta",
+ratio: "1:1",
+name: "Feed · Carousel · Marketplace",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1080, label: "1080 × 1080" },
+{ w: 1440, h: 1440, label: "1440 × 1440 (Meta recommended)" }
+],
+note: "No UI over the media. Margin is title-safe padding only.",
+source: SRC.metaFeed
+},
+{
+id: "meta-169-instream",
+platform: "meta",
+ratio: "16:9",
+name: "In-stream video",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+sizes: [
+{ w: 1920, h: 1080, label: "1920 × 1080" },
+{ w: 1280, h: 720, label: "1280 × 720 (minimum)" }
+],
+note: "No UI over the media. Margin is title-safe padding only.",
+source: SRC.metaFeed
+},
+{
+id: "tiktok-916-infeed",
+platform: "tiktok",
+ratio: "9:16",
+name: "In-Feed / Spark (standard)",
+kind: "ui",
+margins: { top: 160 / 1280, bottom: 440 / 1280, left: 80 / 720, right: 80 / 720 },
+labels: {
+top: "Following / For You · search",
+bottom: "Name · caption · Sponsored · CTA",
+left: "Side margin",
+right: "Side margin"
+},
+extras: [
+{ label: "Action rail — profile · like · comment · share", x1: 520 / 720, y1: 560 / 1280, x2: 640 / 720, y2: 1 }
+],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920 (TikTok recommended)" },
+{ w: 1440, h: 2560, label: "1440 × 2560 (same as Meta)" },
+{ w: 720, h: 1280, label: "720 × 1280 (template native)" },
+{ w: 2160, h: 3840, label: "2160 × 3840 (4K master)" }
+],
+note: "Verified pixel-for-pixel against TikTok's In-Feed Standard template (Feed.png, Apr 2025). Longer captions shrink the zone; use the anchor template if the ad carries an anchor.",
+source: SRC.tiktokInFeed
+},
+{
+id: "tiktok-916-topview",
+platform: "tiktok",
+ratio: "9:16",
+name: "TopView — first 3 seconds",
+kind: "ui",
+margins: { top: 160 / 1280, bottom: 160 / 1280, left: 80 / 720, right: 80 / 720 },
+labels: { top: "Open-screen UI", bottom: "Open-screen UI", left: "Side margin", right: "Side margin" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920 (TikTok recommended)" },
+{ w: 1440, h: 2560, label: "1440 × 2560 (same as Meta)" },
+{ w: 720, h: 1280, label: "720 × 1280 (template native)" }
+],
+note: "Open-screen phase only. After 3 s TopView switches to the In-Feed layout — design end frames to In-Feed.",
+source: SRC.tiktokTopView
+},
+{
+"id": "tiktok-916-rtl",
+"platform": "tiktok",
+"ratio": "9:16",
+"name": "In-Feed / TopView after 3 s — Arabic (RTL)",
+"kind": "ui",
+"margins": {
+"top": 0.125,
+"bottom": 0.34375,
+"left": 0.1111111111111111,
+"right": 0.1111111111111111
+},
+"labels": {
+"top": "Following / For You · search",
+"bottom": "Name · caption · Sponsored · CTA",
+"left": "Side margin",
+"right": "Side margin"
+},
+"extras": [
+{
+"label": "Action rail (RTL) — profile · like · comment · share",
+"x1": 0.1111111111111111,
+"y1": 0.4375,
+"x2": 0.2777777777777778,
+"y2": 1
+}
+],
+"sizes": [
+{
+"w": 1080,
+"h": 1920,
+"label": "1080 × 1920 (TikTok recommended)"
+},
+{
+"w": 1440,
+"h": 2560,
+"label": "1440 × 2560 (same as Meta)"
+},
+{
+"w": 720,
+"h": 1280,
+"label": "720 × 1280 (template native)"
+},
+{
+"w": 2160,
+"h": 3840,
+"label": "2160 × 3840 (4K master)"
+}
+],
+"note": "Right-to-left layout for the Arabic region: same zone as In-Feed with the action rail mirrored to the left. Verified against TikTok's TopView RTL (after 3-second) template, 720×1280.",
+"source": {
+"title": "TikTok TopView ad specifications — RTL safe zone templates",
+"url": "https://ads.tiktok.com/help/article/tiktok-reservation-topview"
+}
+},
+{
+id: "tiktok-11-infeed",
+platform: "tiktok",
+ratio: "1:1",
+name: "In-Feed square",
+kind: "estimate",
+margins: { top: 60 / 640, bottom: 130 / 640, left: 60 / 640, right: 140 / 640 },
+labels: { top: "Top margin", bottom: "Caption · CTA", left: "Side margin", right: "Action rail" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1080, label: "1080 × 1080" },
+{ w: 640, h: 640, label: "640 × 640 (minimum)" }
+],
+note: "TikTok ships square safe zones only as template files. These values come from its published square Download Card zone (60/130/60/140 px on 640×640). The In-Feed Standard zip ships only a vertical template, so this stays an estimate.",
+source: SRC.tiktokCard
+},
+{
+id: "tiktok-169-infeed",
+platform: "tiktok",
+ratio: "16:9",
+name: "In-Feed horizontal",
+kind: "estimate",
+margins: { top: 0.10, bottom: 0.20, left: 0.08, right: 0.15 },
+labels: { top: "Top margin", bottom: "Caption · CTA", left: "Side margin", right: "Action rail" },
+extras: [],
+sizes: [
+{ w: 1920, h: 1080, label: "1920 × 1080" },
+{ w: 960, h: 540, label: "960 × 540 (minimum)" }
+],
+note: "TikTok publishes no pixel values for 16:9 — this is a conservative placeholder. The In-Feed Standard zip ships only a vertical template, so check a platform preview before final delivery.",
+source: SRC.tiktokInFeed
+},
+{
+id: "yt-916-universal",
+platform: "youtube",
+ratio: "9:16",
+name: "Shorts + vertical ads (universal)",
+kind: "ui",
+margins: { top: 288 / 1920, bottom: 672 / 1920, left: 48 / 1080, right: 192 / 1080 },
+labels: {
+top: "Channel · Sponsored · search",
+bottom: "Title · CTA · ad info",
+left: "Side margin",
+right: "Like · comment · share"
+},
+extras: [],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920 (Google recommended)" },
+{ w: 1440, h: 2560, label: "1440 × 2560 (same as Meta)" },
+{ w: 2160, h: 3840, label: "2160 × 3840 (4K master)" },
+{ w: 720, h: 1280, label: "720 × 1280 (minimum)" }
+],
+note: "Google's universal vertical safe zone (288/672/48/192 px on 1080×1920) — one zone for Shorts ads and vertical in-stream / Demand Gen on every screen.",
+source: SRC.ytUniversal
+},
+{
+id: "yt-916-shorts-min",
+platform: "youtube",
+ratio: "9:16",
+name: "Shorts ads — minimum (10/25/10%)",
+kind: "ui",
+margins: { top: 0.10, bottom: 0.25, left: 0, right: 0.10 },
+labels: {
+top: "Channel name",
+bottom: "Caption · CTA",
+left: "",
+right: "Engagement buttons"
+},
+extras: [],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920 (Google recommended)" },
+{ w: 1440, h: 2560, label: "1440 × 2560 (same as Meta)" },
+{ w: 720, h: 1280, label: "720 × 1280 (minimum)" }
+],
+note: "Google's lighter Shorts-only guidance. Only safe if the ad runs in Shorts alone — the universal zone is stricter and covers every vertical placement.",
+source: SRC.ytShorts
+},
+{
+id: "yt-45-feed",
+platform: "youtube",
+ratio: "4:5",
+name: "Demand Gen vertical 4:5",
+kind: "estimate",
+margins: { top: 0.05, bottom: 387 / 1350, left: 48 / 1080, right: 192 / 1080 },
+labels: { top: "Title-safe padding", bottom: "Title · CTA · ad info", left: "Side margin", right: "Like · comment · share" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1350, label: "1080 × 1350 (Google recommended)" },
+{ w: 1440, h: 1800, label: "1440 × 1800 (same as Meta)" }
+],
+note: "Google accepts 4:5 but publishes no 4:5 safe zone. Estimate: the universal vertical zone applied to a 4:5 frame shown centred in the vertical player.",
+source: SRC.ytDemandGen
+},
+{
+id: "yt-11-square",
+platform: "youtube",
+ratio: "1:1",
+name: "Square ads",
+kind: "estimate",
+margins: { top: 0.05, bottom: 252 / 1080, left: 48 / 1080, right: 192 / 1080 },
+labels: { top: "Title-safe padding", bottom: "Title · CTA · ad info", left: "Side margin", right: "Like · comment · share" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1080, label: "1080 × 1080 (Google recommended)" },
+{ w: 1440, h: 1440, label: "1440 × 1440 (same as Meta)" },
+{ w: 480, h: 480, label: "480 × 480 (minimum)" }
+],
+note: "Google publishes the square zone only as an overlay image. Estimate until measured against it: the universal vertical zone applied to a square shown in the vertical player.",
+source: SRC.ytUniversal
+},
+{
+id: "yt-169-instream",
+platform: "youtube",
+ratio: "16:9",
+name: "In-stream + horizontal ads (universal)",
+kind: "ui",
+margins: { top: 38 / 1080, bottom: 387 / 1080, left: 58 / 1920, right: 162 / 1920 },
+labels: { top: "Top edge", bottom: "Ad badge · CTA · Skip · progress bar", left: "Side margin", right: "Side margin" },
+extras: [
+{ label: "Top-left notch — title · channel", x1: 0, y1: 0, x2: 496 / 1920, y2: 183 / 1080 },
+{ label: "Top-right notch — player icons", x1: (1920 - 479) / 1920, y1: 0, x2: 1, y2: 133 / 1080 }
+],
+sizes: [
+{ w: 1920, h: 1080, label: "1920 × 1080 (Google recommended)" },
+{ w: 3840, h: 2160, label: "3840 × 2160 (4K master)" },
+{ w: 1280, h: 720, label: "1280 × 720 (minimum)" }
+],
+note: "Google's universal horizontal safe zone (1920×1080): 38 px top, 387 bottom, 58 left, 162 right, plus top-corner notches of 496 × 183 (left) and 479 × 133 (right). Same zone on phone, TV, desktop and tablet.",
+source: SRC.ytUniversal
+},
+{
+id: "li-916-vertical",
+platform: "linkedin",
+ratio: "9:16",
+name: "Vertical video (full-screen viewer)",
+kind: "estimate",
+margins: { top: 0.10, bottom: 0.18, left: 0.06, right: 0.06 },
+labels: { top: "Close · sound · menu", bottom: "Name · caption · CTA · reactions", left: "Side margin", right: "Side margin" },
+extras: [],
+maxSide: 1920,
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920 (LinkedIn max)" },
+{ w: 720, h: 1280, label: "720 × 1280" }
+],
+note: "LinkedIn publishes no safe zone. Estimate from a third-party measurement of the full-screen vertical viewer (10% top, 18% bottom, 6% sides). LinkedIn rejects any side over 1920 px.",
+source: SRC.liVideo
+},
+{
+id: "li-45-feed",
+platform: "linkedin",
+ratio: "4:5",
+name: "Feed video",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+maxSide: 1920,
+sizes: [
+{ w: 1080, h: 1350, label: "1080 × 1350 (LinkedIn max)" },
+{ w: 720, h: 900, label: "720 × 900" }
+],
+note: "No UI over the media in the feed — the margin is title-safe padding. LinkedIn rejects any side over 1920 px.",
+source: SRC.liVideo
+},
+{
+id: "li-11-feed",
+platform: "linkedin",
+ratio: "1:1",
+name: "Feed video",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+maxSide: 1920,
+sizes: [
+{ w: 1080, h: 1080, label: "1080 × 1080" },
+{ w: 1920, h: 1920, label: "1920 × 1920 (LinkedIn max)" }
+],
+note: "No UI over the media in the feed — the margin is title-safe padding. LinkedIn rejects any side over 1920 px.",
+source: SRC.liVideo
+},
+{
+id: "li-169-feed",
+platform: "linkedin",
+ratio: "16:9",
+name: "Feed video",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+maxSide: 1920,
+sizes: [
+{ w: 1920, h: 1080, label: "1920 × 1080 (LinkedIn max)" },
+{ w: 1280, h: 720, label: "1280 × 720" }
+],
+note: "No UI over the media in the feed — the margin is title-safe padding. LinkedIn rejects any side over 1920 px.",
+source: SRC.liVideo
+},
+{
+id: "pin-916-video",
+platform: "pinterest",
+ratio: "9:16",
+name: "Full-screen video (Idea / video Pin)",
+kind: "ui",
+margins: { top: 270 / 1920, bottom: 790 / 1920, left: 65 / 1080, right: 195 / 1080 },
+labels: { top: "Back · options", bottom: "Name · title · Visit site · Save", left: "Side margin", right: "React · comment · share" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1920, label: "1080 × 1920 (Pinterest recommended)" },
+{ w: 720, h: 1280, label: "720 × 1280" }
+],
+note: "Pinterest's own safe zone for full-screen video Pins: 270 px top, 790 px bottom, 65 px left and 195 px right on 1080×1920.",
+source: SRC.pinVideo
+},
+{
+id: "pin-23-standard",
+platform: "pinterest",
+ratio: "2:3",
+name: "Standard Pin (image or video)",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+sizes: [
+{ w: 1000, h: 1500, label: "1000 × 1500 (Pinterest recommended)" },
+{ w: 1080, h: 1620, label: "1080 × 1620" }
+],
+note: "Pinterest's recommended ad size. In the feed the title, Promoted label and Save button sit below the Pin, and Pinterest rounds its corners. Pins taller than 2:3 can be cut off in the feed. The margin is title-safe padding.",
+source: SRC.pinAds
+},
+{
+id: "pin-45-standard",
+platform: "pinterest",
+ratio: "4:5",
+name: "Vertical Pin (image or video)",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+sizes: [
+{ w: 1080, h: 1350, label: "1080 × 1350" },
+{ w: 1000, h: 1250, label: "1000 × 1250" }
+],
+note: "Pinterest accepts 4:5 Pins (ads take anything from 1:2 to 1.91:1), though it recommends 2:3. The title and buttons sit below the Pin, and Pinterest rounds its corners. The margin is title-safe padding.",
+source: SRC.pinVideo
+},
+{
+id: "pin-11-standard",
+platform: "pinterest",
+ratio: "1:1",
+name: "Square Pin / max width video",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+sizes: [
+{ w: 1000, h: 1000, label: "1000 × 1000" },
+{ w: 1080, h: 1080, label: "1080 × 1080" }
+],
+note: "Square standard and max width video ads. The title and buttons sit below the Pin, and Pinterest rounds its corners. The margin is title-safe padding.",
+source: SRC.pinAds
+},
+{
+id: "pin-169-maxwidth",
+platform: "pinterest",
+ratio: "16:9",
+name: "Max width video",
+kind: "comfort",
+margins: { top: 0.05, bottom: 0.05, left: 0.05, right: 0.05 },
+labels: { top: "Title-safe 90%", bottom: "Title-safe 90%", left: "", right: "" },
+extras: [],
+sizes: [
+{ w: 1920, h: 1080, label: "1920 × 1080" },
+{ w: 1280, h: 720, label: "1280 × 720" }
+],
+note: "Max width video spans the full width of the feed (awareness and video-view campaigns). The title and buttons sit below the video. The margin is title-safe padding.",
+source: SRC.pinAds
+}
+];
+var PNAME = { meta: "Meta", tiktok: "TikTok", youtube: "YouTube", linkedin: "LinkedIn", pinterest: "Pinterest" };
+var PLETTER = { meta: "m", tiktok: "t", youtube: "y", linkedin: "l", pinterest: "p" };
+function union(parts, ratio) {
+var sides = ["top", "bottom", "left", "right"];
+var RANK = { ui: 0, comfort: 1, estimate: 2 };          // on a tie, the more certain spec sets the edge
+var m = {}, labels = {}, setters = [];
+sides.forEach(function (side) {
+var best = parts[0];
+parts.forEach(function (p) {
+var d = p.margins[side] - best.margins[side];
+if (d > 1e-9 || (Math.abs(d) <= 1e-9 && RANK[p.kind] < RANK[best.kind])) best = p;
+});
+m[side] = best.margins[side];
+labels[side] = best.labels[side];
+if (setters.indexOf(best) < 0) setters.push(best);
+});
+parts.forEach(function (p) { if ((p.extras || []).length && setters.indexOf(p) < 0) setters.push(p); });
+var seen = {}, sizes = [], extras = [], maxSide = null;
+parts.forEach(function (p) { if (p.maxSide && (maxSide === null || p.maxSide < maxSide)) maxSide = p.maxSide; });
+parts.forEach(function (p) {
+p.sizes.forEach(function (s) {
+var k = s.w + "x" + s.h;
+if (maxSide && Math.max(s.w, s.h) > maxSide) return;     // a size one of the platforms rejects
+if (!seen[k]) { seen[k] = 1; sizes.push({ w: s.w, h: s.h, label: s.w + " × " + s.h }); }
+});
+extras = extras.concat(p.extras || []);
+});
+var kinds = setters.map(function (p) { return p.kind; });
+var kind = kinds.indexOf("estimate") >= 0 ? "estimate" : kinds.indexOf("ui") >= 0 ? "ui" : "comfort";
+var names = parts.map(function (p) { return PNAME[p.platform]; });
+return {
+id: comboId(ratio, parts.map(function (p) { return p.platform; })),
+platform: "combo",
+platforms: parts.map(function (p) { return p.platform; }),
+ratio: ratio,
+name: names.join(" + "),
+kind: kind,
+margins: m,
+labels: labels,
+extras: extras,
+sizes: sizes,
+maxSide: maxSide,
+note: "Strictest edge of " + parts.map(function (p) { return p.name + " (" + PNAME[p.platform] + ")"; }).join(", ") +
+". One master that clears " + (parts.length === 2 ? "both UIs." : "all " + parts.length + " UIs.") +
+(maxSide ? " Sizes capped at " + maxSide + " px for LinkedIn." : ""),
+source: null,
+sources: parts.map(function (p) { return p.source; }),
+parents: parts.map(function (p) { return p.id; })
+};
+}
+var SPECS_VERSION = "2026-11-19";   // date of the built-in spec data (YYYY-MM-DD)
+var RATIOS = ["9:16", "2:3", "4:5", "1:1", "16:9"];
+var PLATFORM_IDS = ["meta", "tiktok", "youtube", "linkedin", "pinterest"];
+var PRIMARY = {
+"9:16": { meta: "meta-916-unified", tiktok: "tiktok-916-infeed", youtube: "yt-916-universal", linkedin: "li-916-vertical", pinterest: "pin-916-video" },
+"2:3":  { pinterest: "pin-23-standard" },
+"4:5":  { meta: "meta-45-feed", youtube: "yt-45-feed", linkedin: "li-45-feed", pinterest: "pin-45-standard" },
+"1:1":  { meta: "meta-11-feed", tiktok: "tiktok-11-infeed", youtube: "yt-11-square", linkedin: "li-11-feed", pinterest: "pin-11-standard" },
+"16:9": { meta: "meta-169-instream", tiktok: "tiktok-169-infeed", youtube: "yt-169-instream", linkedin: "li-169-feed", pinterest: "pin-169-maxwidth" }
+};
+var COMBOS = (function () {
+var out = [], n = PLATFORM_IDS.length;
+for (var mask = 1; mask < (1 << n); mask++) {
+var set = [];
+for (var b = 0; b < n; b++) if (mask & (1 << b)) set.push(PLATFORM_IDS[b]);
+if (set.length >= 2) out.push(set);
+}
+return out.sort(function (a, b) { return b.length - a.length; });
+})();
+function comboId(ratio, platforms) {
+var letters = "";
+for (var i = 0; i < PLATFORM_IDS.length; i++) if (platforms.indexOf(PLATFORM_IDS[i]) >= 0) letters += PLETTER[PLATFORM_IDS[i]];
+return "combo-" + ratio.replace(":", "") + "-" + letters;
+}
+var SPECS = [];                         // active list (mutated in place by load)
+var ACTIVE = { version: SPECS_VERSION, source: "built-in", checked: CHECKED };
+function findIn(list, id) {
+for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+return null;
+}
+function byId(id) { return findIn(SPECS, id); }
+function isNum(v, lo, hi) { return typeof v === "number" && isFinite(v) && v >= lo && v <= hi; }
+function isStr(v, max) { return typeof v === "string" && v.length <= max; }
+function validate(list) {
+if (!Array.isArray(list) || !list.length || list.length > 60) return false;
+var seen = {}, known = 0;
+for (var i = 0; i < list.length; i++) {
+var s = list[i];
+if (!s || typeof s !== "object") return false;
+if (!isStr(s.id, 60) || !/^[a-z0-9-]+$/.test(s.id) || seen[s.id]) return false;
+seen[s.id] = 1;
+if (PLATFORM_IDS.indexOf(s.platform) < 0) continue;   // a platform added after this version: skipped, not fatal
+known++;
+if (RATIOS.indexOf(s.ratio) < 0) return false;
+if (["ui", "comfort", "estimate"].indexOf(s.kind) < 0) return false;
+if (!isStr(s.name, 80) || !isStr(s.note || "", 600)) return false;
+var m = s.margins;
+if (!m || !isNum(m.top, 0, 0.6) || !isNum(m.bottom, 0, 0.6) || !isNum(m.left, 0, 0.45) || !isNum(m.right, 0, 0.45)) return false;
+if (m.top + m.bottom >= 0.9 || m.left + m.right >= 0.9) return false;
+if (!s.labels || typeof s.labels !== "object") return false;
+var sides = ["top", "bottom", "left", "right"];
+for (var k = 0; k < 4; k++) if (!isStr(s.labels[sides[k]] || "", 80)) return false;
+if (!Array.isArray(s.sizes) || !s.sizes.length || s.sizes.length > 8) return false;
+for (var j = 0; j < s.sizes.length; j++) {
+var z = s.sizes[j];
+if (!z || !isNum(z.w, 16, 16000) || !isNum(z.h, 16, 16000) || z.w % 1 || z.h % 1 || !isStr(z.label, 60)) return false;
+}
+var ex = s.extras || [];
+if (!Array.isArray(ex) || ex.length > 6) return false;
+for (var e = 0; e < ex.length; e++) {
+var x = ex[e];
+if (!x || !isStr(x.label, 80) || !isNum(x.x1, 0, 1) || !isNum(x.y1, 0, 1) || !isNum(x.x2, 0, 1) || !isNum(x.y2, 0, 1) || x.x2 <= x.x1 || x.y2 <= x.y1) return false;
+}
+if (s.source != null) {
+if (!isStr(s.source.title, 160) || !isStr(s.source.url, 400) || !/^https:\/\//.test(s.source.url)) return false;
+}
+if (s.maxSide != null && (!isNum(s.maxSide, 16, 16000) || s.maxSide % 1)) return false;
+}
+return known > 0;
+}
+function compile(base) {
+var out = base.slice();
+RATIOS.forEach(function (r) {
+var prim = PRIMARY[r] || {};
+COMBOS.forEach(function (combo) {
+var parts = [];
+for (var i = 0; i < combo.length; i++) {
+var sp = prim[combo[i]] && findIn(base, prim[combo[i]]);
+if (!sp) return;              // a platform without this ratio → skip the combo
+parts.push(sp);
+}
+out.push(union(parts, r));
+});
+});
+return out;
+}
+function load(base, meta) {
+if (!validate(base)) return false;
+var list = base.filter(function (s) { return PLATFORM_IDS.indexOf(s.platform) >= 0; });
+var have = {};
+list.forEach(function (s) { have[s.platform] = 1; });
+if (base !== BUILTIN) BUILTIN.forEach(function (s) { if (!have[s.platform]) list.push(s); });
+var compiled = compile(list);
+SPECS.length = 0;
+compiled.forEach(function (s) { SPECS.push(s); });
+ACTIVE = meta;
+return true;
+}
+load(BUILTIN, { version: SPECS_VERSION, source: "built-in", checked: CHECKED });
+var api = {
+SPECS: SPECS,
+BUILTIN: BUILTIN,
+SPECS_VERSION: SPECS_VERSION,
+byId: byId,
+load: load,
+validate: validate,
+active: function () { return ACTIVE; },
+RATIOS: RATIOS,
+PLATFORMS: [
+{ id: "meta", label: "Meta" },
+{ id: "tiktok", label: "TikTok" },
+{ id: "youtube", label: "YouTube" },
+{ id: "linkedin", label: "LinkedIn" },
+{ id: "pinterest", label: "Pinterest" },
+{ id: "combo", label: "Combined" }
+],
+PLATFORM_NAMES: PNAME,
+PLATFORM_IDS: PLATFORM_IDS,
+comboId: comboId,
+combo: function (ratio, platforms) {
+var avail = [];
+for (var i = 0; i < PLATFORM_IDS.length; i++) {
+var p = PLATFORM_IDS[i];
+if (platforms.indexOf(p) >= 0 && PRIMARY[ratio] && PRIMARY[ratio][p] && byId(PRIMARY[ratio][p])) avail.push(p);
+}
+return avail.length >= 2 ? byId(comboId(ratio, avail)) : null;
+},
+hasRatio: function (platform, ratio) { return !!(PRIMARY[ratio] && PRIMARY[ratio][platform] && byId(PRIMARY[ratio][platform])); },
+forPlatformRatio: function (platform, ratio) {
+return SPECS.filter(function (s) { return s.platform === platform && s.ratio === ratio; });
+}
+};
+if (typeof module !== "undefined" && module.exports) module.exports = api;
+root.SZSpecs = api;
+})(typeof window !== "undefined" ? window : this);;
+(function (root) {
+function r(n) { return Math.round(n); }
+function ratioValue(str) {
+var p = String(str).split(":");
+return parseFloat(p[0]) / parseFloat(p[1]);
+}
+function clipRect(a, b) {
+var x1 = Math.max(a.x, b.x), y1 = Math.max(a.y, b.y);
+var x2 = Math.min(a.x + a.w, b.x + b.w), y2 = Math.min(a.y + a.h, b.y + b.h);
+if (x2 <= x1 || y2 <= y1) return null;
+return { x: x1, y: y1, w: x2 - x1, h: y2 - y1 };
+}
+function uniq(arr) {
+var seen = {}, out = [];
+for (var i = 0; i < arr.length; i++) {
+var v = arr[i];
+if (!seen[v]) { seen[v] = 1; out.push(v); }
+}
+return out.sort(function (a, b) { return a - b; });
+}
+function build(spec, W, H, opts) {
+opts = opts || {};
+var m = spec.margins;
+var top = r(m.top * H), bottom = r(m.bottom * H);
+var left = r(m.left * W), right = r(m.right * W);
+var midH = H - top - bottom;
+var safe = { x: left, y: top, w: W - left - right, h: midH };
+var kind = spec.kind;
+var zones = [];
+function push(id, label, x, y, w, h, extra) {
+if (w <= 0 || h <= 0) return;
+zones.push({ id: id, label: label, x: x, y: y, w: w, h: h, kind: kind, extra: !!extra });
+}
+push("top", spec.labels.top, 0, 0, W, top);
+push("bottom", spec.labels.bottom, 0, H - bottom, W, bottom);
+push("left", spec.labels.left, 0, top, left, midH);
+push("right", spec.labels.right, W - right, top, right, midH);
+var gx = [left, W - right], gy = [top, H - bottom];
+(spec.extras || []).forEach(function (e, i) {
+var raw = { x: r(e.x1 * W), y: r(e.y1 * H), w: r((e.x2 - e.x1) * W), h: r((e.y2 - e.y1) * H) };
+var c = clipRect(raw, safe);
+if (!c) return;
+push("extra" + i, e.label, c.x, c.y, c.w, c.h, true);
+if (c.x > safe.x) gx.push(c.x);
+if (c.x + c.w < safe.x + safe.w) gx.push(c.x + c.w);
+if (c.y > safe.y) gy.push(c.y);
+if (c.y + c.h < safe.y + safe.h) gy.push(c.y + c.h);
+});
+var crops = [];
+var R = W / H;
+(opts.crops || []).forEach(function (rs) {
+var t = ratioValue(rs);
+if (Math.abs(t - R) < 0.005) return; // same ratio as frame
+var cw, ch;
+if (t < R) { ch = H; cw = r(H * t); } else { cw = W; ch = r(W / t); }
+crops.push({ ratio: rs, label: rs + " centre crop", x: r((W - cw) / 2), y: r((H - ch) / 2), w: cw, h: ch });
+});
+return {
+W: W, H: H,
+spec: spec.id, kind: kind,
+margins: { top: top, bottom: bottom, left: left, right: right },
+safe: safe,
+zones: zones,
+guidesX: uniq(gx).filter(function (v) { return v > 0 && v < W; }),
+guidesY: uniq(gy).filter(function (v) { return v > 0 && v < H; }),
+crops: crops
+};
+}
+function aspectMatches(spec, W, H) {
+return Math.abs(ratioValue(spec.ratio) - W / H) < 0.01;
+}
+var api = { build: build, ratioValue: ratioValue, aspectMatches: aspectMatches };
+if (typeof module !== "undefined" && module.exports) module.exports = api;
+root.SZGeometry = api;
+})(typeof window !== "undefined" ? window : this);;
+(function (root) {
+var COLORS = {
+ui: "#ff3b30",
+estimate: "#ff7a1a",
+comfort: "#ffb020",
+safe: "#2fd16b",
+guide: "#22c3ff",
+crop: "#e45cff",
+label: "#ffffff"
+};
+function hexToRgb(hex) {
+var h = hex.replace("#", "");
+return [parseInt(h.substr(0, 2), 16), parseInt(h.substr(2, 2), 16), parseInt(h.substr(4, 2), 16)];
+}
+function rgba(hex, a) {
+var c = hexToRgb(hex);
+return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a + ")";
+}
+function zoneColor(kind) {
+return COLORS.ui;
+}
+function draw(ctx, g, opts) {
+var s = opts.scale || 1;
+var W = g.W * s, H = g.H * s;
+var op = (opts.opacity == null ? 35 : opts.opacity) / 100;
+var showMask = opts.mode !== "guides";
+var showGuides = opts.mode !== "mask";
+ctx.save();
+ctx.clearRect(0, 0, W, H);
+if (opts.background) {
+var grd = ctx.createLinearGradient(0, 0, W, H);
+grd.addColorStop(0, "#2a2d34");
+grd.addColorStop(1, "#16181c");
+ctx.fillStyle = grd;
+ctx.fillRect(0, 0, W, H);
+ctx.strokeStyle = "rgba(255,255,255,0.05)";
+ctx.lineWidth = 1;
+for (var i = 1; i < 10; i++) {
+ctx.beginPath(); ctx.moveTo(Math.round(W * i / 10) + 0.5, 0); ctx.lineTo(Math.round(W * i / 10) + 0.5, H); ctx.stroke();
+ctx.beginPath(); ctx.moveTo(0, Math.round(H * i / 10) + 0.5); ctx.lineTo(W, Math.round(H * i / 10) + 0.5); ctx.stroke();
+}
+}
+if (showMask) {
+g.zones.forEach(function (z) {
+var col = zoneColor(z.kind);
+ctx.fillStyle = rgba(col, z.kind === "comfort" ? op * 0.7 : op);
+ctx.fillRect(z.x * s, z.y * s, z.w * s, z.h * s);
+if (opts.hatch && z.kind !== "comfort") {
+ctx.save();
+ctx.beginPath();
+ctx.rect(z.x * s, z.y * s, z.w * s, z.h * s);
+ctx.clip();
+ctx.strokeStyle = rgba(col, Math.min(1, op + 0.15));
+ctx.lineWidth = Math.max(1, 1.2 * (opts.hatchWidth || 1));
+var step = Math.max(6, 10 * (opts.hatchStep || 1));
+for (var d = -H; d < W + H; d += step) {
+ctx.beginPath();
+ctx.moveTo(d, 0); ctx.lineTo(d + H, H);
+ctx.stroke();
+}
+ctx.restore();
+}
+});
+}
+if (g.crops && g.crops.length) {
+ctx.save();
+ctx.lineWidth = Math.max(1.5, 2 * s * (opts.exportLine || 1));
+ctx.setLineDash([Math.max(4, 14 * s), Math.max(3, 9 * s)]);
+g.crops.forEach(function (c) {
+ctx.strokeStyle = c.hex || COLORS.crop;
+ctx.strokeRect(c.x * s + ctx.lineWidth / 2, c.y * s + ctx.lineWidth / 2, c.w * s - ctx.lineWidth, c.h * s - ctx.lineWidth);
+});
+ctx.restore();
+}
+if (showGuides) {
+ctx.save();
+ctx.strokeStyle = COLORS.guide;
+ctx.lineWidth = Math.max(1, s * (opts.exportLine || 1));
+g.guidesX.forEach(function (x) {
+var px = Math.round(x * s) + 0.5;
+ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, H); ctx.stroke();
+});
+g.guidesY.forEach(function (y) {
+var py = Math.round(y * s) + 0.5;
+ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(W, py); ctx.stroke();
+});
+ctx.restore();
+}
+if (opts.outline) {
+ctx.save();
+ctx.strokeStyle = COLORS.safe;
+ctx.lineWidth = Math.max(1.5, 3 * s * (opts.exportLine || 1));
+var sa = g.safe;
+ctx.strokeRect(sa.x * s + ctx.lineWidth / 2, sa.y * s + ctx.lineWidth / 2, sa.w * s - ctx.lineWidth, sa.h * s - ctx.lineWidth);
+ctx.restore();
+}
+if (opts.labels) {
+var fs = Math.max(9, Math.round(Math.min(g.W, g.H) * 0.026 * s));
+ctx.font = "600 " + fs + "px -apple-system, 'Segoe UI', Roboto, sans-serif";
+ctx.textBaseline = "top";
+g.zones.forEach(function (z) {
+if (!z.label) return;
+var zw = z.w * s, zh = z.h * s;
+if (zh < fs * 1.6 || zw < fs * 8) return; // too narrow to label legibly
+var pad = Math.max(4, fs * 0.5);
+var text = z.label;
+var px = zoneMeasure(z, g);
+var maxW = zw - pad * 2;
+if (ctx.measureText(text).width > maxW) {
+while (text.length > 4 && ctx.measureText(text + "…").width > maxW) text = text.slice(0, -1);
+text += "…";
+}
+ctx.fillStyle = "rgba(0,0,0,0.55)";
+var tw = ctx.measureText(text).width;
+var tx = z.x * s + pad, ty = z.y * s + pad;
+ctx.fillRect(tx - 3, ty - 2, tw + 6, fs + 4);
+ctx.fillStyle = COLORS.label;
+ctx.fillText(text, tx, ty);
+if (zh > fs * 3.2) {
+ctx.font = "500 " + Math.round(fs * 0.85) + "px -apple-system, 'Segoe UI', Roboto, sans-serif";
+ctx.fillStyle = "rgba(255,255,255,0.85)";
+ctx.fillText(px, tx, ty + fs + 6);
+ctx.font = "600 " + fs + "px -apple-system, 'Segoe UI', Roboto, sans-serif";
+}
+});
+}
+ctx.restore();
+}
+function zoneMeasure(z, g) {
+if (z.id === "top" || z.id === "bottom") return z.h + " px (" + Math.round(z.h / g.H * 1000) / 10 + "%)";
+if (z.id === "left" || z.id === "right") return z.w + " px (" + Math.round(z.w / g.W * 1000) / 10 + "%)";
+return z.w + " × " + z.h + " px";
+}
+var api = { draw: draw, COLORS: COLORS, hexToRgb: hexToRgb, zoneMeasure: zoneMeasure };
+if (typeof module !== "undefined" && module.exports) module.exports = api;
+root.SZRender = api;
+})(typeof window !== "undefined" ? window : this);;
+(function (root) {
+"use strict";
+var FONT = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', Roboto, Arial, sans-serif";
+var ICONS = {
+heart: "M12 20.5S3 15.2 3 9.2C3 6.3 5.2 4 8 4c1.7 0 3.1.8 4 2.1C12.9 4.8 14.3 4 16 4c2.8 0 5 2.3 5 5.2 0 6-9 11.3-9 11.3z",
+comment: "M12 3.5c5 0 9 3.6 9 8s-4 8-9 8c-1.3 0-2.6-.2-3.7-.7L3.5 20.5l1.4-4.2C3.7 15 3 13.3 3 11.5c0-4.4 4-8 9-8z",
+send: "M21 3 10.2 13.8M21 3l-6.8 18-4-7.2L3 9.8z",
+repost: "M17 3l3.5 3.5L17 10M3.5 12V9.5a3 3 0 0 1 3-3h14M7 21l-3.5-3.5L7 14M20.5 12v2.5a3 3 0 0 1-3 3h-14",
+bookmark: "M6.5 3.5h11v17L12 16.4l-5.5 4.1z",
+shareArrow: "M13.5 4.5 21 11.5l-7.5 7v-4C8 14.5 5 16 3 20c.5-6 3.6-10.6 10.5-11.5z",
+shareCurve: "M14 4.5l6.5 6.5-6.5 6.5M20.5 11H11a7.5 7.5 0 0 0-7.5 7.5v1",
+thumbUp: "M7.5 20.5h-3a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3zM7.5 10.5l3.8-7c1.6 0 2.9 1.3 2.9 2.9V9h5a2 2 0 0 1 2 2.4l-1.3 7.3a2 2 0 0 1-2 1.8H7.5",
+remix: "M4 12a8 8 0 0 1 13.8-5.5L20 8.5M20 3.5v5h-5M20 12a8 8 0 0 1-13.8 5.5L4 15.5M4 20.5v-5h5",
+back: "M20 12H4.5M10.5 5.5 4 12l6.5 6.5",
+search: "M10.5 17.5a7 7 0 1 1 0-14 7 7 0 0 1 0 14zM15.6 15.6 21 21",
+camera: "M3 8.5h4l2-3h6l2 3h4v11H3zM12 16.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z",
+speaker: "M4 9.5h3.5L13 5v14l-5.5-4.5H4zM16.5 8.8a4.5 4.5 0 0 1 0 6.4M19 6.3a8 8 0 0 1 0 11.4",
+mute: "M4 9.5h3.5L13 5v14l-5.5-4.5H4zM16.5 9.5l5 5M21.5 9.5l-5 5",
+music: "M9 18V5.5l11-2v12.5M9 18a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0zM20 16a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z",
+close: "M5.5 5.5l13 13M18.5 5.5l-13 13",
+plus: "M12 5v14M5 12h14",
+shareUp: "M12 15V3.5M7.5 8 12 3.5 16.5 8M5 12.5V20h14v-7.5",
+chevRight: "M9.5 5.5 16 12l-6.5 6.5",
+chevUp: "M5.5 15 12 8.5l6.5 6.5",
+chevDown: "M6 9.5 12 15.5l6-6",
+play: "M7 4.5v15l12.5-7.5z",
+skipNext: "M5 5v14l10-7zM18 5v14",
+fullscreen: "M3.5 9V3.5H9M15 3.5h5.5V9M20.5 15v5.5H15M9 20.5H3.5V15",
+info: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 11v6M12 7.6v.4",
+home: "M3.5 10.8 12 3.5l8.5 7.3V20.5H15V14.5H9v6H3.5z",
+friends: "M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20a6.5 6.5 0 0 1 13 0M16 4.3a3.5 3.5 0 0 1 0 6.4M18 13.5a6.5 6.5 0 0 1 3.5 6.5",
+inbox: "M4 4.5h16v11H13l-4 4v-4H4z",
+profile: "M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4.5 20.5a7.5 7.5 0 0 1 15 0",
+tv: "M3.5 7.5h17v12h-17zM8.5 3l3.5 4.5L15.5 3",
+cc: "M3.5 5.5h17v13h-17zM10.5 10a2.2 2.2 0 1 0 0 4M17 10a2.2 2.2 0 1 0 0 4"
+};
+var PATHS = {};
+function path(name) {
+if (!PATHS[name]) PATHS[name] = (typeof Path2D !== "undefined") ? new Path2D(ICONS[name]) : null;
+return PATHS[name];
+}
+function kit(ctx, u) {
+function shadow(on) {
+ctx.shadowColor = on ? "rgba(0,0,0,0.45)" : "transparent";
+ctx.shadowBlur = on ? 6 * u * (ctx.getTransform ? ctx.getTransform().a : 1) : 0;
+ctx.shadowOffsetY = on ? 1 * u : 0;
+}
+var k = {
+u: u,
+icon: function (name, cx, cy, size, o) {
+o = o || {};
+var p = path(name);
+if (!p) return;
+ctx.save();
+shadow(o.shadow !== false);
+ctx.translate(cx - size / 2, cy - size / 2);
+ctx.scale(size / 24, size / 24);
+ctx.lineCap = "round"; ctx.lineJoin = "round";
+if (o.fill) { ctx.fillStyle = o.color || "#fff"; ctx.fill(p); }
+else { ctx.strokeStyle = o.color || "#fff"; ctx.lineWidth = o.weight || 2; ctx.stroke(p); }
+ctx.restore();
+},
+text: function (str, x, y, size, o) {
+o = o || {};
+ctx.save();
+shadow(o.shadow !== false);
+ctx.font = (o.weight || 400) + " " + size + "px " + FONT;
+ctx.fillStyle = o.color || "#fff";
+ctx.textAlign = o.align || "left";
+ctx.textBaseline = "middle";
+var s = String(str);
+if (o.maxW) {
+while (s.length > 4 && ctx.measureText(s).width > o.maxW) s = s.slice(0, -2);
+if (s !== String(str)) s = s.replace(/\s*\S?$/, "") + "\u2026";
+}
+ctx.fillText(s, x, y);
+var w = ctx.measureText(s).width;
+ctx.restore();
+return w;
+},
+measure: function (str, size, weight) {
+ctx.save();
+ctx.font = (weight || 400) + " " + size + "px " + FONT;
+var w = ctx.measureText(String(str)).width;
+ctx.restore();
+return w;
+},
+rect: function (x, y, w, h, r, fill, stroke, lw) {
+ctx.save();
+ctx.beginPath();
+r = Math.min(r, w / 2, h / 2);
+ctx.moveTo(x + r, y);
+ctx.arcTo(x + w, y, x + w, y + h, r);
+ctx.arcTo(x + w, y + h, x, y + h, r);
+ctx.arcTo(x, y + h, x, y, r);
+ctx.arcTo(x, y, x + w, y, r);
+ctx.closePath();
+if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 2 * u; ctx.stroke(); }
+ctx.restore();
+},
+circle: function (cx, cy, r, fill, stroke, lw) {
+ctx.save();
+ctx.beginPath();
+ctx.arc(cx, cy, r, 0, Math.PI * 2);
+if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 2 * u; ctx.stroke(); }
+ctx.restore();
+},
+avatar: function (cx, cy, r, ring) {
+k.circle(cx, cy, r, "#c9ced6", ring ? "#fff" : null, ring ? Math.max(2 * u, r * 0.08) : 0);
+ctx.save();
+ctx.beginPath(); ctx.arc(cx, cy, r * 0.92, 0, Math.PI * 2); ctx.clip();
+ctx.fillStyle = "#8c939e";
+ctx.beginPath(); ctx.arc(cx, cy - r * 0.18, r * 0.36, 0, Math.PI * 2); ctx.fill();
+ctx.beginPath(); ctx.ellipse(cx, cy + r * 0.78, r * 0.68, r * 0.52, 0, 0, Math.PI * 2); ctx.fill();
+ctx.restore();
+},
+dots: function (cx, cy, size, vertical, color) {
+ctx.save();
+shadow(true);
+ctx.fillStyle = color || "#fff";
+var g = size * 0.32, r = size * 0.085;
+for (var i = -1; i <= 1; i++) {
+ctx.beginPath();
+ctx.arc(cx + (vertical ? 0 : i * g), cy + (vertical ? i * g : 0), r, 0, Math.PI * 2);
+ctx.fill();
+}
+ctx.restore();
+},
+ctx: ctx
+};
+return k;
+}
+var L = {};
+L.metaReels = function (k, W, H, m, extra) {
+var u = k.u, b = H;
+k.text("Reels", 44 * u, 118 * u, 54 * u, { weight: 700 });
+k.icon("chevDown", (44 + k.measure("Reels", 54 * u, 700) / u + 26) * u, 122 * u, 34 * u, { weight: 2.6 });
+k.icon("camera", W - 62 * u, 118 * u, 58 * u, { weight: 1.9 });
+var rx = W - 66 * u, ic = 60 * u, step = 128 * u, y0 = b - 640 * u;
+var rail = [["heart", "12.4K"], ["comment", "318"], ["repost", "86"], ["send", "1,024"]];
+rail.forEach(function (it, i) {
+var y = y0 + i * step;
+k.icon(it[0], rx, y, ic, { weight: 1.9 });
+k.text(it[1], rx, y + 50 * u, 26 * u, { weight: 600, align: "center" });
+});
+k.dots(rx, y0 + 4 * step - 18 * u, 46 * u, false);
+k.rect(rx - 26 * u, b - 118 * u, 52 * u, 52 * u, 10 * u, "#d7dbe1", "#fff", 3 * u);
+k.icon("music", rx, b - 92 * u, 28 * u, { color: "#5b616b", shadow: false, weight: 2.4 });
+var lx = 40 * u, colW = rx - 60 * u - lx;
+var top = b - (extra ? 560 : 470) * u;
+if (extra) {
+k.rect(lx, top - 20 * u, colW, 96 * u, 10 * u, "rgba(0,0,0,0.45)");
+k.text("Important safety information and disclaimers", lx + 22 * u, top + 8 * u, 26 * u, { weight: 600, maxW: colW - 44 * u });
+k.text("appear here and can expand over the video.", lx + 22 * u, top + 46 * u, 26 * u, { maxW: colW - 44 * u });
+top += 110 * u;
+}
+k.avatar(lx + 34 * u, top + 36 * u, 34 * u, true);
+var nx = lx + 84 * u;
+var nw = k.text("yourbrand", nx, top + 20 * u, 32 * u, { weight: 700 });
+k.text("Sponsored", nx, top + 58 * u, 26 * u, { weight: 400 });
+k.rect(nx + nw + 22 * u, top - 4 * u, 124 * u, 50 * u, 12 * u, null, "#fff", 2.2 * u);
+k.text("Follow", nx + nw + 84 * u, top + 21 * u, 27 * u, { weight: 600, align: "center" });
+k.text("Your caption appears here, with the first line visible\u2026 more", lx, top + 128 * u, 30 * u, { maxW: colW });
+k.icon("music", lx + 14 * u, top + 186 * u, 26 * u, { weight: 2.2 });
+k.text("yourbrand \u00b7 Original audio", lx + 40 * u, top + 186 * u, 27 * u, { maxW: colW - 40 * u });
+var cy = top + 236 * u;
+k.rect(lx, cy, colW, 82 * u, 12 * u, "rgba(255,255,255,0.22)");
+k.text("Learn more", lx + 28 * u, cy + 41 * u, 30 * u, { weight: 600 });
+k.icon("chevRight", lx + colW - 34 * u, cy + 41 * u, 34 * u, { weight: 2.6 });
+};
+L.metaDisclaimer = function (k, W, H, m) { L.metaReels(k, W, H, m, true); };
+L.metaStories = function (k, W, H, m) {
+var u = k.u;
+var gx = 20 * u, gap = 8 * u, n = 3, segW = (W - gx * 2 - gap * (n - 1)) / n;
+for (var i = 0; i < n; i++) k.rect(gx + i * (segW + gap), 30 * u, segW, 6 * u, 3 * u, i === 0 ? "#fff" : "rgba(255,255,255,0.4)");
+k.avatar(76 * u, 110 * u, 34 * u, false);
+var nw = k.text("yourbrand", 126 * u, 96 * u, 31 * u, { weight: 700 });
+k.text("Sponsored", 126 * u, 132 * u, 26 * u);
+k.dots(W - 150 * u, 110 * u, 48 * u, false);
+k.icon("close", W - 62 * u, 110 * u, 46 * u, { weight: 2.4 });
+var by = H - 230 * u;
+k.icon("chevUp", W / 2, by, 46 * u, { weight: 3 });
+var pw = 330 * u;
+k.rect(W / 2 - pw / 2, by + 40 * u, pw, 80 * u, 40 * u, "#fff");
+k.icon("send", W / 2 - 108 * u, by + 80 * u, 30 * u, { color: "#1b1d21", shadow: false, weight: 2.2 });
+k.text("Learn more", W / 2 + 16 * u, by + 80 * u, 30 * u, { weight: 600, color: "#1b1d21", align: "center", shadow: false });
+};
+L.metaFeed = function (k, W, H, m) {
+var u = k.u;
+k.circle(W - 56 * u, H - 56 * u, 30 * u, "rgba(20,20,20,0.6)");
+k.icon("mute", W - 56 * u, H - 56 * u, 30 * u, { shadow: false, weight: 2.2 });
+k.circle(56 * u, H - 56 * u, 30 * u, "rgba(20,20,20,0.6)");
+k.icon("profile", 56 * u, H - 56 * u, 28 * u, { shadow: false, weight: 2.2 });
+};
+L.metaInstream = function (k, W, H, m) {
+var u = k.u;
+k.rect(32 * u, H - 104 * u, 196 * u, 54 * u, 10 * u, "rgba(20,20,20,0.6)");
+k.text("Ad \u00b7 0:15", 54 * u, H - 77 * u, 28 * u, { weight: 600, shadow: false });
+k.circle(W - 70 * u, H - 77 * u, 34 * u, "rgba(20,20,20,0.6)");
+k.icon("mute", W - 70 * u, H - 77 * u, 34 * u, { shadow: false, weight: 2.2 });
+k.rect(0, H - 8 * u, W, 8 * u, 0, "rgba(255,255,255,0.35)");
+k.rect(0, H - 8 * u, W * 0.3, 8 * u, 0, "#fff");
+};
+L.tiktokFeed = function (k, W, H, m, topview, rtl) {
+var u = k.u, b = H;
+if (!topview) {
+k.icon("tv", 60 * u, 112 * u, 50 * u, { weight: 2 });
+var tabs = [["Explore", 0.62], ["Following", 0.62], ["For You", 1]], tw = 0, sz = 34 * u, gap = 44 * u;
+tabs.forEach(function (t) { tw += k.measure(t[0], sz, 700) + gap; });
+var tx = W / 2 - (tw - gap) / 2;
+tabs.forEach(function (t, i) {
+var w = k.text(t[0], tx, 112 * u, sz, { weight: 700, color: "rgba(255,255,255," + t[1] + ")" });
+if (i === 2) k.rect(tx + w / 2 - 28 * u, 146 * u, 56 * u, 6 * u, 3 * u, "#fff");
+tx += w + gap;
+});
+k.icon("search", W - 62 * u, 112 * u, 52 * u, { weight: 2.4 });
+} else {
+k.rect(40 * u, 70 * u, 156 * u, 46 * u, 8 * u, "rgba(0,0,0,0.4)");
+k.text("Sponsored", 118 * u, 93 * u, 26 * u, { weight: 600, align: "center", shadow: false });
+}
+var navH = topview ? 0 : 96 * u, base = b - navH;
+var rx = rtl ? W * (80 + 60) / 720 : W - (W * (80 + 60) / 720);
+if (!topview) {
+k.avatar(rx, base - 885 * u, 50 * u, true);
+k.circle(rx, base - 835 * u, 19 * u, "#fe2c55");
+k.icon("plus", rx, base - 835 * u, 22 * u, { shadow: false, weight: 3.4, color: "#fff" });
+var rail = [["heart", "48.2K"], ["commentDots", "1,203"], ["bookmark", "2,567"], ["shareArrow", "3,456"]];
+rail.forEach(function (it, i) {
+var y = base - 730 * u + i * 148 * u;
+if (it[0] === "commentDots") {
+k.icon("comment", rx, y, 70 * u, { fill: true });
+[-1, 0, 1].forEach(function (d) { k.circle(rx + d * 14 * u, y, 4.5 * u, "#2a2a2a"); });
+} else k.icon(it[0], rx, y, it[0] === "bookmark" ? 64 * u : 72 * u, { fill: true });
+k.text(it[1], rx, y + 56 * u, 26 * u, { weight: 700, align: "center" });
+});
+k.circle(rx, base - 110 * u, 44 * u, "#2b2b2b", "#555", 10 * u);
+k.avatar(rx, base - 110 * u, 22 * u, false);
+}
+var lx = rtl ? rx + 90 * u : 40 * u, colW = (topview ? W - 80 * u : rtl ? W - 40 * u - lx : rx - 90 * u - lx);
+var t = base - (topview ? 300 : 420) * u;
+if (!topview) {
+k.text("@yourbrand", lx, t, 34 * u, { weight: 700 });
+k.rect(lx, t + 32 * u, 142 * u, 40 * u, 6 * u, "rgba(255,255,255,0.25)");
+k.text("Sponsored", lx + 71 * u, t + 52 * u, 24 * u, { weight: 600, align: "center", shadow: false });
+k.text("Your caption with #hashtags appears here\u2026 more", lx, t + 112 * u, 30 * u, { maxW: colW });
+k.icon("music", lx + 14 * u, t + 166 * u, 28 * u, { weight: 2.2 });
+k.text("Promoted Music", lx + 42 * u, t + 166 * u, 28 * u, { maxW: colW - 42 * u });
+}
+var cy = base - (topview ? 200 : 210) * u;
+k.rect(lx, cy, colW, 84 * u, 8 * u, "rgba(255,255,255,0.28)");
+k.text("Learn more", lx + 26 * u, cy + 42 * u, 30 * u, { weight: 700 });
+k.icon("chevRight", lx + colW - 34 * u, cy + 42 * u, 32 * u, { weight: 2.8 });
+if (navH) {
+k.rect(0, b - navH, W, navH, 0, "rgba(0,0,0,0.92)");
+var nav = [["home", "Home", true], ["friends", "Friends"], [null, ""], ["inbox", "Inbox"], ["profile", "Profile"]];
+nav.forEach(function (n, i) {
+var x = W * (i + 0.5) / 5, y = b - navH / 2;
+if (!n[0]) {
+k.rect(x - 46 * u, y - 28 * u, 92 * u, 56 * u, 14 * u, "#fff");
+k.text("+", x, y - 2 * u, 46 * u, { weight: 700, color: "#000", align: "center", shadow: false });
+return;
+}
+k.icon(n[0], x, y - 14 * u, 40 * u, { fill: !!n[2], weight: 2, shadow: false, color: n[2] ? "#fff" : "rgba(255,255,255,0.75)" });
+k.text(n[1], x, y + 26 * u, 20 * u, { weight: 600, align: "center", shadow: false, color: n[2] ? "#fff" : "rgba(255,255,255,0.75)" });
+});
+}
+};
+L.tiktokTopview = function (k, W, H, m) { L.tiktokFeed(k, W, H, m, true); };
+L.tiktokRtl = function (k, W, H, m) { L.tiktokFeed(k, W, H, m, false, true); };
+L.tiktokCompact = function (k, W, H, m) {
+var u = k.u, rx = W - m.right / 2;
+var y0 = m.top + (H - m.top - m.bottom) * 0.25, y1 = H - m.bottom * 0.55;
+var rail = ["heart", "comment", "bookmark", "shareArrow"], step = (y1 - y0) / (rail.length - 1);
+rail.forEach(function (n, i) {
+var y = y0 + i * step;
+k.icon(n, rx, y, 58 * u, { fill: true });
+if (n === "comment") [-1, 0, 1].forEach(function (d) { k.circle(rx + d * 11 * u, y, 3.6 * u, "#2a2a2a"); });
+});
+var lx = Math.max(m.left, 30 * u), colW = W - m.right - lx - 20 * u, t = H - m.bottom + 34 * u;
+k.text("@yourbrand \u00b7 Sponsored", lx, t, 30 * u, { weight: 700, maxW: colW });
+k.text("Your caption with #hashtags\u2026 more", lx, t + 46 * u, 27 * u, { maxW: colW });
+k.rect(lx, t + 82 * u, Math.min(colW, 620 * u), 70 * u, 8 * u, "rgba(255,255,255,0.28)");
+k.text("Learn more", lx + 22 * u, t + 117 * u, 27 * u, { weight: 700 });
+};
+L.ytShorts = function (k, W, H, m, compact) {
+var u = k.u, b = H;
+if (!compact) {
+k.icon("back", 52 * u, 118 * u, 50 * u, { weight: 2.4 });
+k.text("Shorts", 106 * u, 118 * u, 40 * u, { weight: 700 });
+k.icon("speaker", W - 236 * u, 118 * u, 48 * u, { weight: 2.2 });
+k.icon("search", W - 146 * u, 118 * u, 48 * u, { weight: 2.4 });
+k.dots(W - 56 * u, 118 * u, 50 * u, true);
+}
+var rx = W - Math.max(m.right / 2, 58 * u);
+var rail = [["heart", "8.8K"], ["comment", "132"], ["bookmark", "Save"], ["shareCurve", "Share"], ["remix", "Remix"]];
+var step = 142 * u, y0 = b - 820 * u;
+if (compact) { step = Math.min(step, (H - m.top - 220 * u) / rail.length); y0 = b - 160 * u - step * (rail.length - 0.4); }
+rail.forEach(function (it, i) {
+var y = y0 + i * step;
+k.icon(it[0], rx, y, 58 * u, { weight: 2 });
+k.text(it[1], rx, y + 56 * u, 26 * u, { weight: 600, align: "center" });
+});
+k.rect(rx - 34 * u, b - 128 * u, 68 * u, 68 * u, 12 * u, "#d7dbe1", "#fff", 3 * u);
+k.avatar(rx, b - 94 * u, 22 * u, false);
+var lx = 36 * u, colW = rx - 70 * u - lx;
+var cy = b - 290 * u;
+k.rect(lx, cy - 64 * u, 150 * u, 40 * u, 6 * u, "rgba(0,0,0,0.45)");
+k.text("Sponsored", lx + 75 * u, cy - 44 * u, 23 * u, { weight: 600, align: "center", shadow: false });
+k.rect(lx, cy, colW, 74 * u, 37 * u, "rgba(255,255,255,0.92)");
+k.text("Learn more", lx + colW / 2, cy + 37 * u, 28 * u, { weight: 600, align: "center", color: "#0f0f0f", shadow: false });
+var ry = b - 150 * u;
+k.avatar(lx + 30 * u, ry, 30 * u, false);
+var nw = k.text("@yourbrand", lx + 72 * u, ry, 30 * u, { weight: 600 });
+k.rect(lx + 72 * u + nw + 20 * u, ry - 28 * u, 150 * u, 56 * u, 28 * u, "rgba(255,255,255,0.18)");
+k.text("Subscribe", lx + 72 * u + nw + 95 * u, ry, 26 * u, { weight: 600, align: "center", shadow: false });
+k.text("Your Short's title appears here", lx, b - 74 * u, 30 * u, { maxW: colW });
+};
+L.ytCompact = function (k, W, H, m) { L.ytShorts(k, W, H, m, true); };
+L.ytInstream = function (k, W, H, m) {
+var u = k.u;
+k.avatar(66 * u, 66 * u, 36 * u, false);
+k.text("Your ad headline", 120 * u, 52 * u, 30 * u, { weight: 600 });
+k.text("Sponsored \u00b7 yourbrand.com", 120 * u, 88 * u, 24 * u, { color: "rgba(255,255,255,0.85)" });
+k.icon("info", W - 210 * u, 60 * u, 46 * u, { weight: 2 });
+k.icon("shareCurve", W - 130 * u, 60 * u, 46 * u, { weight: 2.2 });
+k.dots(W - 54 * u, 60 * u, 46 * u, true);
+var cy = H - 290 * u;
+k.rect(36 * u, cy, 520 * u, 104 * u, 10 * u, "rgba(20,20,20,0.75)");
+k.circle(92 * u, cy + 52 * u, 30 * u, "#d7dbe1");
+k.text("yourbrand.com", 140 * u, cy + 36 * u, 26 * u, { weight: 600, shadow: false });
+k.text("Sponsored", 140 * u, cy + 70 * u, 22 * u, { color: "rgba(255,255,255,0.7)", shadow: false });
+k.rect(370 * u, cy + 24 * u, 164 * u, 56 * u, 28 * u, "#3ea6ff");
+k.text("Visit site", 452 * u, cy + 52 * u, 24 * u, { weight: 600, align: "center", color: "#0f0f0f", shadow: false });
+k.rect(W - 296 * u, H - 270 * u, 260 * u, 82 * u, 4 * u, "rgba(20,20,20,0.75)", "rgba(255,255,255,0.4)", 1.5 * u);
+k.text("Skip", W - 196 * u, H - 229 * u, 32 * u, { weight: 500, align: "center", shadow: false });
+k.icon("skipNext", W - 112 * u, H - 229 * u, 36 * u, { fill: true, shadow: false });
+var py = H - 100 * u;
+k.icon("play", 58 * u, py, 44 * u, { fill: true });
+k.icon("skipNext", 132 * u, py, 38 * u, { fill: true });
+k.icon("speaker", 206 * u, py, 42 * u, { weight: 2.2 });
+k.text("0:05 / 0:15", 254 * u, py, 26 * u);
+k.icon("cc", W - 210 * u, py, 42 * u, { weight: 2 });
+k.dots(W - 134 * u, py, 40 * u, false);
+k.icon("fullscreen", W - 58 * u, py, 40 * u, { weight: 2.4 });
+k.rect(0, H - 46 * u, W, 6 * u, 0, "rgba(255,255,255,0.35)");
+k.rect(0, H - 46 * u, W * 0.33, 6 * u, 0, "#ffcc00");
+};
+L.liVertical = function (k, W, H, m) {
+var u = k.u;
+k.icon("back", 54 * u, 100 * u, 48 * u, { weight: 2.4 });
+k.dots(W - 58 * u, 100 * u, 48 * u, false);
+var lx = 40 * u, t = H - 300 * u;
+k.avatar(lx + 34 * u, t, 34 * u, false);
+var nw = k.text("Your Company", lx + 84 * u, t - 14 * u, 30 * u, { weight: 700 });
+k.text("Promoted", lx + 84 * u, t + 22 * u, 24 * u, { color: "rgba(255,255,255,0.85)" });
+k.text("+ Follow", lx + 84 * u + nw + 28 * u, t - 14 * u, 28 * u, { weight: 700 });
+k.text("Your post text appears here\u2026 see more", lx, t + 76 * u, 28 * u, { maxW: W - 80 * u });
+var acts = [["thumbUp", "Like"], ["comment", "Comment"], ["repost", "Repost"], ["send", "Send"]];
+acts.forEach(function (a, i) {
+var x = W * (i + 0.5) / 4, y = H - 96 * u;
+k.icon(a[0], x, y, 44 * u, { weight: 2 });
+k.text(a[1], x, y + 42 * u, 22 * u, { weight: 600, align: "center" });
+});
+};
+L.liFeed = function (k, W, H, m) {
+var u = k.u, y = H - 58 * u;
+k.rect(0, H - 110 * u, W, 110 * u, 0, "rgba(0,0,0,0.25)");
+k.icon("play", 50 * u, y, 40 * u, { fill: true });
+k.icon("speaker", 118 * u, y, 40 * u, { weight: 2.2 });
+k.text("0:15", 160 * u, y, 26 * u, { weight: 600 });
+k.icon("cc", W - 118 * u, y, 40 * u, { weight: 2 });
+k.icon("fullscreen", W - 50 * u, y, 36 * u, { weight: 2.4 });
+k.rect(0, H - 10 * u, W, 6 * u, 0, "rgba(255,255,255,0.4)");
+k.rect(0, H - 10 * u, W * 0.3, 6 * u, 0, "#fff");
+};
+L.pinVideo = function (k, W, H, m) {
+var u = k.u, b = H;
+k.icon("back", 54 * u, 118 * u, 50 * u, { weight: 2.4 });
+k.dots(W - 60 * u, 118 * u, 50 * u, false);
+var rx = W - 98 * u, rail = [["heart", "2.1K"], ["comment", "48"], ["shareUp", ""]];
+rail.forEach(function (it, i) {
+var y = b - 760 * u + i * 150 * u;
+k.icon(it[0], rx, y, 58 * u, { weight: 2 });
+if (it[1]) k.text(it[1], rx, y + 54 * u, 26 * u, { weight: 600, align: "center" });
+});
+k.dots(rx, b - 310 * u, 50 * u, false);
+var lx = 40 * u, colW = W - 230 * u - lx, t = b - 470 * u;
+k.avatar(lx + 32 * u, t, 32 * u, false);
+k.text("Promoted by", lx + 80 * u, t - 16 * u, 24 * u, { color: "rgba(255,255,255,0.85)" });
+k.text("Your Brand", lx + 80 * u, t + 18 * u, 30 * u, { weight: 700 });
+k.text("Your Pin title appears here", lx, t + 84 * u, 34 * u, { weight: 700, maxW: colW });
+k.text("A short description of the idea\u2026 more", lx, t + 132 * u, 28 * u, { maxW: colW });
+var by = b - 240 * u, gap = 20 * u, bw = (W - lx * 2 - gap) / 2;
+k.rect(lx, by, bw, 84 * u, 42 * u, "rgba(255,255,255,0.92)");
+k.text("Visit site", lx + bw / 2, by + 42 * u, 30 * u, { weight: 700, align: "center", color: "#111", shadow: false });
+k.rect(lx + bw + gap, by, bw, 84 * u, 42 * u, "#e60023");
+k.text("Save", lx + bw + gap + bw / 2, by + 42 * u, 30 * u, { weight: 700, align: "center", shadow: false });
+k.rect(lx, b - 110 * u, W - lx * 2, 6 * u, 3 * u, "rgba(255,255,255,0.35)");
+k.rect(lx, b - 110 * u, (W - lx * 2) * 0.3, 6 * u, 3 * u, "#fff");
+};
+L.pinFeed = function (k, W, H, m) {
+var u = k.u, c = k.ctx, r = Math.round(Math.min(W, H) * (W > H ? 0.04 : 0.068));
+c.save();
+c.fillStyle = "#ffffff";
+c.beginPath();
+c.rect(0, 0, W, H);
+c.moveTo(r, 0); c.arcTo(W, 0, W, H, r); c.arcTo(W, H, 0, H, r); c.arcTo(0, H, 0, 0, r); c.arcTo(0, 0, W, 0, r); c.closePath();
+c.fill("evenodd");
+c.restore();
+var s = W > H ? 52 * u : 0.04 * W;
+k.circle(W - r - s, H - r - s, s, "rgba(20,20,20,0.6)");
+k.icon("mute", W - r - s, H - r - s, s, { shadow: false, weight: 2.2 });
+};
+var BY_SPEC = {
+"meta-916-unified": "metaReels", "meta-916-stories": "metaStories", "meta-916-disclaimer": "metaDisclaimer",
+"meta-45-feed": "metaFeed", "meta-11-feed": "metaFeed", "meta-169-instream": "metaInstream",
+"tiktok-916-infeed": "tiktokFeed", "tiktok-916-topview": "tiktokTopview", "tiktok-916-rtl": "tiktokRtl",
+"tiktok-11-infeed": "tiktokCompact", "tiktok-169-infeed": "tiktokCompact",
+"yt-916-universal": "ytShorts", "yt-916-shorts-min": "ytShorts", "yt-45-feed": "ytCompact", "yt-11-square": "ytCompact",
+"yt-169-instream": "ytInstream",
+"li-916-vertical": "liVertical", "li-45-feed": "liFeed", "li-11-feed": "liFeed", "li-169-feed": "liFeed",
+"pin-916-video": "pinVideo", "pin-23-standard": "pinFeed", "pin-45-standard": "pinFeed", "pin-11-standard": "pinFeed", "pin-169-maxwidth": "pinFeed"
+};
+var FALLBACK = {
+meta: { "9:16": "metaReels", "4:5": "metaFeed", "1:1": "metaFeed", "16:9": "metaInstream" },
+tiktok: { "9:16": "tiktokFeed", "4:5": "tiktokCompact", "1:1": "tiktokCompact", "16:9": "tiktokCompact" },
+youtube: { "9:16": "ytShorts", "4:5": "ytCompact", "1:1": "ytCompact", "16:9": "ytInstream" },
+linkedin: { "9:16": "liVertical", "4:5": "liFeed", "1:1": "liFeed", "16:9": "liFeed" },
+pinterest: { "9:16": "pinVideo", "2:3": "pinFeed", "4:5": "pinFeed", "1:1": "pinFeed", "16:9": "pinFeed" }
+};
+var NOTES = {
+metaFeed: "In the feed, the account row, caption and button sit above and below the media. Only the sound and tag buttons cover it.",
+metaInstream: "The headline and Learn more button sit below the player.",
+liFeed: "The post text and buttons sit above and below the player. Only the player controls cover it.",
+tiktokCompact: "This size plays inside the 9:16 feed. The buttons and caption cover its right and bottom edges.",
+pinFeed: "In the feed, the title, Promoted label and Save button sit below the Pin. The white corners show how Pinterest rounds it.",
+ytCompact: "Approximate. Google doesn't publish a UI layout for this size."
+};
+function layoutFor(spec) {
+if (!spec) return null;
+return BY_SPEC[spec.id] || (FALLBACK[spec.platform] && FALLBACK[spec.platform][spec.ratio]) || null;
+}
+function draw(ctx, spec, W, H) {
+var key = layoutFor(spec);
+if (!key || !L[key]) return false;
+var ref = spec.ratio === "16:9" ? 1920 : 1080;
+var u = W / ref;
+var mm = spec.margins;
+var m = { top: mm.top * H, bottom: mm.bottom * H, left: mm.left * W, right: mm.right * W };
+ctx.save();
+L[key](kit(ctx, u), W, H, m);
+ctx.restore();
+return true;
+}
+var api = { draw: draw, layoutFor: layoutFor, note: function (spec) { return NOTES[layoutFor(spec)] || ""; }, LAYOUTS: L };
+if (typeof module !== "undefined" && module.exports) module.exports = api;
+root.SZUiMock = api;
+})(typeof window !== "undefined" ? window : this);;
+(function () {
+"use strict";
+var S = window.SZSpecs, G = window.SZGeometry, R = window.SZRender, M = window.SZUiMock || null;
+var $ = function (id) { return document.getElementById(id); };
+var AD = window.SZAdapter || null;
+var CEP = AD ? null : (window.__adobe_cep__ || null);
+var NODE = (!AD && typeof require === "function") ? { fs: require("fs"), path: require("path"), os: require("os"), cp: require("child_process") } : null;
+var HOSTS = {
+AEFT: { name: "After Effects", create: "New Comp", createMany: "comps", apply: "Add to Active Comp", jsx: true },
+PPRO: { name: "Premiere Pro", create: "New Sequence", createMany: "sequences", apply: "Add to Active Sequence", jsx: true, png: true },
+PHXS: { name: "Photoshop", create: "New Document", createMany: "documents", apply: "Add to Active Doc", jsx: true },
+PHSP: { name: "Photoshop", create: "New Document", createMany: "documents", apply: "Add to Active Doc", jsx: true },
+ILST: { name: "Illustrator", create: "New Document", createMany: "documents", apply: "Add to Active Artboard", jsx: true },
+IDSN: { name: "InDesign", create: "New Document", createMany: "documents", apply: "Add to Active Page", jsx: true },
+FIGMA: { name: "Figma", create: "New Frame", createMany: "frames", apply: "Add to Selected Frame", jsx: true },
+BROWSER: { name: "Preview", create: "New Comp", createMany: "comps", apply: "Add to Active", jsx: false }
+};
+function hostId() {
+if (AD) return AD.host;
+if (!CEP) return "BROWSER";
+try { return JSON.parse(CEP.getHostEnvironment()).appName; } catch (e) { return "BROWSER"; }
+}
+var VERSION = "2.0.0";
+var HOST = hostId();
+var H = HOSTS[HOST] || HOSTS.BROWSER;
+var LCFG = window.FP_LICENSE_CONFIG || null;
+var LIC = (LCFG && window.FPLicense) ? window.FPLicense.create(LCFG) : null;
+var LSTORES = [];
+if (LIC) {
+if (AD && AD.licenseStores) LSTORES = LSTORES.concat(AD.licenseStores(LIC));
+else if (NODE) {
+try {
+var penv = (typeof process !== "undefined" && process.env) || {};
+var dir = window.FPLicense.sharedDir(NODE.os.homedir(), (typeof process !== "undefined" && process.platform) || "darwin", penv.APPDATA);
+LSTORES.push(window.FPLicense.nodeFileStore(NODE.fs, dir, LIC.fileName));
+} catch (e) {}
+}
+try { LSTORES.push(window.FPLicense.keyValueStore(window.localStorage, LIC.storageKey)); } catch (e) {}
+}
+function saveLicense() { return LIC ? window.FPLicense.writeAll(LSTORES, LIC.record()) : Promise.resolve(); }
+function evalExpired() {
+if (!LIC) return false;
+var st = LIC.check();
+saveLicense();
+if (st.state === "expired") { showExpired(); return true; }
+return false;
+}
+function evalHost(script) {
+return new Promise(function (resolve) {
+if (!CEP) return resolve("ERR|Open this panel inside After Effects, Premiere, Photoshop or Illustrator.");
+CEP.evalScript(script, function (res) { resolve(String(res)); });
+});
+}
+function runJob(job) {
+if (evalExpired()) return Promise.resolve("ERR|" + LIC.expiredMessage());
+if (AD) { job.host = HOST; return AD.run(job); }
+job.host = HOST; // tell the script which app it's in — never let it guess
+return evalHost("FeedproofFX.run(" + JSON.stringify(job) + ")").then(function (res) {
+if (res === "EvalScript error.") return "ERR|The host script failed to load. Reload the panel.";
+return res;
+});
+}
+function openExternal(url) {
+if (AD && AD.openExternal) return AD.openExternal(url);
+try {
+if (window.cep && window.cep.util) return window.cep.util.openURLInDefaultBrowser(url);
+} catch (e) {}
+window.open(url, "_blank");
+}
+function mkBtn() {
+if (AD && AD.divButtons) {
+var d = document.createElement("div");
+d.setAttribute("role", "button");
+d.setAttribute("tabindex", "0");
+return d;
+}
+return document.createElement("button");
+}
+function setDis(el, v) {
+el.disabled = !!v;
+if (v) el.classList.add("is-disabled"); else el.classList.remove("is-disabled");
+el.setAttribute("aria-disabled", v ? "true" : "false");
+}
+function setHidden(el, v) {
+el.hidden = !!v;
+el.style.display = v ? "none" : "";
+}
+document.addEventListener("click", function (e) {
+var t = e.target;
+while (t && t !== document.body) {
+if (t.disabled === true || (t.getAttribute && t.getAttribute("aria-disabled") === "true")) {
+e.stopPropagation(); e.preventDefault();
+return;
+}
+t = t.parentNode;
+}
+}, true);
+var DEFAULTS = {
+platform: "meta", ratio: "9:16", specId: "meta-916-unified", sizeKey: "0",
+customW: 1080, customH: 1920,
+mode: "both", outline: true, labels: true, opacity: 35,
+crops: [], prefix: "", fps: "29.97", duration: 15, oneDoc: true,
+cropColors: { "9:16": "#ffffff", "2:3": "#4dd8e0", "4:5": "#e45cff", "1:1": "#ffd84d", "16:9": "#9b8cff" },
+comboSet: ["meta", "tiktok", "youtube", "linkedin"],   // platforms in the Combined master
+ui: false, uiPlatform: "",
+measureOpen: false,                                    // Measurements table folded by default
+batchOpen: false,                                      // Deliverables batch folded by default
+buildOpen: false,                                      // Build as section folded by default (summary line shows the choices)
+infoOpen: false,                                       // placement description under the preview, folded by default                             // platform UI preview (AE / Premiere)
+batch: []
+};
+var STATE_KEY = "feedproof.state";
+var state = load();
+function load() {
+var s = {};
+try {
+s = JSON.parse(localStorage.getItem(STATE_KEY) || localStorage.getItem("safezones.state") || "{}") || {};
+} catch (e) {}
+var out = {};
+for (var k in DEFAULTS) out[k] = (s[k] !== undefined) ? s[k] : DEFAULTS[k];
+var cur = S.byId(out.specId);
+if (!cur) { out.platform = DEFAULTS.platform; out.ratio = DEFAULTS.ratio; out.specId = DEFAULTS.specId; out.sizeKey = "0"; }
+else { out.platform = cur.platform; out.ratio = cur.ratio; }
+out.comboSet = Array.isArray(s.comboSet) ? s.comboSet.filter(function (p) { return S.PLATFORM_IDS.indexOf(p) >= 0; }) :
+(cur && cur.platform === "combo" ? cur.platforms.slice() : DEFAULTS.comboSet.slice());
+if (out.comboSet.length < 2) out.comboSet = DEFAULTS.comboSet.slice();
+out.crops = Array.isArray(out.crops) ? out.crops.filter(function (r) { return S.RATIOS.indexOf(r) >= 0; }) : [];
+out.ui = !!out.ui;
+out.measureOpen = !!out.measureOpen;
+out.buildOpen = !!out.buildOpen;
+out.batchOpen = !!out.batchOpen;
+out.infoOpen = !!out.infoOpen;
+out.uiPlatform = S.PLATFORM_IDS.indexOf(out.uiPlatform) >= 0 ? out.uiPlatform : "";
+out.batch = Array.isArray(out.batch) ? out.batch.filter(function (b) { return b && S.byId(b.specId); }) : [];
+var cc = {}, saved = (s.cropColors && typeof s.cropColors === "object") ? s.cropColors : {};
+for (var r in DEFAULTS.cropColors) {
+cc[r] = /^#[0-9a-f]{6}$/i.test(saved[r] || "") ? saved[r] : DEFAULTS.cropColors[r];
+}
+out.cropColors = cc;
+return out;
+}
+function save() {
+try { localStorage.setItem(STATE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+function spec() { return S.byId(state.specId); }
+function frameSize() {
+var sp = spec();
+if (state.sizeKey === "custom") return { w: clampInt(state.customW), h: clampInt(state.customH) };
+var s = sp.sizes[parseInt(state.sizeKey, 10)] || sp.sizes[0];
+return { w: s.w, h: s.h };
+}
+function clampInt(v) { v = parseInt(v, 10); if (!(v > 0)) v = 1080; return Math.max(16, Math.min(16000, v)); }
+function colorsForHost() {
+var c = R.COLORS, f = function (hex) { return R.hexToRgb(hex).map(function (n) { return Math.round(n / 255 * 1000) / 1000; }); };
+return { ui: f(c.ui), comfort: f(c.ui), estimate: f(c.ui), safe: f(c.safe), crop: f(c.crop) };   // all masks red
+}
+var PLATFORM_CODE = { meta: "META", tiktok: "TIKTOK", youtube: "YT", linkedin: "LI", pinterest: "PIN" };
+var SPEC_CODE = {
+"meta-916-unified": "ReelsStories", "meta-916-stories": "Stories", "meta-916-disclaimer": "Reels-Disclaimer",
+"meta-45-feed": "Feed", "meta-11-feed": "Feed", "meta-169-instream": "InStream",
+"tiktok-916-infeed": "InFeed", "tiktok-916-topview": "TopView", "tiktok-916-rtl": "RTL", "tiktok-11-infeed": "InFeed", "tiktok-169-infeed": "InFeed",
+"yt-916-universal": "Vertical", "yt-916-shorts-min": "Shorts", "yt-45-feed": "DemandGen", "yt-11-square": "Square",
+"yt-169-instream": "InStream",
+"li-916-vertical": "Vertical", "li-45-feed": "Feed", "li-11-feed": "Feed", "li-169-feed": "Feed",
+"pin-916-video": "VideoPin", "pin-23-standard": "Standard", "pin-45-standard": "Vertical", "pin-11-standard": "Standard", "pin-169-maxwidth": "MaxWidth"
+};
+function platformsOf(sp) { return sp.platform === "combo" ? (sp.platforms || []) : [sp.platform]; }
+function itemName(sp, w, h) {
+var code = platformsOf(sp).map(function (p) { return PLATFORM_CODE[p] || p.toUpperCase(); }).join("-");
+var kind = sp.platform === "combo" ? "Master" : (SPEC_CODE[sp.id] || "Custom");
+return (state.prefix || "") + code + "_" + kind + "_" + sp.ratio.replace(":", "x") + "_" + w + "x" + h;
+}
+function itemTitle(sp) {
+var names = platformsOf(sp).map(function (p) { return S.PLATFORM_NAMES[p] || p; }).join("+");
+if (sp.platform === "combo") return names + " " + sp.ratio + " master";
+return names + " " + sp.ratio + " " + sp.name;
+}
+function buildGeo(sp, w, h) {
+var g = G.build(sp, w, h, { crops: state.crops });
+g.crops.forEach(function (c) {
+c.hex = state.cropColors[c.ratio] || R.COLORS.crop;
+c.color = R.hexToRgb(c.hex).map(function (n) { return Math.round(n / 255 * 1000) / 1000; });
+});
+return g;
+}
+function uiSupported() { return !!M && (HOST === "AEFT" || HOST === "PPRO" || HOST === "BROWSER"); }
+function uiOn() { return uiSupported() && state.ui; }
+function uiPlatformOf(sp) {
+var ps = platformsOf(sp).filter(function (p) { return S.forPlatformRatio(p, sp.ratio).length; });
+return ps.indexOf(state.uiPlatform) >= 0 ? state.uiPlatform : ps[0];
+}
+function uiSpec(sp) {
+if (sp.platform !== "combo") return sp;
+var p = uiPlatformOf(sp);
+return p ? S.forPlatformRatio(p, sp.ratio)[0] : null;
+}
+function renderUiPngDataUrl(sp, w, h) {
+var cv = document.createElement("canvas");
+cv.width = w; cv.height = h;
+M.draw(cv.getContext("2d"), uiSpec(sp), w, h);
+return cv.toDataURL("image/png");
+}
+function writeUiPng(sp, w, h, name, unique) {
+var u = uiSpec(sp);
+var file = NODE.path.join(overlayDir(), name + "_UI" + (unique ? "_" + lookKey([VERSION, u && u.id]) : "") + ".png");
+NODE.fs.writeFileSync(file, Buffer.from(renderUiPngDataUrl(sp, w, h).split(",")[1], "base64"));
+return file;
+}
+function uiTitle(sp) {
+var u = uiSpec(sp);
+return u ? (S.PLATFORM_NAMES[u.platform] || u.platform) + " UI" : "UI";
+}
+function renderUiRow() {
+var row = $("uiRow"), sp = spec();
+setHidden(row, !uiSupported());
+if (!uiSupported()) { setHidden($("uiNote"), true); return; }
+$("optUi").checked = state.ui;
+var box = $("uiChips"), combo = sp.platform === "combo";
+setHidden(box, !(combo && state.ui));
+box.innerHTML = "";
+if (combo && state.ui) {
+var cur = uiPlatformOf(sp);
+platformsOf(sp).forEach(function (p) {
+if (!S.forPlatformRatio(p, sp.ratio).length) return;
+var b = mkBtn();
+b.className = "chip" + (p === cur ? " on" : "");
+b.textContent = S.PLATFORM_NAMES[p];
+b.title = "Preview the " + S.PLATFORM_NAMES[p] + " UI on this master";
+b.addEventListener("click", function () { state.uiPlatform = p; update(); });
+box.appendChild(b);
+});
+}
+var note = "";
+if (state.ui) {
+note = "Approximate app UI, not affiliated with the platforms. " +
+(HOST === "PPRO" ? "It goes on its own track: disable it before export." : "It\u2019s added as a guide layer, so it never renders.");
+var extra = M.note(uiSpec(sp));
+if (extra) note = extra + " " + note;
+}
+setHidden($("uiNote"), !note);
+$("uiNote").textContent = note;
+}
+function exactFps(v) {
+var f = parseFloat(v);
+var ntsc = { "23.976": 24000 / 1001, "29.97": 30000 / 1001, "59.94": 60000 / 1001 };
+return ntsc[String(v)] || f;
+}
+function opts() {
+return {
+mode: state.mode, outline: state.outline, labels: state.labels,
+opacity: state.opacity, fps: exactFps(state.fps), duration: Math.max(1, parseFloat(state.duration) || 15),
+aiOneDoc: !!state.oneDoc, colors: colorsForHost(), folder: "Safe Zones"
+};
+}
+function seg(container, items, current, onPick, isDisabled) {
+container.innerHTML = "";
+items.forEach(function (it) {
+var b = mkBtn();
+b.textContent = it.label;
+b.setAttribute("role", "tab");
+b.className = it.id === current ? "on" : "";
+b.setAttribute("aria-selected", it.id === current ? "true" : "false");
+if (isDisabled && isDisabled(it.id)) { setDis(b, true); b.title = "Not offered on this platform"; }
+b.addEventListener("click", function () { onPick(it.id); });
+container.appendChild(b);
+});
+}
+function placements(platform, ratio) {
+if (platform === "combo") { var c = S.combo(ratio, state.comboSet); return c ? [c] : []; }
+return S.forPlatformRatio(platform, ratio);
+}
+function ratiosFor(platform) {
+return S.RATIOS.filter(function (r) { return placements(platform, r).length > 0; });
+}
+function pickFirst(platform) {
+if (!placements(platform, state.ratio).length) state.ratio = ratiosFor(platform)[0];
+state.specId = placements(platform, state.ratio)[0].id;
+state.sizeKey = "0";
+}
+function renderComboChips() {
+var row = $("comboRow"), box = $("comboChips");
+var on = state.platform === "combo";
+setHidden(row, !on);
+if (!on) return;
+box.innerHTML = "";
+S.PLATFORM_IDS.forEach(function (p) {
+var b = mkBtn();
+var picked = state.comboSet.indexOf(p) >= 0, has = S.hasRatio(p, state.ratio);
+b.className = "chip combo-chip" + (picked && has ? " on" : "");
+b.textContent = S.PLATFORM_NAMES[p];
+if (!has) { setDis(b, true); b.title = "No " + S.PLATFORM_NAMES[p] + " " + state.ratio + " placement"; }
+b.addEventListener("click", function () {
+var i = state.comboSet.indexOf(p), next = state.comboSet.slice();
+if (i >= 0) next.splice(i, 1); else next.push(p);
+if (!S.combo(state.ratio, next)) { setStatus("A Combined master needs at least two platforms with " + state.ratio + ".", "err"); return; }
+state.comboSet = next;
+state.specId = S.combo(state.ratio, next).id;
+update();
+});
+box.appendChild(b);
+});
+}
+function renderPickers() {
+seg($("platformSeg"), S.PLATFORMS, state.platform, function (p) {
+state.platform = p;
+pickFirst(p);
+update();
+});
+var avail = ratiosFor(state.platform);
+seg($("ratioSeg"), S.RATIOS.map(function (r) { return { id: r, label: r }; }), state.ratio, function (r) {
+state.ratio = r;
+state.specId = placements(state.platform, r)[0].id;
+state.sizeKey = "0";
+update();
+}, function (r) { return avail.indexOf(r) < 0; });
+renderComboChips();
+var specSel = $("specSel");
+specSel.innerHTML = "";
+placements(state.platform, state.ratio).forEach(function (sp) {
+var o = document.createElement("option");
+o.value = sp.id;
+o.textContent = sp.name + (sp.kind === "estimate" ? "  (estimate)" : "");
+specSel.appendChild(o);
+});
+specSel.value = state.specId;
+var sizeSel = $("sizeSel");
+sizeSel.innerHTML = "";
+spec().sizes.forEach(function (s, i) {
+var o = document.createElement("option");
+o.value = String(i);
+o.textContent = s.label;
+sizeSel.appendChild(o);
+});
+var oc = document.createElement("option");
+oc.value = "custom";
+oc.textContent = "Custom…";
+sizeSel.appendChild(oc);
+sizeSel.value = state.sizeKey;
+if (sizeSel.value !== state.sizeKey) { state.sizeKey = "0"; sizeSel.value = "0"; }
+setHidden($("customRow"), state.sizeKey !== "custom");
+$("customW").value = state.customW;
+$("customH").value = state.customH;
+}
+function renderCropChips() {
+var box = $("cropChips");
+box.innerHTML = "";
+var f = frameSize();
+S.RATIOS.forEach(function (r) {
+var col = state.cropColors[r];
+var on = state.crops.indexOf(r) >= 0;
+var same = Math.abs(G.ratioValue(r) - f.w / f.h) < 0.005;
+var wrap = document.createElement("span");
+wrap.className = "chip-wrap";
+var b = mkBtn();
+b.className = "chip" + (on ? " on" : "");
+b.textContent = r;
+if (on) { b.style.borderColor = col; b.style.background = hexA(col, 0.2); }
+if (same) { setDis(b, true); b.title = "Same ratio as the frame"; }
+b.addEventListener("click", function () {
+var i = state.crops.indexOf(r);
+if (i >= 0) state.crops.splice(i, 1); else state.crops.push(r);
+update();
+});
+wrap.appendChild(b);
+if (!same && AD && !AD.colorInput) {
+var sw2 = document.createElement("div");
+sw2.className = "swatch";
+sw2.setAttribute("role", "button");
+sw2.title = "Click to change the " + r + " crop colour";
+sw2.style.background = col;
+sw2.addEventListener("click", function (e) {
+e.stopPropagation();
+var pal = CROP_PALETTE, i = pal.indexOf(state.cropColors[r]);
+state.cropColors[r] = pal[(i + 1) % pal.length];
+if (state.crops.indexOf(r) < 0) state.crops.push(r);
+update();
+});
+wrap.appendChild(sw2);
+} else if (!same) {
+var sw = document.createElement("label");
+sw.className = "swatch";
+sw.title = "Change " + r + " crop colour";
+sw.style.background = col;
+var inp = document.createElement("input");
+inp.type = "color";
+inp.value = col;
+inp.setAttribute("aria-label", r + " crop guide colour");
+inp.addEventListener("input", function () {
+state.cropColors[r] = inp.value;
+sw.style.background = inp.value;
+if (state.crops.indexOf(r) < 0) state.crops.push(r);   // picking a colour turns the guide on
+save();
+renderPreview();
+});
+inp.addEventListener("change", function () { update(); });
+sw.appendChild(inp);
+wrap.appendChild(sw);
+}
+box.appendChild(wrap);
+});
+}
+var CROP_PALETTE = ["#ffffff", "#e45cff", "#ffd84d", "#9b8cff", "#00e0c6", "#ff8a3d", "#5cc8ff", "#ff5c8a"];
+function hexA(hex, a) {
+var c = R.hexToRgb(hex);
+return "rgba(" + c[0] + "," + c[1] + "," + c[2] + "," + a + ")";
+}
+function renderPreview() {
+var sp = spec(), f = frameSize();
+var g = buildGeo(sp, f.w, f.h);
+var box = $("previewBox"), cv = $("preview");
+var bw = box.clientWidth || box.offsetWidth || 300;
+var ih = window.innerHeight || document.documentElement.clientHeight || 800;
+var maxW = Math.max(120, bw - 22);
+var maxH = Math.min(380, Math.max(200, ih * 0.42));
+var scale = Math.min(maxW / f.w, maxH / f.h);
+if (AD && AD.drawPreview) {
+AD.drawPreview(cv, g, { scale: scale, mode: state.mode, outline: state.outline, labels: state.labels, opacity: state.opacity });
+return g;
+}
+var dpr = window.devicePixelRatio || 1;
+cv.style.width = Math.round(f.w * scale) + "px";
+cv.style.height = Math.round(f.h * scale) + "px";
+cv.width = Math.round(f.w * scale * dpr);
+cv.height = Math.round(f.h * scale * dpr);
+var ctx = cv.getContext("2d");
+ctx.setTransform(1, 0, 0, 1, 0, 0);
+var withUi = uiOn() && !!uiSpec(sp);
+R.draw(ctx, g, {   // with the UI preview on, drop labels and hatching so the app UI reads clearly
+scale: scale * dpr, mode: state.mode, outline: state.outline, labels: state.labels && !withUi,
+opacity: state.opacity, background: true, hatch: !withUi, hatchWidth: dpr, hatchStep: dpr
+});
+if (withUi) {
+ctx.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
+M.draw(ctx, uiSpec(sp), f.w, f.h);
+ctx.setTransform(1, 0, 0, 1, 0, 0);
+}
+return g;
+}
+var KIND_TEXT = {
+ui: "Red = covered by platform UI",
+comfort: "No platform UI · title-safe padding",
+estimate: "Estimate — verify in the platform's preview"
+};
+function renderMeta(g) {
+var sp = spec(), f = frameSize();
+var kb = $("kindBadge");
+kb.className = "kind " + sp.kind;
+kb.textContent = KIND_TEXT[sp.kind];
+kb.title = KIND_TEXT[sp.kind];
+var src = sp.source || (sp.sources && sp.sources[0]);
+var link = $("srcLink");
+if (sp.platform === "combo") {
+link.textContent = "Sources (" + sp.sources.length + ")";
+link.title = sp.sources.map(function (s) { return s.title; }).join("\n");
+} else {
+link.textContent = "Source · " + (S.active().checked || "");
+link.title = src.title;
+}
+link.href = src.url;
+$("specNote").textContent = sp.note;
+setHidden($("infoBody"), !state.infoOpen);
+$("infoToggle").setAttribute("aria-expanded", state.infoOpen ? "true" : "false");
+$("infoToggle").title = state.infoOpen ? "Hide details" : "Show details";
+var warn = $("aspectWarn"), msgs = [];
+if (!G.aspectMatches(sp, f.w, f.h)) msgs.push(f.w + "×" + f.h + " isn't " + sp.ratio + ". Zones are scaled as percentages, so check them against the platform preview.");
+if (sp.maxSide && Math.max(f.w, f.h) > sp.maxSide) msgs.push("LinkedIn rejects files with a side over " + sp.maxSide + " px — deliver LinkedIn at " + sp.maxSide + " or less.");
+setHidden(warn, !msgs.length);
+if (msgs.length) warn.textContent = msgs.join(" ");
+var t = $("measure");
+setHidden(t, !state.measureOpen);
+$("measureToggle").setAttribute("aria-expanded", state.measureOpen ? "true" : "false");
+var rows = [];
+var pct = function (v, of) { return (Math.round(v / of * 1000) / 10) + "%"; };
+var col = R.COLORS.ui;
+var sw = '<span class="sw" style="background:' + col + '"></span>';
+rows.push(["Frame", f.w + " × " + f.h, sp.ratio]);
+rows.push([sw + "Top", g.margins.top + " px", pct(g.margins.top, f.h)]);
+rows.push([sw + "Bottom", g.margins.bottom + " px", pct(g.margins.bottom, f.h)]);
+rows.push([sw + "Left", g.margins.left + " px", pct(g.margins.left, f.w)]);
+rows.push([sw + "Right", g.margins.right + " px", pct(g.margins.right, f.w)]);
+g.zones.filter(function (z) { return z.extra; }).forEach(function (z) {
+rows.push([sw + String(z.label).split(" — ")[0], "x " + z.x + "–" + (z.x + z.w), "y " + z.y + "–" + (z.y + z.h)]);
+});
+rows.push(['<span class="sw" style="background:' + R.COLORS.safe + '"></span>Safe area', g.safe.w + " × " + g.safe.h, g.safe.x + "," + g.safe.y]);
+t.innerHTML = rows.map(function (r, i) {
+return '<tr class="' + (i === rows.length - 1 ? "safe" : "") + '"><td>' + r[0] + "</td><td>" + r[1] + "</td><td>" + r[2] + "</td></tr>";
+}).join("");
+}
+function renderOptions() {
+Array.prototype.forEach.call($("modeSeg").children, function (b) {
+b.className = b.getAttribute("data-mode") === state.mode ? "on" : "";
+});
+$("optOutline").checked = state.outline;
+$("optLabels").checked = state.labels;
+$("optOneDoc").checked = state.oneDoc;
+$("optOpacity").value = state.opacity;
+$("opVal").textContent = state.opacity + "%";
+$("optPrefix").value = state.prefix;
+$("optFps").value = state.fps;
+$("optDur").value = state.duration;
+setHidden($("buildBody"), !state.buildOpen);
+$("buildToggle").setAttribute("aria-expanded", state.buildOpen ? "true" : "false");
+var sum = [{ guides: "Guides", mask: "Mask", both: "Guides + mask" }[state.mode] || state.mode];
+if (state.mode !== "guides") sum.push(state.opacity + "%");
+if (state.outline) sum.push("Outline");
+if (state.labels && !uiOn()) sum.push("Labels");
+if (uiOn()) sum.push("UI preview");
+var crops = S.RATIOS.filter(function (r) { return state.crops.indexOf(r) >= 0; });
+if (crops.length) sum.push("Crops " + crops.join(" "));
+if (state.prefix) sum.push(state.prefix);
+if (["PHXS", "ILST", "IDSN", "FIGMA"].indexOf(HOST) < 0) sum.push(state.fps + " fps", state.duration + "s");
+$("buildSum").textContent = sum.join(" \u00b7 ");
+$("buildSum").title = sum.join(" \u00b7 ");
+setHidden($("buildSum"), !!state.buildOpen);
+$("modeSeg").title = HOST === "PPRO" ? "Premiere has no scriptable guides: the overlay is a PNG on the top track." : "";
+}
+function renderBatch() {
+var ul = $("batchList");
+ul.innerHTML = "";
+state.batch.forEach(function (b, i) {
+var sp = S.byId(b.specId);
+if (!sp) return;
+var li = document.createElement("li");
+li.innerHTML = '<span class="dot"></span><span class="txt"><span class="name"></span><span class="sub"></span></span>' + (AD && AD.divButtons ? '<div role="button" class="x" title="Remove">×</div>' : '<button class="x" title="Remove">×</button>') + '';
+li.querySelector(".dot").style.background = R.COLORS[sp.kind];
+li.querySelector(".name").textContent = itemTitle(sp);
+li.querySelector(".sub").textContent = b.w + " × " + b.h;
+li.querySelector(".x").addEventListener("click", function () { state.batch.splice(i, 1); update(); });
+ul.appendChild(li);
+});
+$("batchCount").textContent = state.batch.length;
+setHidden($("batchBody"), !state.batchOpen);
+$("batchToggle").setAttribute("aria-expanded", state.batchOpen ? "true" : "false");
+var bsp = state.batch.map(function (b) { return S.byId(b.specId); }).filter(Boolean);
+$("batchSum").textContent = bsp.length ? bsp.map(function (sp) {
+return platformsOf(sp).map(function (p) { return S.PLATFORM_NAMES[p] || p; }).join("+") + " " + sp.ratio;
+}).join(" \u00b7 ") : "Empty";
+$("batchSum").title = bsp.map(itemTitle).join("\n");
+setHidden($("batchSum"), !!state.batchOpen);
+setHidden($("clearBatch"), !state.batch.length);
+var cb = $("createBatch");
+setDis(cb, !state.batch.length || !H.jsx);
+var n = state.batch.length;
+cb.textContent = n ? "Create " + n + " " + (n === 1 ? H.createMany.replace(/s$/, "") : H.createMany) : "Create all";
+}
+function renderHost() {
+document.body.className = "h-" + HOST;
+var pill = $("hostPill");
+pill.textContent = H.name;
+pill.title = "Feedproof v" + VERSION;
+pill.className = "host-pill" + (H.jsx ? " live" : "");
+$("createBtn").textContent = H.create;
+$("applyBtn").textContent = H.apply;
+["createBtn", "applyBtn", "toggleBtn"].forEach(function (id) { setDis($(id), !H.jsx); });
+if (AD && !AD.png) setHidden($("pngBtn"), true);
+if (LIC && LIC.flag("pngWatermark")) {
+var wb = $("pngBtn");
+wb.title = "Trial PNGs include a FEEDPROOF TRIAL watermark. The full version exports clean overlays.";
+wb.innerHTML = "";
+wb.appendChild(document.createTextNode("Export PNG "));
+var wt = document.createElement("span");
+wt.className = "lock-tag";
+wt.textContent = "Trial watermark";
+wb.appendChild(wt);
+wb.classList.add("trial-tagged");
+}
+if (LIC && !LIC.feature("exportPng")) {
+var pb = $("pngBtn");
+pb.classList.add("trial-locked");
+pb.title = LIC.featureMessage();
+pb.innerHTML = "";
+pb.appendChild(document.createTextNode("Export PNG "));
+var tag = document.createElement("span");
+tag.className = "lock-tag";
+tag.textContent = "Full version";
+pb.appendChild(tag);
+}
+if (!H.jsx) setStatus("Preview mode — install the extension to build comps and documents.", "");
+else setStatus("Feedproof v" + VERSION + " · " + H.name, "");
+}
+function update() {
+save();
+renderPickers();
+renderCropChips();
+renderUiRow();
+renderOptions();
+var g = renderPreview();
+renderMeta(g);
+renderBatch();
+}
+function setStatus(msg, cls, revealPath) {
+var s = $("status");
+s.className = "status " + (cls || "");
+s.textContent = msg;
+if (revealPath && NODE) {
+var a = document.createElement("a");
+a.textContent = " Show in folder";
+a.addEventListener("click", function () { reveal(revealPath); });
+s.appendChild(a);
+}
+}
+function report(res) {
+var parts = String(res).split("|");
+var kind = parts.shift();
+setStatus(parts.join("|") || kind, kind === "OK" ? "ok" : "err");
+}
+function renderPngDataUrl(sp, w, h, watermark) {
+var g = buildGeo(sp, w, h);
+var cv = document.createElement("canvas");
+cv.width = w; cv.height = h;
+var line = Math.max(1, Math.round(Math.min(w, h) / 540));
+var ctx = cv.getContext("2d");
+R.draw(ctx, g, {
+scale: 1, mode: state.mode, outline: state.outline, labels: state.labels,
+opacity: state.opacity, background: false, hatch: true, hatchWidth: line, hatchStep: line * 2, exportLine: line
+});
+if (watermark) drawTrialWatermark(ctx, w, h);
+return cv.toDataURL("image/png");
+}
+function drawTrialWatermark(ctx, w, h) {
+var size = Math.max(14, Math.round(Math.min(w, h) * 0.05));
+var text = "FEEDPROOF TRIAL";
+ctx.save();
+ctx.font = "800 " + size + "px -apple-system, 'Segoe UI', Roboto, Arial, sans-serif";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.lineWidth = Math.max(1, size / 18);
+ctx.fillStyle = "rgba(255,255,255,0.22)";
+ctx.strokeStyle = "rgba(0,0,0,0.22)";
+ctx.translate(w / 2, h / 2);
+ctx.rotate(-Math.PI / 6);
+var tw = ctx.measureText(text).width + size * 2.2, th = size * 3.2;
+var reach = Math.sqrt(w * w + h * h) / 2 + tw;
+for (var y = -reach, row = 0; y <= reach; y += th, row++) {
+for (var x = -reach + (row % 2) * tw / 2; x <= reach; x += tw) {
+ctx.strokeText(text, x, y);
+ctx.fillText(text, x, y);
+}
+}
+ctx.restore();
+}
+function overlayDir() {
+var dir = NODE.path.join(NODE.os.homedir(), "Documents", "Feedproof", "Overlays");
+NODE.fs.mkdirSync(dir, { recursive: true });
+return dir;
+}
+function lookKey(parts) {
+var s = JSON.stringify(parts), h = 5381;
+for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+return h.toString(36).slice(0, 6);
+}
+function writePng(sp, w, h, name, watermark, unique) {
+var data = renderPngDataUrl(sp, w, h, watermark).split(",")[1];
+var key = unique ? "_" + lookKey([VERSION, S.active().version, sp.id, state.mode, state.outline, state.labels, state.opacity, state.crops, state.cropColors, !!watermark]) : "";
+var file = NODE.path.join(overlayDir(), name + "_" + state.mode + key + ".png");
+NODE.fs.writeFileSync(file, Buffer.from(data, "base64"));
+return file;
+}
+function reveal(p) {
+if (!NODE) return;
+var cmd = process.platform === "win32" ? 'explorer /select,"' + p + '"' : 'open -R "' + p + '"';
+NODE.cp.exec(cmd);
+}
+function makeItem(sp, w, h) {
+var name = itemName(sp, w, h);
+var it = { name: name, title: itemTitle(sp), w: w, h: h, geo: buildGeo(sp, w, h) };
+if (HOST === "PPRO") {
+if (!NODE) throw new Error("Node.js is disabled for this panel — check the manifest.");
+it.png = writePng(sp, w, h, name, false, true);
+}
+if (uiOn() && (HOST === "AEFT" || HOST === "PPRO") && uiSpec(sp)) {
+if (!NODE) throw new Error("Node.js is disabled for this panel \u2014 check the manifest.");
+it.uiPng = writeUiPng(sp, w, h, name, true);
+it.uiTitle = uiTitle(sp);
+}
+return it;
+}
+function busy(on) {
+["createBtn", "applyBtn", "createBatch", "toggleBtn"].forEach(function (id) {
+var b = $(id);
+if (on) { b.setAttribute("data-was", b.disabled ? "1" : ""); setDis(b, true); }
+else setDis(b, b.getAttribute("data-was") === "1");
+});
+}
+function doCreate(list) {
+busy(true);
+setStatus("Building…", "");
+var items;
+try { items = list.map(function (d) { return makeItem(S.byId(d.specId), d.w, d.h); }); }
+catch (e) { busy(false); return setStatus(e.message, "err"); }
+runJob({ action: "create", items: items, opts: opts() }).then(function (r) { busy(false); report(r); });
+}
+function doApply() {
+busy(true);
+runJob({ action: "size" }).then(function (res) {
+var p = res.split("|");
+if (p[0] !== "OK") { busy(false); return report(p[0] === "NONE" ? "ERR|" + p[1] : res); }
+var w = parseInt(p[1], 10), h = parseInt(p[2], 10), sp = spec();
+var item;
+try { item = makeItem(sp, w, h); } catch (e) { busy(false); return setStatus(e.message, "err"); }
+var mismatch = !G.aspectMatches(sp, w, h);
+runJob({ action: "apply", items: [item], opts: opts() }).then(function (r) {
+busy(false);
+if (mismatch && r.indexOf("OK|") === 0) r += " — note: " + w + "×" + h + " isn't " + sp.ratio + "; zones scaled by percentage.";
+report(r);
+});
+});
+}
+function doExportPng() {
+if (LIC && !LIC.feature("exportPng")) { setStatus("Export PNG \u2014 " + LIC.featureMessage(), "err"); return; }
+var wm = !!(LIC && LIC.flag("pngWatermark"));
+var sp = spec(), f = frameSize(), name = itemName(sp, f.w, f.h) + (wm ? "_TRIAL" : "");
+if (NODE) {
+try {
+var file = writePng(sp, f.w, f.h, name, wm);
+var uiFile = (uiOn() && uiSpec(sp)) ? writeUiPng(sp, f.w, f.h, name) : null;
+setStatus("Saved " + NODE.path.basename(file) + (uiFile ? " + " + NODE.path.basename(uiFile) : "") + (wm ? " (trial watermark)." : "."), "ok", file);
+} catch (e) { setStatus("Couldn't save PNG: " + e.message, "err"); }
+return;
+}
+var a = document.createElement("a");
+a.href = renderPngDataUrl(sp, f.w, f.h, wm);
+a.download = name + "_" + state.mode + ".png";
+document.body.appendChild(a); a.click(); a.remove();
+setStatus("Downloaded " + a.download, "ok");
+}
+function measurementsText() {
+var sp = spec(), f = frameSize(), g = buildGeo(sp, f.w, f.h);
+var lines = [
+itemTitle(sp) + " — " + f.w + "×" + f.h,
+"Keep clear: top " + g.margins.top + "px, bottom " + g.margins.bottom + "px, left " + g.margins.left + "px, right " + g.margins.right + "px"
+];
+g.zones.filter(function (z) { return z.extra; }).forEach(function (z) {
+lines.push(z.label + ": x " + z.x + "–" + (z.x + z.w) + ", y " + z.y + "–" + (z.y + z.h));
+});
+lines.push("Safe area: " + g.safe.w + "×" + g.safe.h + " at (" + g.safe.x + ", " + g.safe.y + ")");
+lines.push(sp.note);
+return lines.join("\n");
+}
+function copyText(txt) {
+if (AD && AD.copy) {
+AD.copy(txt).then(function () { setStatus("Measurements copied.", "ok"); },
+function () { setStatus("Couldn't copy to the clipboard.", "err"); });
+return;
+}
+var ta = document.createElement("textarea");
+ta.value = txt;
+ta.style.position = "fixed"; ta.style.opacity = "0";
+document.body.appendChild(ta); ta.select();
+var ok = false;
+try { ok = document.execCommand("copy"); } catch (e) {}
+ta.remove();
+if (!ok && navigator.clipboard) navigator.clipboard.writeText(txt);
+setStatus("Measurements copied.", "ok");
+}
+var SETS = {
+"meta-core": [["meta-916-unified", 0], ["meta-45-feed", 0], ["meta-11-feed", 0], ["meta-169-instream", 0]],
+"meta-hires": [["meta-916-unified", 1], ["meta-45-feed", 1], ["meta-11-feed", 1]],
+"tiktok-core": [["tiktok-916-infeed", 0], ["tiktok-11-infeed", 0], ["tiktok-169-infeed", 0]],
+"youtube-core": [["yt-916-universal", 0], ["yt-45-feed", 0], ["yt-11-square", 0], ["yt-169-instream", 0]],
+"linkedin-core": [["li-916-vertical", 0], ["li-45-feed", 0], ["li-11-feed", 0], ["li-169-feed", 0]],
+"pinterest-core": [["pin-916-video", 0], ["pin-23-standard", 0], ["pin-45-standard", 0], ["pin-11-standard", 0], ["pin-169-maxwidth", 0]],
+"combo-core": [["combo-916-mtyl", 0], ["combo-45-myl", 0], ["combo-11-mtyl", 0], ["combo-169-mtyl", 0]]
+};
+var SET_LABELS = [
+["meta-core", "Meta core (9:16 \u00b7 4:5 \u00b7 1:1 \u00b7 16:9)"],
+["tiktok-core", "TikTok core (9:16 \u00b7 1:1 \u00b7 16:9)"],
+["youtube-core", "YouTube core (9:16 \u00b7 4:5 \u00b7 1:1 \u00b7 16:9)"],
+["linkedin-core", "LinkedIn core (9:16 \u00b7 4:5 \u00b7 1:1 \u00b7 16:9)"],
+["pinterest-core", "Pinterest core (9:16 \u00b7 2:3 \u00b7 4:5 \u00b7 1:1 \u00b7 16:9)"],
+["combo-core", "Cross-platform masters (all 4)"],
+["meta-hires", "Meta 1440 set (recommended res)"]
+];
+function addToBatch(specId, w, h) {
+for (var i = 0; i < state.batch.length; i++) {
+var b = state.batch[i];
+if (b.specId === specId && b.w === w && b.h === h) return false;
+}
+state.batch.push({ specId: specId, w: w, h: h });
+return true;
+}
+function wire() {
+$("specSel").addEventListener("change", function (e) { state.specId = e.target.value; state.sizeKey = "0"; update(); });
+$("sizeSel").addEventListener("change", function (e) { state.sizeKey = e.target.value; update(); });
+$("customW").addEventListener("change", function (e) { state.customW = clampInt(e.target.value); update(); });
+$("customH").addEventListener("change", function (e) { state.customH = clampInt(e.target.value); update(); });
+Array.prototype.forEach.call($("modeSeg").children, function (b) {
+b.addEventListener("click", function () { state.mode = b.getAttribute("data-mode"); update(); });
+});
+$("optOutline").addEventListener("change", function (e) { state.outline = e.target.checked; update(); });
+$("optUi").addEventListener("change", function (e) { state.ui = e.target.checked; update(); });
+$("optLabels").addEventListener("change", function (e) { state.labels = e.target.checked; update(); });
+$("optOneDoc").addEventListener("change", function (e) { state.oneDoc = e.target.checked; save(); });
+$("optOpacity").addEventListener("input", function (e) { state.opacity = parseInt(e.target.value, 10); update(); });
+$("optOpacity").addEventListener("change", function (e) { state.opacity = parseInt(e.target.value, 10); update(); });
+$("optPrefix").addEventListener("input", function (e) { state.prefix = e.target.value.replace(/[\\/:*?"<>|]/g, ""); save(); });
+$("optFps").addEventListener("change", function (e) { state.fps = e.target.value; save(); });
+$("optDur").addEventListener("change", function (e) { state.duration = Math.max(1, parseFloat(e.target.value) || 15); update(); });
+$("createBtn").addEventListener("click", function () {
+var f = frameSize();
+doCreate([{ specId: state.specId, w: f.w, h: f.h }]);
+});
+$("applyBtn").addEventListener("click", doApply);
+$("pngBtn").addEventListener("click", doExportPng);
+$("toggleBtn").addEventListener("click", function () { runJob({ action: "toggle" }).then(report); });
+$("copyBtn").addEventListener("click", function () { copyText(measurementsText()); });
+var foldInfo = function () { state.infoOpen = !state.infoOpen; update(); };
+$("infoToggle").addEventListener("click", foldInfo);
+$("infoToggle").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); foldInfo(); } });
+var foldMeasure = function () { state.measureOpen = !state.measureOpen; update(); };
+$("measureToggle").addEventListener("click", foldMeasure);
+var foldBatch = function () { state.batchOpen = !state.batchOpen; update(); };
+$("batchToggle").addEventListener("click", foldBatch);
+$("batchToggle").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); foldBatch(); } });
+var foldBuild = function () { state.buildOpen = !state.buildOpen; update(); };
+$("buildToggle").addEventListener("click", foldBuild);
+$("buildToggle").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); foldBuild(); } });
+$("measureToggle").addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); foldMeasure(); } });
+$("addBatch").addEventListener("click", function () {
+var f = frameSize();
+if (!addToBatch(state.specId, f.w, f.h)) setStatus("Already in the batch.", "");
+update();
+});
+var qMenu = $("quickSetMenu"), qBtn = $("quickSetBtn");
+var openMenu = function (on) {
+setHidden(qMenu, !on);
+qBtn.setAttribute("aria-expanded", on ? "true" : "false");
+};
+SET_LABELS.forEach(function (it) {
+var b = mkBtn();
+b.className = "menu-item";
+b.setAttribute("role", "menuitem");
+b.textContent = it[1];
+b.addEventListener("click", function (e) {
+e.stopPropagation();
+openMenu(false);
+var n = state.batch.length;
+SETS[it[0]].forEach(function (p) {
+var sp = S.byId(p[0]);
+if (!sp) return;
+var s = sp.sizes[p[1]] || sp.sizes[0];
+addToBatch(p[0], s.w, s.h);
+});
+update();
+var added = state.batch.length - n;
+setStatus(added ? "Added " + added + " size" + (added > 1 ? "s" : "") + " to the batch." : "Those sizes are already in the batch.", added ? "ok" : "");
+});
+qMenu.appendChild(b);
+});
+qBtn.addEventListener("click", function (e) { e.stopPropagation(); openMenu(qMenu.hidden); });
+document.addEventListener("click", function (e) {
+if (!qMenu.hidden && !$("quickSetWrap").contains(e.target)) openMenu(false);
+});
+document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !qMenu.hidden) openMenu(false); });
+$("clearBatch").addEventListener("click", function () { state.batch = []; update(); });
+$("createBatch").addEventListener("click", function () { doCreate(state.batch.slice()); });
+$("srcLink").addEventListener("click", function (e) {
+if (CEP || AD) { e.preventDefault(); openExternal(this.href); }
+});
+var raf = 0;
+window.addEventListener("resize", function () {
+cancelAnimationFrame(raf);
+raf = requestAnimationFrame(renderPreview);
+});
+}
+function loadHostScript() {
+if (AD || !CEP || !H.jsx) return;
+try {
+var ext = CEP.getSystemPath("extension").replace(/\\/g, "/");
+var isWin = /^Win/.test(navigator.platform);
+if (/^file:/.test(ext)) ext = decodeURI(ext.replace(/^file:\/\/\/?/, isWin ? "" : "/"));
+evalHost('$.evalFile("' + ext + '/jsx/host.jsx")');
+} catch (e) {}
+}
+var FEED_URL = "https://raw.githubusercontent.com/edgarfebus-hub/feedproof/main/feedproof-specs.json";
+var FEED_KEY = "feedproof.feed";
+var DISMISS_KEY = "feedproof.dismissed";
+function semverGt(a, b) {
+var x = String(a).split("."), y = String(b).split(".");
+for (var i = 0; i < 3; i++) {
+var d = (parseInt(x[i], 10) || 0) - (parseInt(y[i], 10) || 0);
+if (d) return d > 0;
+}
+return false;
+}
+function isDate(v) { return typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v); }
+function prettyDate(v) {
+var m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+var p = String(v).split("-");
+return m[parseInt(p[1], 10) - 1] + " " + parseInt(p[2], 10) + ", " + p[0];
+}
+function monthLabel(v) { var p = prettyDate(v).split(" "); return p[0] + " " + p[2]; }
+function applyCachedFeed() {
+var f = null;
+try { f = JSON.parse(localStorage.getItem(FEED_KEY) || "null"); } catch (e) {}
+if (!f || !isDate(f.specsVersion) || f.specsVersion <= S.SPECS_VERSION) return;
+S.load(f.specs, { version: f.specsVersion, source: "update", checked: monthLabel(f.specsVersion) });
+if (!S.byId(state.specId)) { state.platform = "meta"; state.ratio = "9:16"; state.specId = "meta-916-unified"; state.sizeKey = "0"; }
+}
+function serverTime(r) {
+try {
+var d = Date.parse(r.headers.get("date") || "");
+if (d > 0) return d;
+var x = Date.parse(r.headers.get("expires") || "");
+if (x > 0) return x - 300000;
+} catch (e) {}
+return 0;
+}
+function fetchFeed() {
+if (LIC && LIC.status().state === "expired") return Promise.reject(new Error("evaluation ended"));
+return new Promise(function (resolve, reject) {
+var done = false;
+var timer = setTimeout(function () { if (!done) { done = true; reject(new Error("timeout")); } }, 8000);
+fetch(FEED_URL + "?t=" + Date.now(), { cache: "no-store" })
+.then(function (r) {
+if (LIC) {
+var st = LIC.observeServerTime(serverTime(r));
+saveLicense();
+if (st.state === "expired") { showExpired(); throw new Error("evaluation ended"); }
+}
+if (!r.ok) throw new Error("HTTP " + r.status);
+return r.json();
+})
+.then(function (j) { if (!done) { done = true; clearTimeout(timer); resolve(j); } })
+.catch(function (e) { if (!done) { done = true; clearTimeout(timer); reject(e); } });
+});
+}
+function showBanner(feed, specsNew, panelNew) {
+var box = $("updateBanner");
+box.innerHTML = "";
+var add = function (tag, cls, text) {
+var el = document.createElement(tag);
+if (cls) el.className = cls;
+if (text != null) el.textContent = text;   // feed text is never parsed as HTML
+box.appendChild(el);
+return el;
+};
+if (specsNew) {
+add("div", "ub-title", "Spec update · " + prettyDate(feed.specsVersion));
+var current = S.active().version;
+var list = (Array.isArray(feed.changes) ? feed.changes : []).filter(function (c) {
+return c && isDate(c.date) && c.date > current && typeof c.text === "string";
+}).slice(0, 6);
+if (list.length) {
+var ul = add("ul", "ub-list");
+list.forEach(function (c) {
+var li = document.createElement("li");
+li.textContent = c.text.slice(0, 220);
+ul.appendChild(li);
+});
+}
+}
+if (panelNew) {
+add("div", "ub-title", "Panel v" + String(feed.panel.latest).slice(0, 12) + " available");
+if (typeof feed.panel.notes === "string") add("div", "ub-note", feed.panel.notes.slice(0, 240));
+}
+var row = add("div", "ub-actions");
+if (specsNew) {
+var ap = mkBtn();
+ap.className = "ub-apply";
+ap.textContent = "Apply update";
+ap.addEventListener("click", function () {
+var ok = S.load(feed.specs, { version: feed.specsVersion, source: "update", checked: monthLabel(feed.specsVersion) });
+if (!ok) { setStatus("The update couldn't be applied (invalid data). Your current specs are unchanged.", "err"); return; }
+try { localStorage.setItem(FEED_KEY, JSON.stringify({ specsVersion: feed.specsVersion, specs: feed.specs })); } catch (e) {}
+if (!S.byId(state.specId)) { state.platform = "meta"; state.ratio = "9:16"; state.specId = "meta-916-unified"; state.sizeKey = "0"; }
+setHidden(box, true);
+update();
+renderAbout(panelNew);
+setStatus("Specs updated to " + prettyDate(feed.specsVersion) + ".", "ok");
+});
+row.appendChild(ap);
+}
+if (panelNew && typeof feed.panel.url === "string" && /^https:\/\//.test(feed.panel.url)) {
+var dl = mkBtn();
+dl.className = "ub-link";
+dl.textContent = "Get panel";
+dl.addEventListener("click", function () { openExternal(feed.panel.url); });
+row.appendChild(dl);
+}
+var later = mkBtn();
+later.className = "ub-later";
+later.textContent = "Later";
+later.addEventListener("click", function () {
+try { localStorage.setItem(DISMISS_KEY, (specsNew ? feed.specsVersion : "") + "|" + (panelNew ? feed.panel.latest : "")); } catch (e) {}
+setHidden(box, true);
+});
+row.appendChild(later);
+setHidden(box, false);
+}
+var lastFeed = null;
+function checkForUpdates(manual) {
+if (manual) setStatus("Checking for updates…", "");
+fetchFeed().then(function (feed) {
+if (!feed || typeof feed !== "object" || !isDate(feed.specsVersion)) throw new Error("bad feed");
+lastFeed = feed;
+var specsNew = feed.specsVersion > S.active().version && S.validate(feed.specs);
+var panelNew = !!(feed.panel && typeof feed.panel.latest === "string" && semverGt(feed.panel.latest, VERSION));
+var dismissed = "";
+try { dismissed = localStorage.getItem(DISMISS_KEY) || ""; } catch (e) {}
+var key = (specsNew ? feed.specsVersion : "") + "|" + (panelNew ? feed.panel.latest : "");
+if ((specsNew || panelNew) && (manual || key !== dismissed)) showBanner(feed, specsNew, panelNew);
+else if (manual) setStatus("You're up to date — specs " + prettyDate(S.active().version) + ", panel v" + VERSION + ".", "ok");
+renderAbout(specsNew || panelNew);
+}).catch(function () {
+if (manual) setStatus("Couldn't reach the update server. Your current specs still work.", "err");
+});
+}
+function renderAbout(pending) {
+var a = S.active();
+$("specsInfo").textContent = "Specs " + prettyDate(a.version) + (a.source === "update" ? " (updated)" : "");
+$("checkUpdates").textContent = pending ? "Update available" : "Check for updates";
+$("checkUpdates").className = "link" + (pending ? " pending" : "");
+}
+function selfCheck(attempt) {
+if (AD) {
+if (H.jsx) setStatus("Feedproof v" + VERSION + " · " + H.name + " · ready", "ok");
+return;
+}
+if (!CEP || !H.jsx) return;
+runJob({ action: "ping" }).then(function (res) {
+var p = String(res).split("|");
+if (p[0] === "OK" && p[1] === VERSION) {
+setStatus("Feedproof v" + VERSION + " · " + H.name + " · ready", "ok");
+return;
+}
+if (p[0] === "ERR" && (p[1] === "collision" || p[1] === "dispatch")) {
+setStatus("Script self-test failed (" + p[2] + "). Send Claude a screenshot.", "err");
+lockButtons();
+return;
+}
+if (p[0] === "OK") {
+setStatus("The panel is v" + VERSION + " but " + H.name + " is running v" + p[1] +
+" of its script. Quit " + H.name + " completely (⌘Q), reopen it, then open this panel again.", "err");
+lockButtons();
+return;
+}
+if (attempt < 15) {
+if (attempt === 2) setStatus("Waiting for " + H.name + " to finish loading…", "");
+setTimeout(function () { selfCheck(attempt + 1); }, 2000);
+} else {
+setStatus(H.name + " isn't answering the panel. Close and reopen the panel; if it persists, restart " + H.name + ".", "err");
+}
+});
+}
+function lockButtons() {
+["createBtn", "applyBtn", "toggleBtn", "createBatch"].forEach(function (id) { setDis($(id), true); });
+}
+function showBody(on) { setHidden($("panelBody"), !on); setHidden($("gate"), on); }
+function renderLegal() {
+var bar = $("legalBar");
+if (!LIC) { setHidden(bar, true); return; }
+bar.textContent = LIC.footer();
+setHidden(bar, false);
+document.body.classList.add("has-legal");
+fitLegal();
+window.addEventListener("resize", fitLegal);
+}
+function fitLegal() {
+if (AD && AD.divButtons) { if (window.SZUXP && window.SZUXP.fitScroll) window.SZUXP.fitScroll(); return; }
+var bar = $("legalBar"), st = $("status");
+if (!bar || bar.hidden) return;
+var h = bar.offsetHeight || 22;
+st.style.bottom = h + "px";
+document.querySelector("main").style.paddingBottom = (h + 64) + "px";
+}
+function gateEl(cls) {
+var g = $("gate");
+g.innerHTML = "";
+g.className = "gate " + cls;
+showBody(false);
+return g;
+}
+function addEl(parent, tag, cls, text) {
+var el = document.createElement(tag);
+if (cls) el.className = cls;
+if (text != null) el.textContent = text;
+parent.appendChild(el);
+return el;
+}
+function showAgreement() {
+var t = LIC.agreement();
+var g = gateEl("gate-agree");
+addEl(g, "div", "gate-title", t.title);
+t.paragraphs.forEach(function (p, i) { addEl(g, "p", i === 0 ? "gate-copy" : "", p); });
+var b = mkBtn();
+b.className = "primary gate-btn";
+b.textContent = t.button;
+b.addEventListener("click", function () {
+if (evalExpired()) return;
+LIC.accept();
+saveLicense().then(function () { startPanel(); });
+});
+g.appendChild(b);
+setStatus(LIC.agreePrompt(), "");
+}
+var expiredShown = false;
+function showExpired() {
+if (expiredShown) return;
+expiredShown = true;
+var g = gateEl("gate-expired");
+addEl(g, "div", "gate-title", LIC.expiredTitle());
+addEl(g, "p", "", LIC.expiredMessage());
+addEl(g, "p", "gate-note", "Everything you already made with Feedproof stays in your files, untouched.");
+["createBtn", "applyBtn", "toggleBtn", "createBatch", "pngBtn"].forEach(function (id) { var b = $(id); if (b) setDis(b, true); });
+setStatus("Evaluation ended.", "err");
+}
+function renderReminder() {
+var box = $("trialBanner");
+var st = LIC ? LIC.status() : null;
+if (!st || !st.reminder) { setHidden(box, true); return; }
+box.textContent = LIC.reminderMessage();
+setHidden(box, false);
+}
+var started = false;
+function startPanel() {
+showBody(true);
+renderReminder();
+try { window.scrollTo(0, 0); document.querySelector("main").scrollTop = 0; } catch (e) {}
+if (started) return;
+started = true;
+applyCachedFeed();
+wire();
+update();
+renderAbout();
+loadHostScript();
+selfCheck(0);
+setTimeout(function () { checkForUpdates(false); }, 1200);
+$("checkUpdates").addEventListener("click", function () {
+try { localStorage.removeItem(DISMISS_KEY); } catch (e) {}
+checkForUpdates(true);
+});
+if (LIC) setInterval(function () { if (!evalExpired()) renderReminder(); }, 15 * 60000);
+}
+renderHost();
+renderLegal();
+$("siteLink").addEventListener("click", function (e) { e.preventDefault(); openExternal("https://edgarfebus.com"); });
+if (!LIC) startPanel();
+else {
+showBody(false);
+window.FPLicense.readAll(LSTORES).then(function (records) {
+var st = LIC.load(records);
+return saveLicense().then(function () { return st; });
+}).then(function (st) {
+if (st.state === "expired") showExpired();
+else if (st.state === "agree") showAgreement();
+else startPanel();
+});
+}
+window.SZPanel = { drawTrialWatermark: drawTrialWatermark, license: LIC, state: state, update: update, buildGeo: buildGeo, makeItem: makeItem, itemName: itemName, opts: opts, renderPngDataUrl: renderPngDataUrl };
+})();</script></body></html>

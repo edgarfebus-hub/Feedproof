@@ -13,51 +13,52 @@ const PX = 856, PY = 24, PW = 400, PH = 672
 // program monitor (16:9) and timeline geometry, stage px
 const MX = HX + 88, MY = HY + 50, MW = 640, MH = 360
 const TLX = HX, TLY = HY + 436, TLW = HW, TLH = HH - 436
-const TRK_X = TLX + 96, TRK_W = TLW - 96 - 16, RULER_Y = TLY + 34, TRK_Y = TLY + 60, TRK_H = 34
+const TRK_X = TLX + 96, TRK_W = TLW - 96 - 16, RULER_Y = TLY + 34, TRK_Y = TLY + 60, TRK_H = 28
 const PXS = 130 // timeline px per second
 const CLIP_DUR = 4
 const SANS = '"Inter", system-ui, -apple-system, sans-serif'
 const MONO = '"JetBrains Mono", ui-monospace, monospace'
 const C = { bg: "#0E0F11", win: "#1D1E21", chrome: "#26272B", line: "#2E3036", text: "#E8E8E6", muted: "#9A9EA6", green: "#5CCD74", clip: "#7B78D9", clipSel: "#9C99F0" }
-const TOTAL = 32000
+const TOTAL = 33800
 const TRAVEL = 600
 
 // ---- script times (ms)
 const T = {
   sel0: 1000, sel1: 2200,
-  arr: 3300, grid: 4300,
-  sc0: 7000, sc1: 8200,
-  x0: 8900, x1: 9900,
-  anim: 11000, key1: 12400,
-  ph0: 13200, ph1: 14000,
-  xk0: 14800, xk1: 15800,
-  ksel: 17000, ease: 17900, inf: 19000,
-  prev: 22000, play0: 22600, play1: 25200, play2: 25600, play3: 28200,
+  arr: 3200, cols: 3900, grid: 4600,
+  g1: 6000, g2: 6700,
+  sc0: 8800, sc1: 10000,
+  x0: 10700, x1: 11700,
+  anim: 12800, key1: 14200,
+  ph0: 15000, ph1: 15800,
+  xk0: 16600, xk1: 17600,
+  ksel: 18800, ease: 19700, inf: 20800,
+  prev: 23800, play0: 24400, play1: 27000, play2: 27400, play3: 30000,
 }
 const SC_END = 72, X_A = -260, X_B = 260, KEY_B = 2 // seconds
 
 const CAPS: [number, number, string, string][] = [
-  [0, 3000, "Select your video clips", "Real footage, not just graphics. No nesting, no trip to After Effects."],
-  [3000, 6600, "Make a grid", "Fit the clips into the frame in one click, in timeline order."],
-  [6600, 10800, "Move them like one layer", "Scale and position the whole group, live. Every clip stays a real clip on the timeline."],
-  [10800, 16600, "Animate the group like a null", "A stopwatch for each value, like Premiere’s. One set of keys moves every clip."],
-  [16600, 22000, "Shape the curve", "Premiere’s interpolation types, plus AE-style keyframe velocity: speed and influence."],
-  [22000, 28600, "Play it back", "The group eases across the frame while every clip keeps playing."],
-  [28600, 32000, "NullRig for Premiere Pro", "Free · Move a group of clips like one layer."],
+  [0, 3000, "Select your video clips", "Real footage, not just graphics. The background clip stays where it is."],
+  [3000, 5300, "Make a grid", "Pick the columns and fit the clips into the frame in one click."],
+  [5300, 8400, "Add graphics to the group", "Video and graphics move as one, with no nesting."],
+  [8400, 12600, "Move them like one layer", "Scale and position the whole group, live. Every clip stays a real clip on the timeline."],
+  [12600, 18400, "Animate the group like a null", "A stopwatch for each value, like Premiere’s. One set of keys moves every clip."],
+  [18400, 23800, "Shape the curve", "Premiere’s interpolation types, plus AE-style keyframe velocity: speed and influence."],
+  [23800, 30400, "Play it back", "The group eases across the frame while every clip keeps playing."],
+  [30400, 33800, "NullRig for Premiere Pro", "Free · Move a group of clips like one layer."],
 ]
 const CAM_WIDE = [
-  [0, 1, 640, 360], [900, 1, 640, 360], [1500, 1.45, 430, 540], [2700, 1.45, 430, 540],
-  [3300, 1.12, 690, 300], [10600, 1.12, 690, 300], [11300, 1.55, 1050, 300], [12700, 1.55, 1050, 300],
-  [13300, 1.05, 650, 380], [14300, 1.05, 650, 380], [14800, 1.55, 1050, 300], [16300, 1.55, 1050, 300], [16900, 1.55, 1050, 470], [21600, 1.55, 1050, 470],
-  [22400, 1.3, 432, 300], [28200, 1.3, 432, 300], [29000, 1, 640, 360], [32000, 1, 640, 360],
+  [0, 1, 640, 360], [900, 1, 640, 360], [1500, 1.45, 430, 560], [2700, 1.45, 430, 560],
+  [3300, 1.12, 690, 300], [5000, 1.12, 690, 300], [5500, 1.05, 650, 390], [6900, 1.05, 650, 390], [7400, 1.12, 690, 300], [12400, 1.12, 690, 300],
+  [13100, 1.55, 1050, 300], [14500, 1.55, 1050, 300], [15100, 1.05, 650, 390], [16100, 1.05, 650, 390], [16600, 1.55, 1050, 300], [18100, 1.55, 1050, 300],
+  [18700, 1.55, 1050, 470], [23400, 1.55, 1050, 470], [24200, 1.3, 432, 300], [30000, 1.3, 432, 300], [30800, 1, 640, 360], [33800, 1, 640, 360],
 ]
 const CAM_NARROW = [
-  [0, 1, 640, 360], [900, 1, 640, 360], [1500, 2.3, 400, 540], [2700, 2.3, 400, 540],
-  [3300, 3, 1056, 400], [4400, 3, 1056, 400], [4800, 2.2, 432, 250], [6600, 2.2, 432, 250],
-  [7000, 3, 1056, 150], [10000, 3, 1056, 150], [10300, 2.2, 432, 250], [10800, 2.2, 432, 250],
-  [11300, 3, 1056, 260], [12700, 3, 1056, 260], [13200, 2.1, 432, 440], [14400, 2.1, 432, 440],
-  [14800, 3, 1056, 250], [16300, 3, 1056, 250], [16900, 3, 1056, 470], [21600, 3, 1056, 470],
-  [22300, 2.2, 432, 250], [28200, 2.2, 432, 250], [29000, 1, 640, 360], [32000, 1, 640, 360],
+  [0, 1, 640, 360], [900, 1, 640, 360], [1500, 2.3, 400, 560], [2700, 2.3, 400, 560], [3300, 3, 1056, 400], [4700, 3, 1056, 400],
+  [5000, 2.2, 432, 250], [5300, 2.2, 432, 250], [5600, 2.1, 400, 470], [6900, 2.1, 400, 470], [7300, 2.2, 432, 250], [8400, 2.2, 432, 250],
+  [8800, 3, 1056, 150], [11800, 3, 1056, 150], [12100, 2.2, 432, 250], [12600, 2.2, 432, 250], [13100, 3, 1056, 260], [14500, 3, 1056, 260],
+  [15000, 2.1, 432, 460], [16200, 2.1, 432, 460], [16600, 3, 1056, 250], [18100, 3, 1056, 250], [18700, 3, 1056, 470], [23400, 3, 1056, 470],
+  [24100, 2.2, 432, 250], [30000, 2.2, 432, 250], [30800, 1, 640, 360], [33800, 1, 640, 360],
 ]
 
 const clamp = (x: number) => Math.max(0, Math.min(1, x))
@@ -110,20 +111,37 @@ function seqTime(t: number) {
 }
 function state(t: number) {
   const st = seqTime(t)
-  const selected = t >= T.sel1
+  const selected = t >= T.sel1, sel5 = t >= T.g1, sel6 = t >= T.g2
   const grid = seg(t, T.grid, T.grid + 380, eout)
   const scale = t < T.sc0 ? 100 : lerp(100, SC_END, seg(t, T.sc0, T.sc1))
   let x = t < T.x0 ? 0 : lerp(0, X_A, seg(t, T.x0, T.x1))
   const keyed1 = t >= T.key1, keyed2 = t >= T.xk0
   const xB = t < T.xk1 ? lerp(X_A, X_B, seg(t, T.xk0, T.xk1)) : X_B
   if (keyed2) x = lerp(X_A, xB, curveValue(curveAt(t), st / KEY_B))
-  return { st, selected, grid, scale, x, xB, keyed1, keyed2, anim: t >= T.anim, arrange: t >= T.arr }
+  return { st, selected, sel5, sel6, grid, scale, x, xB, keyed1, keyed2, anim: t >= T.anim, arrange: t >= T.arr }
 }
 
 // ---- footage: four procedurally drawn clips (a coastline, a city at night, a product shot, drone hills)
-const CLIPS = [
-  { name: "Coast_A012.mov" }, { name: "City_B004.mov" }, { name: "Studio_C021.mov" }, { name: "Hills_D007.mov" },
+const CLIPS: any[] = [
+  { name: "Hills_D007.mov", scene: 3 }, { name: "Coast_A012.mov", scene: 0 }, { name: "City_B004.mov", scene: 1 }, { name: "Studio_C021.mov", scene: 2 },
+  { name: "Title · Cold brew, done right.", gfx: true }, { name: "Shop now button", gfx: true },
 ]
+// the two graphics, in frame coordinates (1920x1080): a title card above the row of clips and a button below it
+function drawGraphic(ctx: CanvasRenderingContext2D, i: number, k: number, tf: (x: number, y: number, w: number, h: number) => number[]) {
+  const rr = (x: number, y: number, w: number, h: number, r: number) => { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath() }
+  if (i === 4) {
+    const [x, y, w, h, S] = tf(510, 118, 900, 210)
+    ctx.fillStyle = "rgba(14,15,17,0.82)"; rr(x * k, y * k, w * k, h * k, 28 * S * k); ctx.fill()
+    ctx.textAlign = "center"
+    ctx.fillStyle = "#5CCD74"; ctx.font = "600 " + 24 * S * k + "px " + MONO; ctx.fillText("HALDEN COLD BREW", (x + w / 2) * k, (y + 64 * S) * k)
+    ctx.fillStyle = "#F4EFE4"; ctx.font = "800 " + 80 * S * k + "px Archivo, Inter, sans-serif"; ctx.fillText("Cold brew, done right.", (x + w / 2) * k, (y + 156 * S) * k)
+    ctx.textAlign = "left"
+  } else {
+    const [x, y, w, h, S] = tf(790, 772, 340, 92)
+    ctx.fillStyle = "#F4EFE4"; rr(x * k, y * k, w * k, h * k, 46 * S * k); ctx.fill()
+    ctx.textAlign = "center"; ctx.fillStyle = "#24382C"; ctx.font = "700 " + 36 * S * k + "px " + SANS; ctx.fillText("Shop now →", (x + w / 2) * k, (y + 58 * S) * k); ctx.textAlign = "left"
+  }
+}
 function drawScene(ctx: CanvasRenderingContext2D, i: number, w: number, h: number, ft: number) {
   ctx.save()
   if (i === 0) {
@@ -171,9 +189,9 @@ function drawScene(ctx: CanvasRenderingContext2D, i: number, w: number, h: numbe
 }
 // clip rects in frame coordinates (1920x1080)
 function clipRects(s: any) {
-  const gap = 20, cw = (1920 - gap * 3) / 2, ch = (1080 - gap * 3) / 2
-  return [0, 1, 2, 3].map((i) => {
-    const col = i % 2, row = Math.floor(i / 2)
+  const gap = 20, cw = (1920 - gap * 4) / 3, ch = 1080 - gap * 2
+  return [0, 1, 2].map((i) => {
+    const col = i, row = 0
     const cellX = gap + col * (cw + gap), cellY = gap + row * (ch + gap)
     const fh = Math.min(ch, cw * 9 / 16), fw = fh * 16 / 9
     const gx = cellX + (cw - fw) / 2, gy = cellY + (ch - fh) / 2
@@ -189,7 +207,7 @@ function panelApply(doc: Document, s: any, t: number) {
   const $ = (id: string) => doc.getElementById(id) as any
   if (!$("count")) return
   const set = (el: any, key: string, val: any) => { if (el && el[key] !== val) el[key] = val }
-  set($("count"), "textContent", s.selected ? "4 clips selected" : "Select clips in the timeline")
+  set($("count"), "textContent", !s.selected ? "Select clips in the timeline" : (3 + (s.sel5 ? 1 : 0) + (s.sel6 ? 1 : 0)) + " clips selected")
   const track = (id: string, frac: number, zeroFrac: number, num: string) => {
     const el = $(id)
     if (!el.firstChild) el.innerHTML = '<div class="rail"></div><div class="zero"></div><div class="fill"></div><div class="thumb"></div>'
@@ -254,8 +272,9 @@ function panelApply(doc: Document, s: any, t: number) {
   const ib = doc.querySelector('[data-interp="ease"]') as any
   if (ib) ib.style.background = t >= T.ease && t < T.ease + 700 ? "#5ccd74" : ""
   if (ib) ib.style.color = t >= T.ease && t < T.ease + 700 ? "#0e0f11" : ""
+  set($("gridCols"), "value", t >= T.cols ? "3" : "0")
   const gb = $("btnGrid"); if (gb) gb.style.filter = t >= T.grid && t < T.grid + 300 ? "brightness(1.25)" : ""
-  set($("status"), "textContent", t < T.sel1 ? "Ready." : t < T.grid ? "4 clips selected." : t < T.sc0 ? "Grid: 2 × 2, gap 20 px." : !s.keyed1 ? "Group updated live: 4 clips." : !s.keyed2 ? "Position X: key at " + tc(0) + "." : t < T.ease ? "Position X: key at " + tc(KEY_B) + "." : t < T.inf + 350 ? "Easy Ease on key 2." : "Key 2: incoming influence 75%.")
+  set($("status"), "textContent", t < T.sel1 ? "Ready." : t < T.grid ? "3 clips selected." : t < T.g1 ? "Grid: 3 columns, gap 20 px." : t < T.sc0 ? "5 clips selected: 3 video, 2 graphics." : !s.keyed1 ? "Group updated live: 5 clips." : !s.keyed2 ? "Position X: key at " + tc(0) + "." : t < T.ease ? "Position X: key at " + tc(KEY_B) + "." : t < T.inf + 350 ? "Easy Ease on key 2." : "Key 2: incoming influence 75%.")
   set($("status"), "className", "status ok")
 }
 
@@ -316,7 +335,7 @@ export default function NullRigDemo(props: { speed?: number; canvasTime?: number
   useEffect(() => {
     if (typeof document === "undefined") return
     const make = () => {
-      const out = CLIPS.map((_, i) => { const c = document.createElement("canvas"); c.width = 96; c.height = 54; const x = c.getContext("2d"); if (x) drawScene(x, i, 96, 54, 0.6); return c.toDataURL() })
+      const out = CLIPS.map((cl: any) => { if (cl.gfx) return ""; const c = document.createElement("canvas"); c.width = 96; c.height = 54; const x = c.getContext("2d"); if (x) drawScene(x, cl.scene, 96, 54, 0.6); return c.toDataURL() })
       thumbsRef.current = out; setThumbs(out)
     }
     make()
@@ -359,14 +378,19 @@ export default function NullRigDemo(props: { speed?: number; canvasTime?: number
     if (!ctx) return
     const k = cv.width / 1920
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = "#000"; ctx.fillRect(0, 0, cv.width, cv.height)
+    drawScene(ctx, 3, cv.width, cv.height, s.st + 1.1)
     const rects = clipRects(s)
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 3; i++) {
       const r = rects[i]
+      ctx.save(); ctx.shadowColor = "rgba(0,0,0,0.45)"; ctx.shadowBlur = 30 * k * s.grid; ctx.fillStyle = "#000"; ctx.fillRect(r.x * k, r.y * k, r.w * k, r.h * k); ctx.restore()
       ctx.save(); ctx.beginPath(); ctx.rect(r.x * k, r.y * k, r.w * k, r.h * k); ctx.clip()
       ctx.translate(r.x * k, r.y * k)
       drawScene(ctx, i, r.w * k, r.h * k, s.st + i * 0.37)
       ctx.restore()
     }
+    const S = s.scale / 100
+    const tf = (x: number, y: number, w: number, h: number) => [960 + (x - 960) * S + s.x, 540 + (y - 540) * S, w * S, h * S, S]
+    drawGraphic(ctx, 4, k, tf); drawGraphic(ctx, 5, k, tf)
   }, [t, ready])
 
   // ---- cursor path (stage coordinates), computed from the live DOM
@@ -382,9 +406,12 @@ export default function NullRigDemo(props: { speed?: number; canvasTime?: number
   const graphPt = (sec: number, v: number) => { const el = doc && (doc.getElementById("graph") as any); if (!el) return { x: 0, y: 0 }; const r = el.getBoundingClientRect(); const W = r.width, H = r.height; return { x: PX + r.left + 14 + (sec / 3) * (W - 28), y: PY + r.top + H - 14 - ((v + 320) / 640) * (H - 28) } }
   type A = { t: number; end?: number; from: () => { x: number; y: number }; to?: () => { x: number; y: number }; click?: boolean }
   const ACTS: A[] = [
-    { t: T.sel0, end: T.sel1, from: () => tlPt(-0.25, -0.4), to: () => tlPt(1.6, 3.6) },
+    { t: T.sel0, end: T.sel1, from: () => tlPt(-0.25, 1.45), to: () => tlPt(1.6, 4.55) },
     { t: T.arr, from: () => pel("#arrToggle", 0.3) , click: true },
+    { t: T.cols, from: () => pel("#gridCols", 0.3), click: true },
     { t: T.grid, from: () => pel("#btnGrid"), click: true },
+    { t: T.g1, from: () => tlPt(1.1, 1), click: true },
+    { t: T.g2, from: () => tlPt(1.1, 0), click: true },
     { t: T.sc0, end: T.sc1, from: () => sliderPt("scale", 0.5), to: () => sliderPt("scale", SC_END / 200) },
     { t: T.x0, end: T.x1, from: () => sliderPt("x", 0.5), to: () => sliderPt("x", 0.5 + X_A / 3840) },
     { t: T.anim, from: () => pel("#animate"), click: true },
@@ -409,7 +436,7 @@ export default function NullRigDemo(props: { speed?: number; canvasTime?: number
   }
   const ripples = ACTS.filter((a) => a.click && t >= a.t && t < a.t + 600).map((a) => ({ ...a.from(), dt: t - a.t }))
   // marquee rect while selecting
-  const marquee = t >= T.sel0 && t <= T.sel1 ? (() => { const a = tlPt(-0.25, -0.4), b = cur; return { x: Math.min(a.x, b.x), y: Math.min(a.y, b.y), w: Math.abs(b.x - a.x), h: Math.abs(b.y - a.y) } })() : null
+  const marquee = t >= T.sel0 && t <= T.sel1 ? (() => { const a = tlPt(-0.25, 1.45), b = cur; return { x: Math.min(a.x, b.x), y: Math.min(a.y, b.y), w: Math.abs(b.x - a.x), h: Math.abs(b.y - a.y) } })() : null
 
   // ---- camera, caption, controls
   const W = size.w, H = size.h
@@ -464,17 +491,17 @@ export default function NullRigDemo(props: { speed?: number; canvasTime?: number
         <div style={abs(TRK_X, RULER_Y, { width: TRK_W, height: 22, borderBottom: "1px solid " + C.line })}>
           {[0, 1, 2, 3, 4, 5].map((sec) => <span key={sec} style={abs(sec * PXS, 0, { height: 22, borderLeft: "1px solid #3A3C42", paddingLeft: 4, fontFamily: MONO, fontSize: 9, color: C.muted, lineHeight: "22px" })}>{tc(sec)}</span>)}
         </div>
-        {[3, 2, 1, 0].map((i, row) => (
+        {[5, 4, 3, 2, 1, 0].map((i, row) => { const gfx = i >= 4; const sel = i === 0 ? false : i === 4 ? s.sel5 : i === 5 ? s.sel6 : s.selected; return (
           <React.Fragment key={i}>
             <div style={abs(TLX + 12, TRK_Y + row * TRK_H + 4, { width: 70, height: TRK_H - 8, borderRadius: 4, background: "#232428", border: "1px solid #2C2E33", fontFamily: MONO, fontSize: 10, color: "#C7C9CE", display: "flex", alignItems: "center", paddingLeft: 8, boxSizing: "border-box" })}>{"V" + (i + 1)}</div>
-            <div style={abs(TRK_X, TRK_Y + row * TRK_H + 4, { width: CLIP_DUR * PXS, height: TRK_H - 8, borderRadius: 4, background: s.selected ? C.clipSel : C.clip, outline: s.selected ? "1.5px solid #fff" : "none", outlineOffset: -1, display: "flex", alignItems: "center", overflow: "hidden", boxSizing: "border-box" })}>
-              {thumbs[i] && <img alt="" src={thumbs[i]} style={{ height: "100%", width: 46, objectFit: "cover", display: "block" }} />}
-              <span style={{ marginLeft: 8, fontSize: 10.5, color: "#14132B", fontWeight: 600, whiteSpace: "nowrap" }}>{CLIPS[i].name}</span>
-              {s.keyed1 && <span style={{ marginLeft: "auto", marginRight: 8, fontSize: 9, color: "#14132B", opacity: 0.7, fontFamily: MONO }}>fx</span>}
+            <div style={abs(TRK_X, TRK_Y + row * TRK_H + 4, { width: CLIP_DUR * PXS, height: TRK_H - 8, borderRadius: 4, background: gfx ? (sel ? "#F2A9D3" : "#D98BB8") : sel ? C.clipSel : C.clip, outline: sel ? "1.5px solid #fff" : "none", outlineOffset: -1, display: "flex", alignItems: "center", overflow: "hidden", boxSizing: "border-box" })}>
+              {thumbs[i] ? <img alt="" src={thumbs[i]} style={{ height: "100%", width: 38, objectFit: "cover", display: "block" }} /> : <span style={{ width: 22, textAlign: "center", fontFamily: MONO, fontSize: 10, fontWeight: 700, color: "#3A1E30" }}>T</span>}
+              <span style={{ marginLeft: 8, fontSize: 10, color: gfx ? "#3A1E30" : "#14132B", fontWeight: 600, whiteSpace: "nowrap" }}>{CLIPS[i].name}</span>
+              {s.keyed1 && i > 0 && <span style={{ marginLeft: "auto", marginRight: 8, fontSize: 9, color: "#14132B", opacity: 0.7, fontFamily: MONO }}>fx</span>}
             </div>
           </React.Fragment>
-        ))}
-        <div style={abs(phX - 0.5, RULER_Y, { width: 1.5, height: 22 + 4 * TRK_H + 6, background: "#4D9BFF" })} />
+        ) })}
+        <div style={abs(phX - 0.5, RULER_Y, { width: 1.5, height: 22 + 6 * TRK_H + 6, background: "#4D9BFF" })} />
         <div style={abs(phX - 5, RULER_Y, { width: 10, height: 9, background: "#4D9BFF", clipPath: "polygon(0 0,100% 0,100% 55%,50% 100%,0 55%)" })} />
         {marquee && <div style={abs(marquee.x, marquee.y, { width: marquee.w, height: marquee.h, border: "1px solid rgba(255,255,255,0.8)", background: "rgba(255,255,255,0.08)" })} />}
 
@@ -527,5 +554,5 @@ export default function NullRigDemo(props: { speed?: number; canvasTime?: number
 
 addPropertyControls(NullRigDemo, {
   speed: { type: ControlType.Number, title: "Speed", defaultValue: 1, min: 0.5, max: 2, step: 0.1 },
-  canvasTime: { type: ControlType.Number, title: "Canvas Frame", defaultValue: 20, min: 0, max: 31.9, step: 0.1, unit: "s" },
+  canvasTime: { type: ControlType.Number, title: "Canvas Frame", defaultValue: 20, min: 0, max: 33.7, step: 0.1, unit: "s" },
 })

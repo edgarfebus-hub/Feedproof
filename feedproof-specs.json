@@ -2,8 +2,8 @@
   "feedFormat": 2,
   "specsVersion": "2026-11-19",
   "panel": {
-    "latest": "2.0.0",
-    "notes": "Feedproof 2.0: a platform UI preview in every app, Pinterest (with 2:3), folding panel sections, and accurate Premiere frame rates and overlay lengths.",
+    "latest": "2.1.0",
+    "notes": "Feedproof 2.1: Snap to Safe moves the important layers (text, logos, CTAs, products) inside the safe zone in one click, in After Effects, Photoshop, Illustrator, InDesign and Figma. The platform UI preview now works in Illustrator too.",
     "url": "https://edgarfebus.com/feedproof#download"
   },
   "changes": [

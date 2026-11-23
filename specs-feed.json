@@ -1,6 +1,6 @@
 {
   "feedFormat": 1,
-  "specsVersion": "2026-11-02",
+  "specsVersion": "2026-11-23",
   "panel": {
     "latest": "2.0.0",
     "notes": "Safe Zones is now Feedproof 2.0 — adds YouTube, LinkedIn, Pinterest, a Combined tab and a platform UI preview.",
@@ -14,6 +14,10 @@
     {
       "date": "2026-11-02",
       "text": "TikTok TopView source now links to the TopView help article (templates re-checked Oct 2026: no zone change)."
+    },
+    {
+      "date": "2026-11-23",
+      "text": "Meta Reels + Stories (unified) 9:16: added the right-side action-button notch from Meta's safe-zone diagram (right 21% of the width clear up to 40% from the bottom). Margins unchanged. https://www.facebook.com/business/help/980593475366490/"
     }
   ],
   "specs": [
@@ -35,7 +39,15 @@
         "left": "Side margin",
         "right": "Side margin"
       },
-      "extras": [],
+      "extras": [
+        {
+          "label": "Reels action buttons — like · comment · share",
+          "x1": 0.79,
+          "y1": 0.6,
+          "x2": 1,
+          "y2": 1
+        }
+      ],
       "sizes": [
         {
           "w": 1080,
@@ -48,10 +60,10 @@
           "label": "1440 × 2560 (Meta recommended)"
         }
       ],
-      "note": "One zone for Facebook + Instagram Reels and Stories since March 2026. Built on Reels, the tightest placement.",
+      "note": "One zone for Facebook + Instagram Reels and Stories since March 2026. Built on Reels, the tightest placement: 14% top, 35% bottom, 6% sides, and the right 21% kept clear up to 40% from the bottom for the action buttons.",
       "source": {
-        "title": "Meta Ads Guide — Reels/Stories safe zone (unified Mar 2026)",
-        "url": "https://www.facebook.com/business/ads-guide/update/image/instagram-story"
+        "title": "Meta Business Help — About text overlays and the Safe Zone for ads in Stories and Reels",
+        "url": "https://www.facebook.com/business/help/980593475366490/"
       }
     },
     {

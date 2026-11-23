@@ -1,6 +1,6 @@
 # Feedproof downloads (free)
 
-**Feedproof v2.1.0 is free.** Meta, TikTok, YouTube, LinkedIn and Pinterest safe zones, with a platform UI preview and one-click Snap to Safe (everywhere but Premiere Pro, for now), for After Effects, Premiere Pro,
+**Feedproof v2.0.0 is free.** Meta, TikTok, YouTube, LinkedIn and Pinterest safe zones, with a platform UI preview, for After Effects, Premiere Pro,
 Illustrator, Photoshop, InDesign and Figma. No trial, no license key, no watermark. Install steps: https://edgarfebus.com/feedproof
 
 | App | Download |

@@ -1,4 +1,4 @@
-# NullRig for Premiere Pro (free)
+# NullRig for Premiere (free)
 
 Move a group of clips like one layer: live Scale, Position, Rotation and Opacity sliders, a choosable anchor point,
 group keyframes with a graph editor, and Make grid / Copy-Paste properties. No nesting, no extra effects.
